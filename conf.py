@@ -35,7 +35,8 @@ import sphinx_fontawesome
 extensions = ['sphinx.ext.todo',
     'sphinx.ext.ifconfig',
     'sphinxcontrib.fulltoc',
-    'sphinx_fontawesome']
+    'sphinx_fontawesome',
+    'myst_parser']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -50,7 +51,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Server + Cloud Suite Partner training'
+project = u'Demo Guide'
 copyright = u'2022 Delinea'
 author = u'Delinea Enablement'
 

@@ -1,39 +1,23 @@
-.. title:: Delinea - Server and Cloud Suite Partner training
+.. title:: Delinea - Demo Guide
 
 .. toctree::
   :maxdepth: 2
-  :caption: Server Suite
-  :name: _Server_Suite
+  :caption: Demo Guide
+  :name: _Demo_Guide
   :hidden:
 
-  Server_Suite/lab1/lab1
-  Server_Suite/lab2/lab2
-  Server_Suite/lab3/lab3
-  Server_Suite/lab4/lab4
-  Server_Suite/lab5/lab5
-  Server_Suite/lab6/lab6
-  Server_Suite/lab7/lab7
-  Server_Suite/lab10/lab10
-  
-.. toctree::
-  :maxdepth: 2
-  :caption: Cloud Suite
-  :name: _Cloud_Suite
-  :hidden:
+  mod1/mod1
+  mod2/mod2
+  mod3/mod3
+  mod4/mod4
 
-  Cloud_Suite/lab1/lab1
-  Cloud_Suite/lab2/lab2
-  Cloud_Suite/lab3/lab3
-  Cloud_Suite/lab4/lab4
-  Cloud_Suite/lab5/lab5
-  
 .. _getting_started_index:
 
 ----------
 Welcome!!!
 ----------
 
-Welcome to Delinea's Partner training on Server and Cloud suite!!!
+Welcome to Delinea's Demo Guide!!!
 
 
 Skytap
@@ -64,7 +48,7 @@ Once in your environment you will ss in the top right corner a "play" menu. Is y
 Check your environment
 **********************
 
-After all VMs have started, the screenshot is an example, click on the VM that is mentioned in the lab. This will open the VM in a new browser tab so you can interact with the VM. Another option is to use the RDP link. This will download an RDP file that you can open in your RDP application like MS Terminal Services. This also works for Linux based machine. 
+After all VMs have started, the screenshot is an example, click on the VM that is mentioned in the lab. This will open the VM in a new browser tab so you can interact with the VM. 
 
 .. figure:: images/lab003.png
 
@@ -78,14 +62,14 @@ Once you have the VM open in a Browser window, you will get the Skytap Toolbar (
 From left to right:
 
 1. The two screens icon; clicking this icon provides the possibility to switch consoles between VMs
-2. The “pause”/ “stop” / “power” button; Resp. suspend, stop and poweroff/on the current VM
+2. The "pause"/ "stop" / "power" button; Resp. suspend, stop and poweroff/on the current VM
 3. Ctrl-Alt-Del button; send the Ctrl-Alt-Del command to the VM
-4. Keybord (EN) icon; switch between keyboard layouts. The VMs are built on EN-UK layout!
+4. Keybord (EN) icon; switch between keyboard layouts. The VMs are built on EN-UK layout!
 5. Keys icon; any password that have been defined, you can use the button to insert the password
 6. Clipboard icon; exchange clipboard info between the VM and the machine you are working on
-7. The screen “diagonal” icon; Go full screen for the current VM
+7. The screen "diagonal" icon; Go full screen for the current VM
 8. Different screensizes icon; resize the screen to presetted sizes
-9. The “Wifi” icon; connection strength
+9. The "Wifi" icon; connection strength
 
 Support to your environment
 ***************************
