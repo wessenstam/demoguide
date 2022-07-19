@@ -31,7 +31,7 @@ You should then be presented with the login panel. If not, panic…. just kiddin
 
 ---
 
-You'll want to authenticate with the username user (not thylab\user - just user) and the password will need to be inserted from the SkyTap credentials panel (see previous instructions for the thylab\user password). 
+You'll want to authenticate with the username user (not thylab\user - just user) and the password will need to be inserted from the SkyTap credentials panel (see previous instructions for the **thylab\user** password). 
 
 ---
 

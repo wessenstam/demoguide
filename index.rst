@@ -2,14 +2,25 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Demo Guide
-  :name: _Demo_Guide
+  :caption: Secret Server
+  :name: _Secret_Server
   :hidden:
 
-  mod1/mod1
-  mod2/mod2
-  mod3/mod3
-  mod4/mod4
+  secretserver/mod1/mod1
+  secretserver/mod2/mod2
+  secretserver/mod3/mod3
+  secretserver/mod4/mod4
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Privilege Manager
+  :name: _Privilege_Manager
+  :hidden:
+
+  privman/mod1/mod1
+  privman/mod2/mod2
+  privman/mod3/mod3
+  privman/mod4/mod4
 
 .. _getting_started_index:
 
@@ -17,7 +28,7 @@
 Welcome!!!
 ----------
 
-Welcome to Delinea's Demo Guide!!!
+Welcome to Delinea's Demo Guide for Secret Server and Privilege Manager!!!
 
 
 Skytap

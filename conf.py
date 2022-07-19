@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 #
-# Nutanix Labs documentation build configuration file, created by
-# sphinx-quickstart on Fri Oct 27 12:18:41 2017.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -91,6 +89,7 @@ todo_include_todos = True
 #html_theme = "sphinx_rtd_theme"
 html_theme = 'bootstrap'
 html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
+html_theme_options = {'prev_next_buttons_location': 'bottom'}
 
 # (Optional) Logo. Should be small enough to fit the navbar (ideally 24x24).
 # Path should be relative to the ``_static`` files directory.

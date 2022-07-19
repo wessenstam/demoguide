@@ -2,7 +2,13 @@
 
 This lab guide is designed to be used alongside lab instances provided for Delinea Secret Server. These have all been configured for the appropriate personnel. The guide covers a number of different Privilege Access Management use cases, giving the user an overview of the solution’s broad capabilities. 
 
- The components featured within the lab are fully pre-built, hence no software installation will be required within the lab.
+---
+
+**Note**
+
+The components featured within the lab are fully pre-built, hence no software installation will be required within the lab.
+
+---
 
 The guide is designed to assist you to explore the varied functions available in the solution, but is not meant to be an authoritative guide to all functions available. Hence, feel free to explore the options available to you and don’t hesitate to reach out to your Delinea liaison should an additional feature or function take your interest. 
 
