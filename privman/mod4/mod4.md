@@ -53,12 +53,12 @@ The reports in this section can be used to see relatively quickly which applicat
 
 
 ## Local Security
-The Locala security reports are all about the local user and groups on the machines that have been "connected" to the Privilege Manager. An example is the report that is called **Summary of Domain Users as Local Administrators** report. In this report you can see which AD users have local administrative rights, besides Administrator, on the machine. This could become when a user on a machine seems to able to bypass policies and runs whatever they want on the machine.
+The Local security reports are all about the local user and groups on the machines that have been "connected" to the Privilege Manager. An example is the report that is called **Summary of Domain Users as Local Administrators** report. In this report you can see which AD users have local administrative rights, besides Administrator, on the machine. This could become when a user on a machine seems to able to bypass policies and runs whatever they want on the machine.
 
 ![Reports](images/lab006.png)
 
 ## Security
 
-This last section is all about who logged in to the Privilege Manager and from where. Also the Log out event will be shown
+This last section is all about who logged in to the Privilege Manager and from where. Also the Log out event will be shown.
 
 ![Reports](images/lab007.png)
