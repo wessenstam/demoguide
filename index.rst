@@ -22,6 +22,16 @@
   privman/mod3/mod3
   privman/mod4/mod4
 
+.. toctree::
+  :maxdepth: 2
+  :caption: Server PAM
+  :name: _server_pam
+  :hidden:
+
+  srvpam/mod1/mod1
+  srvpam/mod2/mod2
+  srvpam/mod3/mod3
+
 .. _getting_started_index:
 
 ----------
@@ -66,7 +76,7 @@ After all VMs have started, the screenshot is an example, click on the VM that i
 Working with your environment
 *****************************
 
-Once you have the VM open in a Browser window, you will get the Skytap Toolbar (click the arrow if you don’t see it or want to hide it). 
+Once you have the VM open in a Browser window, you will get the Skytap Toolbar (click the arrow if you don't see it or want to hide it). 
 
 .. figure:: images/lab004.png
 
@@ -91,5 +101,3 @@ Your instructor can help you "remotely". He/she is able to connect to your envir
   
   <HR>
   <center><H1 style="color:#00FF59">HAVE FUN!!!!</H1></center>
-
-------------
