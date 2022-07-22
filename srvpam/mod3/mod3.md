@@ -1,4 +1,4 @@
-# Linux Security logs
+# Security logs
 
 As described in the JIT module of the lab, all actions will be logged in the system with respect to security (on CentOS Linux /var/log/secure). Using the sudo command, all commands that are run under the account, will be logged and shown in the log file. This gives the security and IT team the possibility to track who has run commands with elevated privileges.
 A problem is that such an account, which is added to the */etc/sudoers* file, can run **ANY COMMAND** with the ``sudo`` commands by default. Limiting what can be run using the sudo command, is done by changing the file **/etc/sudoers**. It's going to be hard to maintain this file on 20+ Linux systems. To know more on this file, read [this document](https://kifarunix.com/run-only-specific-commands-with-sudo-in-linux/).
