@@ -33,7 +33,7 @@ Make sure the machine is running. If it is not, start it. If you haven't touch t
 
 The agent that is installed on the Linux machine is capable of using the Kerberos ticket from the machine, on which the user is logged in. THis saves the password retyping. To make this work, type the username **user@thylab.local** in the Putty screen
 
-![server PAM](images/lab001.png)
+![server PAM](images/lab002.png)
 
 As soon as you hit the **ENTER** key you will see that the system logs you in directly, without any retyping the password. This is due to the fact that you have already logged in to your WIndows machine. Log out of the ssh session.
 
@@ -49,19 +49,19 @@ To log out of the SSH session use **CTRL+D** or type **exit**
 
 Besides the way of logging in using the Kerberos ticket, the agent also allows access using the username and its password as credentials. Open Putty again and double click the **centos.thylab.local**. Log in as **tsmith@thylab.local** and hit **ENTER** on your keyboard. You will be presented with the password to be filled out
 
-![server PAM](images/lab002.png)
+![server PAM](images/lab003.png)
 
 Type **Delinea/4u** as the password and your logged in to the system. To check that the accounts user and tsmith don't exist on the system as local accounts, run ``cat /etc/passwd | grep tsmith`` and see that there is no line shown that has the words tsmith in them.
 
-![server PAM](images/lab003.png)
+![server PAM](images/lab004.png)
 
 Do the same for the user account and see that there are two lines that show the user (in orange) but not just **user** as the account (first word in the two lines). The two lines should show **trousers** and **adminuser**
 
-![server PAM](images/lab004.png)
+![server PAM](images/lab005.png)
 
 Log out of the session and try the above steps using the **state@thylab.local** account and see that that account, even though it exists in the AD, has no rights to login to the system (the system will allow 5 times before it closes the attempt). 
 
-![server PAM](images/lab005.png)
+![server PAM](images/lab006.png)
 
 Close the Putty session as the last step of this module
 
