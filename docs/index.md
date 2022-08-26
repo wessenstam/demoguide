@@ -1,10 +1,10 @@
 # Welcome!!!
 
-Welcome to Delinea's Demo Guide for Secret Server and Privilege Manager!!!
+Welcome to Delinea's Demo Guide for Secret Server, Privilege Manager, and Server PAM!!!
 
 ## Skytap
 
-This workshop runs from a Skytap environment in the EMEA region. To present you with a basic set of how to use the environment, please read this small guide..
+This workshop runs from a Skytap environment. To present you with a basic set of how to use the environment, please read this small guide..
 
 A graphical representation of your environment is shown below:
 
