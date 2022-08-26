@@ -54,7 +54,6 @@ plugins:
       copyright: Delinea
       enabled_if_env: ENABLE_PDF_EXPORT
       debug_html: false
-      
 
 extra:
   generator: false
