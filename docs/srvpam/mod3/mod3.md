@@ -12,13 +12,9 @@ Run the command ``sudo yum update zip`` and see that after providing the passwor
 
 Problem is that even a command like ``sudo yum update`` is honored to be run. 
 
----
+!!! Warning
+    If you run this command, please cancel the action by typing "N" at the question, or be faced to possibly wait a 5 - 10 minutes as the system WILL update ALL packages
 
-**Note**
-
-**If you run this command, please cancel the action by typing "N" at the question, or be faced to possibly wait a 5 - 10 minutes as the system WILL update ALL packages**
-
----
 
 Now try the dzinfo command and see that the account is "unknown" to the Server PAM solution (no roles assigned and no privileged command rights). So running ``dzdo yum update zip`` will have no effect. It will show an error.
 
@@ -54,6 +50,3 @@ For Windows Systems this will be logged in the Eventviewer. Open the console of 
 An Event with ID **4848** (RUNAS) is also shown, which is exactly what the system does when the **Run with Privilege...** is doing, as long as it has been allowed by the configuration.
 
 ![Security Log](images/lab008.png)
-
-<HR>
-  <center><H1 style="color:#00FF59">THIS CONCLUDES THE LAB</H1></center>

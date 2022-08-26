@@ -87,27 +87,17 @@ Problem is that we ran the second command, even as sudo, but the commands were n
 
 As you can see now the command is running and there is no error message. This ``dzdo`` command is checking to see if the user has the permission to run the command with elevated rights. And if that is the case, it will run it with elevated privileges.
 
----
+!!! Note
+    In most cases there is nothing to update, but at least the command has been executed, wit elevated privileges.
 
-**Note**
-
-In most cases there is nothing to update, but at least the command has been executed, wit elevated privileges.
-
-![JIT Commands](images/lab005.png)
-
----
+    ![JIT Commands](images/lab005.png)
 
 The last command ``systemctl.*.postfix`` is a regex filter that allows all valid parameters for the systemctl command, but only for the postfix service/daemon. To check that, run ``systemctl status postfix`` and see that the daemon is running
 
 ![JIT Commands](images/lab006.png)
 
----
-
-**Note**
-
-We don't need elevated privileges as this is a none intrusive command. All users can ask for the status of services
-
----
+!!! Note
+    We don't need elevated privileges as this is a none intrusive command. All users can ask for the status of services
 
 Now try to run the following commands and see the outcome:
 
@@ -127,13 +117,8 @@ After the first ``dzdo`` command the AD Password is needed. As you have authenti
 
 The two described scenarios are solved by the configuration that has been made in the Server PAM solution. Users that are allowed to login can login, but will be normal user. The user@thylab.local account has been give three commands that the user can run with elevated privileges.
 
----
-
-**Note**
-
-To test this more, try to run any other command, example ``dzdo yum update -y``, and see thta that command is being blocked by the system. Also any sudo commands, ``sudo yum update -y`` as example, are blocked as the user is not in the so called **sudoers file**
-
----
+!!! Note
+    To test this more, try to run any other command, example ``dzdo yum update -y``, and see thta that command is being blocked by the system. Also any sudo commands, ``sudo yum update -y`` as example, are blocked as the user is not in the so called **sudoers file**
 
 Close the Putty session.
 

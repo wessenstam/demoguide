@@ -1,0 +1,21 @@
+$color: #00FF59;
+
+@page {
+  
+  .md-typeset h1 {border-bottom: 2px solid $color;  } // for material theme
+  article h1 { border-bottom: 2px solid $color;  } // other theme
+
+  .md-typeset h2 {border-bottom: 1px solid $color;  } // for material theme
+  article h2 { border-bottom: 1px solid $color;  } // other theme
+
+  .md-typeset h3 {border-bottom: 0.5px solid $color;  } // for material theme
+  article h3 { border-bottom: 0.5px solid $color;  } // other theme
+
+  html {
+    font-size: 95%;
+    font-family: 'Manrope'; }
+  body {
+    font-size: 10.5pt;
+    font-family: 'Manrope'; }
+
+}

@@ -1,7 +1,8 @@
-# HTML Build files from Sphinx
+# HTML Build files from Sphinx/MKDOCS
 _build
 builds
 build
+site
 # Sources Documents and executables
 *.exe
 *.pdf

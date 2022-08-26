@@ -32,19 +32,14 @@ From there, head to **Secrets >> > Use Case Examples -> Service Accounts -> thyl
 
 You can see that the run result is a red i. This will be marked as green when the password for our service account changes the next time.
 
----
+!!! Note
+    If you really want to manually run the dependency now, click the checkbox on the left-hand side of the dependency and select **Run Selected Dependencies** and Secret Server will go out and make sure that this service is running with the correct credential after you clicked **OK** in the warning screen that appears if you select the run now. Magic!
 
-**Note**
+    ![Discovery](images/lab006.png)
 
-If you really want to manually run the dependency now, click the checkbox on the left-hand side of the dependency and select **Run Selected Dependencies** and Secret Server will go out and make sure that this service is running with the correct credential after you clicked **OK** in the warning screen that appears if you select the run now. Magic!
+    ![Discovery](images/lab007.png)
 
-![Discovery](images/lab006.png)
-
-![Discovery](images/lab007.png)
-
-Lots of different functions can be managed as a dependency. We can also build our own dependencies using scripting, depending on the external application that needs to be integrated. There's lots of fun possibilities here.
-
----
+    Lots of different functions can be managed as a dependency. We can also build our own dependencies using scripting, depending on the external application that needs to be integrated. There's lots of fun possibilities here.
 
 ## Event Pipelines
 
@@ -72,13 +67,8 @@ Click **Create**. Pipelines have within them a number of items:
 
 ![Discovery](images/lab011.png)
 
----
-
-**Note**
-
-To provide a more concrete, although somewhat ridiculous, example of these items, witness the above pipeline. The trigger for the pipeline is Launch, hence any Secret that is launched within the Folder we are targeting with our policy triggers the pipeline. The pipeline then checks the day of the week. If it is Tuesday, the pipeline keeps running, if not, it stops. If it is Tuesday, it then runs its task which is to add a custom audit to the launched Secret which says "The Secret was launched on Tuesday." 
-
----
+!!! Note
+    To provide a more concrete, although somewhat ridiculous, example of these items, witness the above pipeline. The trigger for the pipeline is Launch, hence any Secret that is launched within the Folder we are targeting with our policy triggers the pipeline. The pipeline then checks the day of the week. If it is Tuesday, the pipeline keeps running, if not, it stops. If it is Tuesday, it then runs its task which is to add a custom audit to the launched Secret which says "The Secret was launched on Tuesday." 
 
 There are an enormous number of potential options for event pipeline implementation - experiment with it and see what you can come up with! 
 
@@ -110,23 +100,19 @@ This is the REST call to the Secret Server API. Note the use of "-UseDefaultCred
 
 This line simply writes out the resultant retrieved Secret value, depending on what we have specified above.
 
---- 
+!!! Note
+    The **API Based Search.ps1** script is also available. Running this will allow you to use the script to search through the Secret Server API for search terms (currently it is set to **Opnsense**). This will then return details of the Secret found alongside their unique SecretIDs. Search for a term (to lookup the SecretID and secret name) and then take the SecretID you discover and put that in to the **$secretID** variable in the **Windows Authenticated API.ps1** script and run it to retrieve a new, different password. 
 
-**Note**
+    ![Discovery](images/lab014.png)
 
-The **API Based Search.ps1** script is also available. Running this will allow you to use the script to search through the Secret Server API for search terms (currently it is set to **Opnsense**). This will then return details of the Secret found alongside their unique SecretIDs. Search for a term (to lookup the SecretID and secret name) and then take the SecretID you discover and put that in to the **$secretID** variable in the **Windows Authenticated API.ps1** script and run it to retrieve a new, different password. 
+    You can also find the SecretID of a Secret through the URL address bar:
 
-![Discovery](images/lab014.png)
+    ![Discovery](images/lab013.png)
 
-You can also find the SecretID of a Secret through the URL address bar:
+    A full REST API guide is available from within the tools menu in the  Secret Server UI via **Administration >> > Actions > REST API Guide**
 
-![Discovery](images/lab013.png)
+    ![Discovery](images/lab012.png)
 
-A full REST API guide is available from within the tools menu in the  Secret Server UI via **Administration >> > Actions > REST API Guide**
-
-![Discovery](images/lab012.png)
-
----
 
 ## Administering RBAC
 
@@ -154,11 +140,5 @@ Access to Folders and the secrets within them can be fully customized by right-c
 
 As noted above, access can be granted to groups (either internal to Secret Server or based on Active Directory Security Groups) or individual users. Folder permissions can either be Owner, Edit, View or List. Customize this to your liking. Secret Permissions can be set to Owner, Edit, View, List or None. The None permission means that users will be able to see the folder in the folder tree but not be able to see any of the Secrets within.
 
----
-
-**Note**
-
-If a user does not have access to a folder, it won't even appear for them in the folder tree, even if they have lots of administrative role permissions. The RBAC is designed to be enforced granularly to ensure that only the correct users have access to the correct permissions at the correct point in time. 
-
----
-.
+!!! Note
+    If a user does not have access to a folder, it won't even appear for them in the folder tree, even if they have lots of administrative role permissions. The RBAC is designed to be enforced granularly to ensure that only the correct users have access to the correct permissions at the correct point in time. 

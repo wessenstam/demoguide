@@ -24,33 +24,20 @@ Next, we want to gain access to Secret Server itself. For that, we are going to 
 
 ---
 
-**NOTE:**
-
-If the login page doesn't automatically appear, head to: **https://sspm.thylab.local/secretserver**
-You should then be presented with the login panel. If not, panic…. just kidding. Speak with your Delinea representative for further instruction if the login panel just doesn't appear.
-
----
+!!! Note
+    If the login page doesn't automatically appear, head to: **https://sspm.thylab.local/secretserver**
+    You should then be presented with the login panel. If not, panic…. just kidding. Speak with your Delinea representative for further instruction if the login panel just doesn't appear.
 
 You'll want to authenticate with the username user (not thylab\user - just user) and the password will need to be inserted from the SkyTap credentials panel (see previous instructions for the **thylab\user** password). 
 
----
-
-**NOTE:**
-
-You do also have access to an admin user. Leave this one for now - we'll get to some solution administration a bit later on.
-
----
+!!! Note
+    You do also have access to an admin user. Leave this one for now - we'll get to some solution administration a bit later on.
 
 ## The User Interface
 The User Interface (UI) is designed to be intuitive, even for beginner users of the solution. The left-hand side pane features a range of selectable sections including home - where a dashboard is displayed - through to Recent Secrets, Favorites and then down in the bottom left the folder structure. Many panels are customizable. A search function exists both in the top right - which will search the entire solution - and then there is often an "intra view" search function, notated by a magnifying glass, which will allow you to delimit your view by certain search criteria.
 
----
-
-**NOTE:**
-
-The *folder structure* is hugely important - it allows us to store different types of Secrets for different use cases in areas which cannot be accessed by users unless they have been explicitly granted access. Note that there are multiple example structures in the lab. Structures can be completely customized on a per customer basis, ensuring that you have maximum flexibility in deployment. We will return to this topic in Administering RBAC.
-
----
+!!! Note
+    The *folder structure* is hugely important - it allows us to store different types of Secrets for different use cases in areas which cannot be accessed by users unless they have been explicitly granted access. Note that there are multiple example structures in the lab. Structures can be completely customized on a per customer basis, ensuring that you have maximum flexibility in deployment. We will return to this topic in Administering RBAC.
 
 Open some of the category views to familiarize yourself with their operation. There are a lot of folders to open, including a "Use Case Examples" tree which features a number of different types of Secrets within.
 
@@ -62,13 +49,8 @@ The selected items will then appear in the **Favorites** section of the UI (**Da
 
 ![secret](images/lab006.png)
 
----
-
-**NOTE:**
-
-Just to let you know, users that are not explicitly allowed access to Folders (or Secrets) will not even be aware they exist within the service, even if they have admin privileges! The RBAC is very strict, and understandably so.
-
----
+!!! Note
+    Just to let you know, users that are not explicitly allowed access to Folders (or Secrets) will not even be aware they exist within the service, even if they have admin privileges! The RBAC is very strict, and understandably so.
 
 ### Search
 Search can either be performed throughout the entire instance, utilizing the dialog box in the top right-hand corner:
@@ -103,8 +85,6 @@ After approx. 10-20 seconds a blue bar will appear at the bottom of the screen s
 
 ![secret](images/lab012.png)
 
-
-
 ### Password Changing
 In the Secret from the previous section, press the eye icon (<img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/eye.svg" width="10" height="10">) in the password field (we'll learn about hidden passwords later on). This will display the currently stored password for the Secret. Take a mental note of this.
 
@@ -121,13 +101,8 @@ If you want this process to occur "automated-ly" on a schedule, then head to the
 ![secret](images/lab015.png)
 
 
----
-
-**Note**
-
-In the Remote Password Changing section there is a "Change Password Using" section. In a situation where the underlying credential is wrong - perhaps it has gotten out of sync - Secret Server can use the additional privilege account to change the password on behalf of the underlying account. 
-
----
+!!! Note
+    In the Remote Password Changing section there is a "Change Password Using" section. In a situation where the underlying credential is wrong - perhaps it has gotten out of sync - Secret Server can use the additional privilege account to change the password on behalf of the underlying account. 
 
 ## Secret Workflows
 To complement the RBAC in Secrets & Folders, Secret Server also features a number of workflows that can be implemented against different privileged accounts. 
@@ -136,13 +111,8 @@ Head to the Secret Workflows folder under **Secrets >> > Use Case Examples > Win
 
 ![secrets](images/lab016.png)
 
----
-
-**Note**
-
-If you were feeling particularly daring you could always enter the URL for the item directly in the URL panel. Each and every item within the solution has a unique identifier, in this case the folder has an **ID of 1029** (https://sspm.thylab.local/SecretServer/app/#/secrets/view/folder/**1029**), hence we could navigate to it (or link to it!) directly, if we wanted to. Keep in mind, all the strict role-based access control will still apply.
-
----
+!!! Note
+    If you were feeling particularly daring you could always enter the URL for the item directly in the URL panel. Each and every item within the solution has a unique identifier, in this case the folder has an **ID of 1029** (https://sspm.thylab.local/SecretServer/app/#/secrets/view/folder/**1029**), hence we could navigate to it (or link to it!) directly, if we wanted to. Keep in mind, all the strict role-based access control will still apply.
 
 ### Checkout
 
@@ -159,15 +129,10 @@ Click on the **3. Approval Request - Basic Secret** and you will be presented wi
  
 Once you have submitted a request, it will be sent to the administrator(s) that are assigned to this workflow. If you choose the basic ticket system you can enter any ticket ID/number/string, so try that out!
 
----
+!!! Note
+    If you would like to go and approve/deny the request you have just made, you will either need to log out or create a new Incognito browser window and log in as the **thylab\auditor** user (the credentials are in the SkyTap credentials list). From there, head to your Dashboard or Inbox and you should have a request sitting there ready to inspect!
 
-**Note**
-
-If you would like to go and approve/deny the request you have just made, you will either need to log out or create a new Incognito browser window and log in as the **thylab\auditor** user (the credentials are in the SkyTap credentials list). From there, head to your Dashboard or Inbox and you should have a request sitting there ready to inspect!
-
-![secrets](images/lab018.png)
-
----
+    ![secrets](images/lab018.png)
 
 ### Ticket System integrations
 

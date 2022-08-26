@@ -25,15 +25,11 @@ One of the oldest application which is in almost every installation of Microsoft
 
 Next, we want to gain access to Privilege Manager itself. For that, we are going to need Google Chrome, so go ahead and fire it up and you should be presented with the Secret Server login screen after some time. Upon first load the application may take some time to appear.
 
----
+!!! Note
+    If the login page doesn't automatically appear, head to: **https://sspm.thylab.local/secretserver**
+    You should then be presented with the login panel. If not, panic... just kidding. Speak with your Delinea representative for further instruction if the login panel just doesn't appear.
+    Due to the preinstalled environment, Secret Server AND Privilege Manager on the same server, we are going to use the Secret Server "SSO" option to login to Privilege Manager
 
-**NOTE:**
-
-If the login page doesn't automatically appear, head to: **https://sspm.thylab.local/secretserver**
-You should then be presented with the login panel. If not, panic... just kidding. Speak with your Delinea representative for further instruction if the login panel just doesn't appear.
-Due to the preinstalled environment, Secret Server AND Privilege Manager on the same server, we are going to use the Secret Server "SSO" option to login to Privilege Manager
-
----
 
 ![LOgin](images/lab004.png)
 
@@ -121,9 +117,7 @@ Click the **Approve** button and the message will change to Approved, and the Co
 
 Continue the installation as the end has no value for now. What di you noticed??
 
----
-
-**Note**
+!!! Note
 
 Due to the policy settings the installation has been run using elevated rights. So no UAC screen has been shown, even thought the user is NOT in the Local Administrators group, or have administrative rights!!!
 
@@ -163,13 +157,9 @@ The agent will mention that three new policies have been activated. Had to your 
 
 Continue the installer of Notepad++
 
----
+!!! Note
+    You will have to provide the MFA challenge three times due to extra changes that need to be made to the Registry (2x) and Windows Explorer
 
-**Note**
-
-You will have to provide the MFA challenge three times due to extra changes that need to be made to the Registry (2x) and Windows Explorer
-
----
 
 ## Monitor
 For some situations, there may not be any policy available on applications that the IT department is aware of. Call a catch all application. This more of an awareness net where with the usage of reporting a list of software can be found that is needed by the user, but due to limitations to the administrative rights, are not able to run. Using a Catch All policy, one is already crated and active, these situations can be found.

@@ -6,6 +6,7 @@ theme:
   
   font:
     text: Manrope
+    code: Manrope
   
   logo: img/Delinea.svg
   
@@ -47,14 +48,16 @@ plugins:
   - search
   - with-pdf:
       author: Delinea Technical Enablement
-      cover_logo: images/secretserver.jpg
       cover_title: Demo Guide
+      cover_subtitle: Becoming more Resilient against Ransomware with Proven PAM Strategies
+      cover_logo: img/secretserver.jpg
       copyright: Delinea
-      debug_html: true
       enabled_if_env: ENABLE_PDF_EXPORT
+      debug_html: false
+      
+
 extra:
   generator: false
-
 
 nav:
   - Home: index.md

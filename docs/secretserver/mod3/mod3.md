@@ -20,15 +20,10 @@ In the dialog box that is presented, enter "sspm.thylab.local" and hit launch no
  
 In the dialog box that is presented, enter "sspm.thylab.local" and hit launch now. A session will open in to the sspm server and you will be logged in as adm_admin1 by Secret Server. Nice, you've successfully completed your first privileged session launch!
 
----
+!!! Note
+    You will get some messages from the Remote Desktop session as we are not using a certificate in the Demo Lab. Please click **Connect** till you have the desktop.
 
-**Note**
-
-You will get some messagese from the Remote Desktop session as we are not using a certificate in the Demo Lab. Please click **Connect** till you have the desktop.
-
-![secrets](images/lab004.png)
-
----
+    ![secrets](images/lab004.png)
 
 ### Session Connector Launching
 The basic RDP launch establishes an RDP connection from your client device to the target host/platform using the privileged credentials. However, there are cases when you may want to launch using an intermediary device - commonly referred to as a "jumphost". The jumphost in Secret Server is referred to as Session Connector.
@@ -43,15 +38,10 @@ Go ahead and try launching the **Session Connector RDP** option and at the promp
 
 ![secrets](images/lab006.png)
 
----
+!!! Note
+    To see that the connection is not made directly from your client, on the SSPM, open a command line and type ``netstat -a | findstr 3389`` and see that the IP addresses mentioned are not showing the name, or IP address of the client (172.31.32.118). You do however see the RDS01 mentioned as that is the "jumpbox" for the connection
 
-**Note**
-
-TO see that the connection is not made directly from your client, on the SSPM, open a command line and type ``netstat -a | findstr 3389`` and see that the IP addresses mentioned are not showing the name, or IP address of the client (172.31.32.118). You do however see the RDS01 mentioned as that is the "jumpbox" for the connection
-
-![secrets](images/lab007.png)
-
----
+    ![secrets](images/lab007.png)
 
 ### Additional RDP Launching Options 
 
@@ -65,27 +55,18 @@ As well as having an open dialog box in to which the user can specify the device
 
 ![secrets](images/lab009.png)
 
----
-
-**Note** 
-
-In some cases the device list is going to include a large number of items. If the list goes over 15 items, it stops displaying as a single list and becomes a searchable list, easing the user interaction with the tool.
- 
----
+!!! Note
+    In some cases the device list is going to include a large number of items. If the list goes over 15 items, it stops displaying as a single list and becomes a searchable list, easing the user interaction with the tool.
 
 Within each Secret there also exists a "Security" tab, under which you can easily - via checkboxes - make changes to the way in which the Secret is secured. For example, a comment can be required for use or session recording enabled. 
 
 ![secrets](images/lab010.png)
 
----
+!!! Note
+    These security options can also be set on a larger scale through the use of "Secret Policies". If you want to investigate these, log in as **ss_admin** and head to **Administration >> > Actions > Secret Policies**. Here you will be able to create a Secret Policy that either enforces or sets as default a particular security setting. Then, apply this Security Policy to a Folder (through the "**Edit Folder**" option). Give it a try, if you dare!
 
-**Note**
+    ![secrets](images/lab011.png)
 
-These security options can also be set on a larger scale through the use of "Secret Policies". If you want to investigate these, log in as **ss_admin** and head to **Administration >> > Actions > Secret Policies**. Here you will be able to create a Secret Policy that either enforces or sets as default a particular security setting. Then, apply this Security Policy to a Folder (through the "**Edit Folder**" option). Give it a try, if you dare!
-
-![secrets](images/lab011.png)
-
----
 
 ## SSH
 Privilege launching in to SSH devices is achieved through an inbuilt version of PuTTY that can be easily accessed through the use of an out-of-the-box launcher. 
@@ -102,27 +83,18 @@ Once you click on the PuTTY Launcher button, PuTTY will open and you will have a
 
 ![secrets](images/lab014.png)
 
----
+!!! Note
+    Command controls (allow and block) can be implemented in the context of SSH sessions, such that you can manage user behavior within the device and ensure that users do what they should be doing. This function is not covered in this lab.
 
-**Note**
-
-Command controls (allow and block) can be implemented in the context of SSH sessions, such that you can manage user behavior within the device and ensure that users do what they should be doing. This function is not covered in this lab.
-
----
 
 ## Web
 
 Web-based session launching is powered by the Secret Server browser extension (available for Google Chrome and Mozilla Firefox). This extension populates web credential entry screens on behalf of users so that they do not need to have the password ever exposed to them. The browser extension also handles web session recording for us.
 
----
+!!! Note
+    Note that the extension icon in the browser is dark blue. It is actually already logged in! When you open Secret Server and authenticate with the web console, if the browser extension is installed it will also be automatically logged in. This means that your users can immediately get privileged access without a separate logon.
 
-**Note**
-
-Note that the extension icon in the browser is dark blue. It is actually already logged in! When you open Secret Server and authenticate with the web console, if the browser extension is installed it will also be automatically logged in. This means that your users can immediately get privileged access without a separate logon.
-
-![secrets](images/lab015.png)
-
----
+    ![secrets](images/lab015.png)
 
 Let's take a look at an example. Head to **Secrets >> > Use Case Examples > Firewalls & Networks > OpnSense Root Account**. 
 
@@ -137,13 +109,9 @@ You will now be notified that your web session will be recorded. Click **Login**
 
 ![secrets](images/lab018.png)
 
----
+!!! Note
+    Try using the PuTTY launcher as well - you'll be presented with the alternative SSH-based administrative console for the device. 
 
-**Note**
-
-Try using the PuTTY launcher as well - you'll be presented with the alternative SSH-based administrative console for the device. 
-
----
 
 ## Session Monitoring
 
@@ -159,16 +127,11 @@ The standard session monitoring screen allows you to select the specifics of the
 
 Note the three icons below the recording itself - this will identify what elements of the session have been recorded: video, keystrokes and processes, or any combination of the three depending on the setup of the session recording.
 
----
+!!! Note
+    Command cross-searching is available. Therefore search terms that relate to applications, powershell, for example, can simply be searched for in the search dialog box. This will allow you to find appropriate sessions far more efficiently. Try ``netstat`` as a command to search for and see what happens
 
-**Note**
+    TIP: Session recordings can also be reference directly from within the Audit trail from individual Secrets, where required.
 
-Command cross-searching is available. Therefore search terms that relate to applications, powershell, for example, can simply be searched for in the search dialog box. This will allow you to find appropriate sessions far more efficiently. Try ``netstat`` as a command to search for and see what happens
-
-TIP: Session recordings can also be reference directly from within the Audit trail from individual Secrets, where required.
-
-
---- 
 
 Opening a session recording that includes keystrokes and a video and you will have the keystrokes presented on the left hand side (searchable) and the video on the right. Note the colored bar beneath the session recording, this will display visually where there is action or movement in the session and allows you to skip easily and quickly to relevant parts of the session. Try clicking on it to move the session forward. Additionally, the two arrows will allow you to expand the session to full screen for a more detailed review of the activity. The "jump to" buttons also allow you to skip to relevant parts of the session.
 
@@ -199,12 +162,8 @@ From here, we can click on "Expire Now" and all of the Secrets they did have acc
 
 ![secrets](images/lab026.png) 
 
----
-**Note**
-
-Fully customizable reports can be created in Secret Server through the use of SQL scripting. This means that if you don't see a report that you need, you can always create one either with help from Delinea or through your own SQL… the options for interesting reporting are thereby limitless! 
-
----
+!!! Note
+    Fully customizable reports can be created in Secret Server through the use of SQL scripting. This means that if you don't see a report that you need, you can always create one either with help from Delinea or through your own SQL… the options for interesting reporting are thereby limitless! 
 
 ## SSH Terminal
 

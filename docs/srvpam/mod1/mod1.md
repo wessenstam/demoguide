@@ -21,13 +21,9 @@ To show the AD integration, open Putty from the Start bar ![server PAM](images/l
 
 There will be a machine ready to be used (**centos.thylab.local**), double click on the machine and a SSH session will open 
 
----
+!!! Note
+    Make sure the machine is running. If it is not, start it. If you haven't touch the machine for more than 2 hours, it may have shutdown
 
-**Note**
-
-Make sure the machine is running. If it is not, start it. If you haven't touch the machine for more than 2 hours, it may have shutdown
-
----
 
 ### Using a SSO login
 
@@ -37,13 +33,9 @@ The agent that is installed on the Linux machine is capable of using the Kerbero
 
 As soon as you hit the **ENTER** key you will see that the system logs you in directly, without any retyping the password. This is due to the fact that you have already logged in to your WIndows machine. Log out of the ssh session.
 
----
+!!! Note
+    To log out of the SSH session use **CTRL+D** or type **exit**
 
-**Note**
-
-To log out of the SSH session use **CTRL+D** or type **exit**
-
----
 
 ### Using "normal" login
 
