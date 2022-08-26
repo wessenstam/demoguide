@@ -21,7 +21,7 @@ steps:
 - name: Build Dev HTML(dev)
   commands:
   - git clone --branch dev "https://github.com/wessenstam/$DRONE_REPO_NAME/" /tmp/$DRONE_REPO_NAME
-  - docker run --rm -v /var/www/html:/develop -v /tmp/${DRONE_REPO_NAME}:/docs wessenstam/mkdocs:0.1 build -d /develop/${DRONE_REPO_NAME}
+  - docker run --rm -v /var/www/html:/develop -v /tmp/${DRONE_REPO_NAME}:/docs wessenstam/mkdocs:0.1 build -d /develop/dev/${DRONE_REPO_NAME}
   - rm -Rf /tmp/$DRONE_REPO_NAME
   when:
     branch:
