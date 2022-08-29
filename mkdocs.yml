@@ -49,7 +49,7 @@ plugins:
   - with-pdf:
       author: Delinea Technical Enablement
       cover_title: Demo Guide
-      cover_subtitle: Becoming more Resilient against Ransomware with Proven PAM Strategies
+      cover_subtitle:  Sercret Server, Privilege Manager, and Server PAM
       cover_logo: img/secretserver.jpg
       copyright: Delinea
       enabled_if_env: ENABLE_PDF_EXPORT

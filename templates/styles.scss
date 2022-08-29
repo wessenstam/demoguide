@@ -1,0 +1,29 @@
+@page {
+    @top-center {
+      font-size: 8pt;
+      background-image: url("file:///docs/docs/img/header.jpg");
+      background-repeat: no-repeat;
+      background-size: 100% 25%;
+      content: "                                                                                                                                                                                                                                                                                                                                                                                                                            ";
+    }
+    @top-right {
+      color: white;
+    }
+    @bottom-right {
+      font-size: 8pt;
+      background-image: url("file:///docs/docs/img/Delinea_logo.svg");
+      background-repeat: no-repeat;
+      background-size: 90%;
+      background-position: right center;
+      content: "                        ";
+    }
+    
+}
+
+@page:first {
+  @top-center {
+    background-image: url("file:///docs/docs/img/header_first_page.jpg");
+      background-size: 100%;
+      content: "                                                                                                                                                                                                                                                                                                                                                                                                                            ";
+    }
+}
