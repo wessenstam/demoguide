@@ -121,11 +121,11 @@ After the first ``dzdo`` command the MFA challenge is needed. As you have authen
 !!!info
     The following are the answers to the MFA challenge:
 
-    1. What is your favorite city? : Rome
+    1. What is your favorite city?: Rome
     2. What is your favorite car brand?: BMW
     3. What is your favorite color?: Red
     4. Color?: Red
-    5. Email challenge will go the email user@thylab.local. Open the MS Mail app and copy the 
+    5. Email challenge will go the email user@thylab.local. Open the MS Mail app and click the link **Continue..** or copy the numerical code mentioned
 
 
 

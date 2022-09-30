@@ -74,6 +74,7 @@ nav:
     - Active Directory (AD) Bridging: srvpam/mod1/mod1.md
     - Just-In-time (JIT) Privileges: srvpam/mod2/mod2.md
     - Security logs: srvpam/mod3/mod3.md
+  - Remote Access Services: ras/mod1.md
 
 markdown_extensions:
   - admonition
