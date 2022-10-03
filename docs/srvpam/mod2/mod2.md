@@ -42,6 +42,7 @@ As mentioned in the above introduction we want to make sure that users have the 
 ### Scenario 1 - TSmith
 
 While still being on the client machine, open a Putty session to the **centos.thylab.local** and login as **tsmith@thylab.local** using the password **Delinea/4u**. Try to run the following commands and see their outcome and compare them to the table below:
+
 | Command              | Password needed | Allowed/Result |
 |----------------------|-----------------|----------------|
 | cat /etc/passwd      |       No        |  Yes           |
