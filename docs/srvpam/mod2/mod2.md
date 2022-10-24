@@ -44,6 +44,7 @@ As mentioned in the above introduction we want to make sure that users have the 
 
 While still being on the client machine, open a Putty session to the **centos.thylab.local** and login as **tsmith@thylab.local** using the password **Delinea/4u**. Try to run the following commands and see their outcome and compare them to the table below:
 
+
 | Command              | MFA needed | Allowed/Result |
 |----------------------|-----------------|----------------|
 | cat /etc/passwd      |       No        |  Yes           |
@@ -126,8 +127,6 @@ After the first ``dzdo`` command the MFA challenge is needed. As you have authen
     3. What is your favorite color?: Red
     4. Color?: Red
     5. Email challenge will go the email user@thylab.local. Open the MS Mail app and click the link **Continue..** or copy the numerical code mentioned
-
-
 
 ### Conclusion
 
