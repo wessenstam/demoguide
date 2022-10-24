@@ -4,7 +4,7 @@ One of the most difficult things that needs to be controlled are the local users
 
 This lab is showing how Privilege Manager can help in managing those Windows machines from a policy perspective.
 ## Local User
-One thing a lot of organisations will have is a specific local admin user. In case of issues the helpdesk, or IT admins, can use that account to login to the systems remotely to help people on their issues. This account, as it is very powerful, needs to be protected and available at all times. To make this happen this lab is going to show how this account can be pushed into the machines, on which the Privilege Manager Agent has been installed.
+One thing a lot of organisations will have is a specific local admin user. In case of issues the helpdesk, or IT admins, can use that account to login to the systems remotely to help people on their issues. This account, as it is very powerful, needs to be protected and available at all Times. To make this happen this lab is going to show how this account can be pushed into the machines, on which the Privilege Manager Agent has been installed.
 
 On your client click the **Start Menu** and type **Computer Management** and start the application. Even though the logged in user is a normal user, the applications starts. Navigate to **System Tools > Local Users and Groups > Users** and see that there is no **helpdesk-a** user (the account the helpdesk/IT people use for remote issues).
 

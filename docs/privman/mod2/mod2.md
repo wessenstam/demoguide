@@ -158,7 +158,7 @@ The agent will mention that three new policies have been activated. Had to your 
 Continue the installer of Notepad++
 
 !!! Note
-    You will have to provide the MFA challenge three times due to extra changes that need to be made to the Registry (2x) and Windows Explorer
+    You will have to provide the MFA challenge three Times due to extra changes that need to be made to the Registry (2x) and Windows Explorer
 
 
 ## Monitor
@@ -171,7 +171,7 @@ You will also see the Block IExplore policy besides the Catchall Policy. An othe
 
 ## Allow certain Windows settings
 
-Some settings for Windows computer can be given the rights to users even though they have not local admin rights. Try to run the defragmentation of the C: drive and see that the UAC is needed to run the **Analyze** stage (**File Explorer > Local Disk (C:) > Right click > Properties > Tools > Optimize**)
+Some settings for Windows computer can be given the rights to users even though they have not local admin rights. Try to run the defragmentation of the C: drive and see that the UAC is needed to run the **Analyze** stage (**File Explorer > Local Disk (C:) > Right click > Properties > Tools > OpTomize**)
 
 ![PrivMan UI](images/lab027.png)
 
