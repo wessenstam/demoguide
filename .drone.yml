@@ -30,4 +30,6 @@ steps:
   - rm -Rf /tmp/$DRONE_REPO_NAME
   when:
     branch:
-    - dev 
+    - dev
+    event:
+    - push

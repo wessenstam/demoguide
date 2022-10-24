@@ -27,7 +27,7 @@ There will be a machine ready to be used (**centos.thylab.local**), double click
 
 ### Using a SSO login
 
-The agent that is installed on the Linux machine is capable of using the Kerberos ticket from the machine, on which the user is logged in. This saves the password retyping. To make this work, type the username **user@thylab.local** in the Putty screen
+The agent that is installed on the Linux machine is capable of using the Kerberos ticket from the machine, on which the user is logged in. THis saves the password retyping. To make this work, type the username **user@thylab.local** in the Putty screen
 
 ![server PAM](images/lab002.png)
 
@@ -41,19 +41,19 @@ As soon as you hit the **ENTER** key you will see that the system logs you in di
 
 Besides the way of logging in using the Kerberos ticket, the agent also allows access using the username and its password as credentials. Open Putty again and double click the **centos.thylab.local**. Log in as **tsmith@thylab.local** and hit **ENTER** on your keyboard. You will be presented with the password to be filled out
 
-![server PAM](../../images/lab0001.png)
+![server PAM](images/lab003.png)
 
 Type **Delinea/4u** as the password and your logged in to the system. To check that the accounts user and tsmith don't exist on the system as local accounts, run ``cat /etc/passwd | grep tsmith`` and see that there is no line shown that has the words tsmith in them.
 
 ![server PAM](images/lab004.png)
 
-Do the same for the user account (``cat /etc/passwd | grep user``) and see that there are two lines that show the user (in orange) but not just **user** as the account (first word in the two lines). The two lines should show **trousers** and **adminuser**
+Do the same for the user account and see that there are two lines that show the user (in orange) but not just **user** as the account (first word in the two lines). The two lines should show **trousers** and **adminuser**
 
 ![server PAM](images/lab005.png)
 
-Log out of the session and try the above steps using the **state@thylab.local** account and see that that account, even though it exists in the AD, has no rights to login to the system (the system will allow 5 Times before it closes the attempt). 
+Log out of the session and try the above steps using the **state@thylab.local** account and see that that account, even though it exists in the AD, has no rights to login to the system (the system will allow 5 times before it closes the attempt). 
 
-![server PAM](../../images/lab0002.png)
+![server PAM](images/lab006.png)
 
 Close the Putty session as the last step of this module
 

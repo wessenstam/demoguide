@@ -2,7 +2,7 @@
 
 ## Discovery
 
-Often Times the number and extent of privileged accounts within the environment is going to be unknown. Thus, the solution has an inbuilt discovery methodology which will allow us to identify privileged accounts which exist but that are not currently known by the PAM solution, to then onboard them.
+Often times the number and extent of privileged accounts within the environment is going to be unknown. Thus, the solution has an inbuilt discovery methodology which will allow us to identify privileged accounts which exist but that are not currently known by the PAM solution, to then onboard them.
 
 Log in as **ss_admin** into Secret Server and head to **Administration >> > Actions > Discovery**
 
