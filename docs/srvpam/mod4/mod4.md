@@ -29,4 +29,4 @@ On the **Client VM** open the Audit Analyzer (on the Desktop) and navigate to **
 !!!tip "Remark"
     The above screenshot will look different in your environment.
 
-By clicking on one of the lines you can see what has happened
+By clicking on one of the lines you can see what has happened. All should be very familiar.
