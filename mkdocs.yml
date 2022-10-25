@@ -70,12 +70,7 @@ nav:
     - Application control use cases: privman/mod2/mod2.md
     - Local user/group Management use case: privman/mod3/mod3.md
     - Reporting use cases: privman/mod4/mod4.md
-  - Server PAM:
-    - Active Directory (AD) Bridging: srvpam/mod1/mod1.md
-    - Just-In-time (JIT) Privileges: srvpam/mod2/mod2.md
-    - Security logs: srvpam/mod3/mod3.md
-    - Auditing & Monitoring: srvpam/mod4/mod4.md
-  - Remote Access Services: ras/mod1.md
+
 
 markdown_extensions:
   - admonition
