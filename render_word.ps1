@@ -1,6 +1,6 @@
 # Script to convert all MD files into seperate docx files
 # -----------------------------------------------------------------
-# v0.1 - Initial version - Willem Essenstam - Delinea - 24-10-2022
+# v0.1 - Initial version - Willem Essenstam - Delinea - 25-10-2022
 #
 # -----------------------------------------------------------------
 
