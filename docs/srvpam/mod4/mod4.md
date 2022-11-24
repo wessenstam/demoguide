@@ -8,7 +8,7 @@ One way to perform audits is to have an agent installed on the machines that are
 
 ### Generate some auditing information
 
-To be able to see something, let's generate some information for the Audits. With help of the Remote Desktop Connection on the Client, open a session to the:
+To be able to see something, let's generate some information for the Audits. With help of the Remote Desktop Connection on the Client, or the Secret Server secrets you have, open a session to the:
 
 1. SSPM
 2. DC1
@@ -16,7 +16,7 @@ To be able to see something, let's generate some information for the Audits. Wit
 4. CentOS
 
 !!!info
-    For the Windows machines the **thylab\adm-training** account to log in. On the CentOS machine use the **user@thylab.local** account. Log in with **Delinea/4u** as the password for the Windows machines. The CentOS server should allow login without the password needed. THis due to the Kerberos ticket which exists due to the login to the client.
+    For the Windows machines use the **thylab\adm-training** account to log in. On the CentOS machine use the **user@thylab.local** account. Log in with **Delinea/4u** as the password for machines. The CentOS server should allow login without the password needed. This due to the Kerberos ticket which exists due to the login to the client.
 
 In the sessions, start some applications, or run some commands and close the sessions so there is some information available in the audit.
 
@@ -29,4 +29,21 @@ On the **Client VM** open the Audit Analyzer (on the Desktop) and navigate to **
 !!!tip "Remark"
     The above screenshot will look different in your environment.
 
-By clicking on one of the lines you can see what has happened. All should be very familiar.
+By double clicking on one of the lines you can see what has happened. All should be very familiar.
+Click in the menu bar the **Session** text and select **Pending for review** 
+
+![](../../images/lab0029.png)
+
+Provide some text in the message box that appears and click **OK**.
+
+![](../../images/lab0030.png)
+
+Click the DirectAudit screen (the window where the video is displayed). Back in the table view, refresh the page and look for the line that you have double clicked. Scroll to the right and see that your remark is displayed and the status of the audit.
+
+![](../../images/lab0031.png)
+
+Using this process, auditors are capable of documenting their progress and share information with each other.
+
+!!!warning
+
+    This process can only be used internally. When it comes to court, the storage that is used for the storing of the videos is not putting the videos in a legal hold mode (meaning **nobody** can alter the content). This means that the videos can be altered in favor of defended and offender and will not hold in court as evidence...
