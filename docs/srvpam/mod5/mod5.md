@@ -32,6 +32,9 @@ As the standard user, open Chrome and click the **Delinea SQL Server** button in
 
 You will be "logged-in" automatically. Click the **Delinea Report Services** folder. This will show all reports, per category, that are available after the default installation and configuration.
 
+!!!note
+    If you get an error message, please wait a few minutes and then refresh your browser. Sometimes the reporting services was not ready and opening the URL for the first time, will trigger the start of the processes. A refresh will then be able to connect to the underlaying processes for the reporting.
+
 ![](../../images/lab0035.png)
 
 Navigate to **Attestation Reports folder > PCI Reports > PCI - Login Report - By Computer** report
