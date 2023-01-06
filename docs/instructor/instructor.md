@@ -98,15 +98,15 @@ The ideal order is:
 1. vRouter
 2. lnx-platform
 3. win-platform
-2. DC1
-3. Client
-4. SSPM
-5. RDS01
-6. CentOS server
-7. pfSense
+4. DC1
+5. SSPM
+6. Client
+7. RDS01
+8. CentOS server
+9. pfSense
 
 !!!tip
-    VMs 1,2,3 and 4 can be started together. Then wait till the DC1 is 100% running before starting the other machines. The Client, MUST be started BEFORE the SSPM or the RDS01 server. Reason is that the CLient is the management component for the Delinea Server PAM. If this server gets started AFTER the SSPM and RDS01, the login into the RDS01, will not work. The easiest way to solve this issue is to reboot the RDS01 so the cache DB will be cleaned and refilled.
+    VMs 1,2 and 4 can be started together. The win-platform is dependent on the lnx-platform as it holds the databases that are being used by the win-platform server. Then wait till the DC1 is 100% running before starting the other machines. As the SSPM server is the SQL server for the databases that are used in the ServerPAM solutions, this server has to be started after the DC1. The Client, MUST be started BEFORE the RDS01 server. Reason is that the Client holds the management component for the Delinea Server PAM. If this server gets started AFTER the RDS01, the login into the RDS01, will not work. The easiest way to solve this issue is to reboot the RDS01 so the cache DB will be cleaned and refilled.
 
 ## Testing the environment before the demo
 
