@@ -21,6 +21,8 @@ steps:
   when:
     branch:
     - main
+    event:
+    - push
   
 - name: Build Dev HTML(dev)
   commands:
@@ -30,4 +32,6 @@ steps:
   - rm -Rf /tmp/$DRONE_REPO_NAME
   when:
     branch:
-    - dev 
+    - dev
+    event:
+    - push
