@@ -4,13 +4,13 @@
 
 Often Times the number and extent of privileged accounts within the environment is going to be unknown. Thus, the solution has an inbuilt discovery methodology which will allow us to identify privileged accounts which exist but that are not currently known by the PAM solution, to then onboard them.
 
-Log in as **ss_admin** into Secret Server and head to **Administration >> > Actions > Discovery**
+Log in as **admin** into Secret Server and head to **Administration >> > Actions > Discovery**
 
-![Discovery](images/lab001.png)
+![Discovery](images/lab001a.png)
  
 You'll note that we have multiple discovery sources, in this case for Unix discovery as well as for Active Directory discovery. Click on **Discovery Network View** to be presented with the accounts that have already been collected through a previously run discovery.
 
-![Discovery](images/lab002.png)
+![Discovery](images/lab002a.png)
 
 You will note that the entire delinealabs.local domain can be expanded. Many account types can be discovered, from Active Directory accounts to Local Windows accounts, local SQL accounts, Oracle accounts, etc etc. These accounts, once discovered, can be manually onboarded in to the PAM solution using the Import function, or automatically onboarded using the "Create Rule" function. 
 
@@ -20,24 +20,31 @@ Take a look at these options and see if you can import a domain account!
 
 When it comes to privileged service accounts, it is not enough just to be managing the username and password combination. One must also manage the dependent services or applications that rely on this service account as well. These are referred to in Secret Server as dependencies and can be automatically onboarded. Let's take a look. Click the **Service Accounts** tab. Here we can see that there is an "Unmanaged" dependency for a service account on the RDS01 server. The fact that this has been discovered means that Secret Server has identified that it is a service, has identified that it owns the privileged account for this Secret (delinealabs\svc_service1), but that it does not have a listing for this particular dependency. Hence it is marked as "Unmanaged". 
 
-![Discovery](images/lab003.png)
+![Discovery](images/lab003a.png)
 
-Click on the checkbox to the left of RDS01 and then press **Import**. This will begin the process of importing this dependency against this particular Secret (ie service account). Click **OK** and the dependency will import. Click **Close** when done.
+Click on the checkbox to the left of RDS01 and then press **Import**. This will begin the process of importing this dependency against this particular Secret (ie service account). 
 
-![Discovery](images/lab004.png)
+!!! Danger
+    Make sure you have the settings as shown in the screenshot below. If you don't check the next step might end up in a different location where we want to see the secret itself. The password is the same as for any user in the domain.
+
+![Discovery](images/lab004a.png)
+
+Click **OK** and the dependency will import. Click **Close** when done.
  
-From there, head to **Secrets >> > Use Case Examples -> Service Accounts -> delinealabs\svc_service1** and then go to the **Dependencies** tab. And there you have it, our new dependency has now been added! 
+From there, head to **Secrets >> > Use Case Examples -> Service Accounts -> Delinealabs\svc_service1** and then go to the **Dependencies** tab. And there you have it, with a dependency added! 
 
-![Discovery](images/lab005.png)
+![Discovery](images/lab005a.png)
 
-You can see that the run result is a red i. This will be marked as green when the password for our service account changes the next time.
+You can see that the run result is a <font color="red">red i</font>. This will be marked as green when the password for our service account changes the next time.
 
 !!! Note
-    If you really want to manually run the dependency now, click the checkbox on the left-hand side of the dependency and select **Run Selected Dependencies** and Secret Server will go out and make sure that this service is running with the correct credential after you clicked **OK** in the warning screen that appears if you select the run now. Magic!
+    If you really want to manually run the dependency now, click the checkbox on the left-hand side of the dependency, when you hoover over it,and select **Run Selected Dependencies** and Secret Server will go out and make sure that this service is running with the correct credential. Another option is to click the circle form arrow to run the action. 
 
-    ![Discovery](images/lab006.png)
+    ![Discovery](images/lab006a.png)
 
-    ![Discovery](images/lab007.png)
+    After you clicked **OK** in the warning screen that appears if you select the run now, and a possible refresh of the browser, you will see that the red i has gone and you now see two green checks. 
+
+    ![Discovery](images/lab007a.png)
 
     Lots of different functions can be managed as a dependency. We can also build our own dependencies using scripting, depending on the external application that needs to be integrated. There's lots of fun possibilities here.
 
@@ -45,7 +52,7 @@ You can see that the run result is a red i. This will be marked as green when th
 
 Event Pipelines are the "if this, then that" engine in Secret Server, and allow us to automate some of the configuration of the solution with ease. 
 
-While still logged in as **ss_admin** and head to **Administration >> > Actions > Event Pipeline Policy**
+While still logged in as **admin** and head to **Administration >> > Actions > Event Pipeline Policy**
 
 ![Discovery](images/lab008.png)
 
@@ -80,11 +87,11 @@ Head to the **API Examples** folder on your Desktop and you will get access to t
 
 Let's take a look at the script in a little bit more detail. 
 
-``$api = "https://sspm.delinealabs.local/secretserver/winauthwebservices/api/v1"``
+``$api = "https://sspm.delinealabs.local/secretserver/"``
 
 This URL is the location of the Windows Authenticated REST API in Secret Server in this lab.
 
-``$secretId = "30"``
+``$secretId = "27"``
 
 This identifier is the SecretID, a unique integer value that is unique to every secret. Use this to lookup information from a specific Secret.
 
@@ -92,16 +99,32 @@ This identifier is the SecretID, a unique integer value that is unique to every 
 
 This is the field for which we want to retrieve the value. We could change this to "username" or any other field name upon the Secret we are trying to retrieve.
 
-``$result = Invoke-RestMethod "$api/secrets/$secretid/fields/$fieldvalue" -UseDefaultCredentials``
+``` Powershell
 
-This is the REST call to the Secret Server API. Note the use of "-UseDefaultCredentials". This means we are using the logged on domain user context to establish authentication with the API. OAUTH Bearer tokens can also be presented as authentication. For more information on this, see the full API documentation or speak to your Delinea liaison..
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Content-Type", "application/x-www-form-urlencoded")
+
+$body = "username=delinealabs\krogers&password=Delinea/4u&grant_type=password"
+
+$response = Invoke-RestMethod "$api/oauth2/token" -Method 'POST' -Headers $headers -Body $body
+$bearerToken=$response.access_token
+
+$params = @{
+    Uri         = "$api/api/v1/secrets/$secretid/fields/$fieldvalue"
+    Headers     = @{ 'Authorization' = "Bearer $bearerToken" }
+    Method      = 'GET'
+}
+```
+This is the preparation for the REST call to the Secret Server API based on bearerToken. 
 
 ``Write-Host $result -ForegroundColor Green``
 
 This line simply writes out the resultant retrieved Secret value, depending on what we have specified above.
 
 !!! Note
-    The **API Based Search.ps1** script is also available. Running this will allow you to use the script to search through the Secret Server API for search terms (currently it is set to **Opnsense**). This will then return details of the Secret found alongside their unique SecretIDs. Search for a term (to lookup the SecretID and secret name) and then take the SecretID you discover and put that in to the **$secretID** variable in the **Windows Authenticated API.ps1** script and run it to retrieve a new, different password. 
+    The **API Based Search.ps1** script is also available. Running this will allow you to use the script to search through the Secret Server API for search terms (currently it is set to **OpenSense**). This will then return details of the Secret found alongside their unique SecretIDs. Search for a term (to lookup the SecretID and secret name) and then take the SecretID you discover and put that in to the **$secretID** variable in the **Get secret info API.ps1** script and run it to retrieve a new, different password. 
+
+    **Below are some examples. Your environment will look different and secret ID 32 might not even exist.**
 
     ![Discovery](images/lab014.png)
 
@@ -128,15 +151,15 @@ Or drop the permissions by hoovering over the permission and click the **bin ico
 
 ![Discovery](images/lab017.png)
 
-Users can be assigned to roles either individually or through group membership. In **Administration >> > User, Roles, Access Roles** click **Users** and take a look at which users and groups are assigned to each role. This can be fully customized, based on your organizational requirements.
+Users can be assigned to roles either individually or through group membership. In **Administration >> > User, Roles, Access Roles** click **Roles** and take a look at which users and groups are assigned to each role. This can be fully customized, based on your organizational requirements. The below screenshot if of the **Add Secret** role
 
-![Discovery](images/lab018.png)
+![Discovery](images/lab018a.png)
 
 ### Folder and Secret Permissions
 
 Access to Folders and the secrets within them can be fully customized by right-clicking on any folder and clicking Edit Folder. Note that permissions to the folder and the secrets within are independent permissions. The below screenshot has been made from the **Cloud Accounts** folder and the **Permissions** tab and clicking **Edit**
 
-![Discovery](images/lab019.png)
+![Discovery](images/lab019a.png)
 
 As noted above, access can be granted to groups (either internal to Secret Server or based on Active Directory Security Groups) or individual users. Folder permissions can either be Owner, Edit, View or List. Customize this to your liking. Secret Permissions can be set to Owner, Edit, View, List or None. The None permission means that users will be able to see the folder in the folder tree but not be able to see any of the Secrets within.
 
