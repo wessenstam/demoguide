@@ -140,3 +140,7 @@ Once you have submitted a request, it will be sent to the administrator(s) that 
 Multiple ticketing systems are integrated out-of-the-box in the Secret Server solution including ServiceNow, BMC Remedy and Atlassian JIRA. Additionally, custom integrations can be delivered against all ticketing systems that feature a REST API via PowerShell scripting.
 
 In this lab environment, there is a simple ticketing system (based on PowerShell). Feel free to head to **Administration >> > Actions > Configuration > Ticket System** as the **admin** user to see just how easy the configuration is for ServiceNow, by clicking on the **New Ticket System** button.
+
+As you already saw that ticket nr 12345567 worked, now try to use another number and see that you get an error **Invalid ticketid**.
+
+![secrets](images/lab020.png)
