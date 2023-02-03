@@ -68,22 +68,22 @@ Managing credentials closely is the name of the game in PAM. We want to ensure t
 
 For this we have a dedicated function called **Heartbeat**. The Heartbeat function polls the stored credential against its target device/host/platform regularly to ensure that the credential that is stored within Secret Server is in fact the correct credential. If it is incorrect, an error will be displayed and users & administrators can be notified thereof. 
 
-Head to **Secrets >> > Use Case Examples > Firewalls & Networks** Folder. There you will find example accounts. Click on **OpnSense - Root Account** and it will open up for you. 
+Head to **Secrets >> > Use Case Examples > Firewalls & Networks** Folder. There you will find example accounts. Click on **OpnSense - SSH and WPF** and it will open up for you. 
 
 ![secret](images/lab009a.png)
 
 This is a list of all of the various details that Secret Server holds about this specific credential. Scroll down slightly and you will also note that the credential has a Heartbeat "status":
 
-![secret](images/lab010.png)
+![secret](images/lab010a.png)
  
 The success indicates that on the previous poll, the credential combination stored was correct (in this case against the OpnSense Router). 
 In the top of the screen, a button called **Heartbeat** is show. Click this button to start a Heartbeat check. A blue bar will appear that a heartbeat action is scheduled.
 
-![secret](images/lab011.png)
+![secret](images/lab011a.png)
 
 After approx. 10-20 seconds a blue bar will appear at the bottom of the screen stating that the heartbeat has been successful
 
-![secret](images/lab012.png)
+![secret](images/lab012a.png)
 
 ### Password Changing
 In the Secret from the previous section, press the eye icon (<img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/eye.svg" width="10" height="10">) in the password field (we'll learn about hidden passwords later on). This will display the currently stored password for the Secret. Take a mental note of this.
@@ -94,7 +94,7 @@ Head back to the top right-hand corner, press **Change Password Now**. A panel l
 
 The drop down will allow you to also select a Manual password to put in, but for now let's leave it randomly generated. The password will be generated based on the specific password policy assigned to accounts within Secret Server. Click **Change Password** and the automated process of changing the password on the account will begin. Secret Server will reach out to the target and tell the that the new password for this account is the one you just generated. Nice!
 
-![secret](images/lab014.png)
+![secret](images/lab014a.png)
 
 If you want this process to occur "automated-ly" on a schedule, then head to the **Remote Password Changing** tab on the Secret and note that you can set the Secret to "auto change", from which point you can set an appropriate schedule - either based on time frames or on a "cron job" type schedule (weekly, monthly, etc). Experiment with this!
 
@@ -109,10 +109,10 @@ To complement the RBAC in Secrets & Folders, Secret Server also features a numbe
 
 Head to the Secret Workflows folder under **Secrets >> > Use Case Examples > Windows Accounts > Secret Workflows**. 
 
-![secrets](images/lab016.png)
+![secrets](images/lab016a.png)
 
 !!! Note
-    If you were feeling particularly daring you could always enter the URL for the item directly in the URL panel. Each and every item within the solution has a unique identifier, in this case the folder has an **ID of 1029** (https://sspm.delinealabs.local/SecretServer/app/#/secrets/view/folder/**1029**), hence we could navigate to it (or link to it!) directly, if we wanted to. Keep in mind, all the strict role-based access control will still apply.
+    If you were feeling particularly daring you could always enter the URL for the item directly in the URL panel. Each and every item within the solution has a unique identifier, in this case the folder has an **ID of 66** (https://sspm.delinealabs.local/SecretServer/app/#/secrets/view/folder/**66**), hence we could navigate to it (or link to it!) directly, if we wanted to. Keep in mind, all the strict role-based access control will still apply.
 
 ### Checkout
 
@@ -123,21 +123,20 @@ The checkout workflow serves two objectives:
 
 ### Approval Request
 
-Click on the **3. Approval Request - Basic Secret** and you will be presented with the standard request for access screen. Click **Request Access**. Here the user can select the timeframe in which they want access to the Secret, as well as the ticket system for which they have the requisite ticket for (this is optional in general, although mandatory on this request). 
+Click on the **2. Approval Request - Basic** and you will be presented with the standard request for access screen. Click **Request Access**. Here the user can select the timeframe in which they want access to the Secret, as well as the ticket system for which they have the requisite ticket for (this is optional in general, although mandatory on this request). 
 
-![secrets](images/lab017.png)
+![secrets](images/lab017a.png)
  
-Once you have submitted a request, it will be sent to the administrator(s) that are assigned to this workflow. If you choose the basic ticket system you can enter any ticket ID/number/string, so try that out!
+As we are also using the ticketing system, please use ticket number 1234567. Any other number will not allow you to get to the next step of opening the secret.
+Once you have submitted a request, it will be sent to the administrator(s) that are assigned to this workflow. 
 
 !!! Note
-    If you would like to go and approve/deny the request you have just made, you will either need to log out or create a new Incognito browser window and log in as the **delinealabs\auditor** user (the credentials are in the SkyTap credentials list). From there, head to your Dashboard or Inbox and you should have a request sitting there ready to inspect!
+    If you would like to go and approve/deny the request you have just made, you will either need to log out or create a new Incognito browser window, or open Vivaldi browser, and log in as the **afoster** user in the delinealabs domain(the credentials are the same as for krogers). From there, head to your Dashboard or Inbox and you should have a request sitting there ready to inspect!
 
-    ![secrets](images/lab018.png)
+    ![secrets](images/lab018a.png)
 
 ### Ticket System integrations
 
 Multiple ticketing systems are integrated out-of-the-box in the Secret Server solution including ServiceNow, BMC Remedy and Atlassian JIRA. Additionally, custom integrations can be delivered against all ticketing systems that feature a REST API via PowerShell scripting.
 
-In this lab environment, no ticketing system is set up, but feel free to head to **Administration >> > Actions > Configuration > Ticket System** as the **ss_admin** user to see just how easy the configuration is for ServiceNow, example have been setup. Add a few basic details about your ServiceNow instance and you are integrated. Easy!
-
-![secrets](images/lab019.png)
+In this lab environment, there is a simple ticketing system (based on PowerShell). Feel free to head to **Administration >> > Actions > Configuration > Ticket System** as the **admin** user to see just how easy the configuration is for ServiceNow, by clicking on the **New Ticket System** button.
