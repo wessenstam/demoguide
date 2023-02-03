@@ -100,7 +100,7 @@ Once you click on the PuTTY Launcher button, Delinea Connection Manager, with a 
 
 One of the most common situations with cloud instances, like AWS, GCP or Azure, is that the "intenal" VPC/VNET can only be accessed via a Bastion host or jumpbox. Secret Server is capable of using jumpbox routes to the end point for SSH connections. To emulate such a connection, navigate to **Secrets >> > Use Case Examples > Unix Accounts > DB-Linux via Jumpbox Route** and start the launcher.
 
-You will see that the session has been made via the level 1 and from there to the db-linux server.
+You will see that the session has been made via the level 1 (web-linux) and from there to the db-linux server.
 
 ![secrets](images/lab030.png)
 
