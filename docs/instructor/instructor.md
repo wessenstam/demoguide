@@ -13,15 +13,16 @@ The network that is being used in the demo environment is in the 172.31.32.0/24 
 
 | VM name | Description | OS version |IP address |
 | - | - | - | - |
-| CentOS Server | CentOS Server | CentOS 7.9 | 172.31.32.128 |
-| Client | Client VM | Windows 10 | 172.31.32.118 |
+| web-linux | NGINX Linux | Rocky Linux 8 | 172.31.32.30 |
+| db-linux | MariaDB Linux | Rocky Linux 8 | 172.31.32.35 |
+| Client | Client VM | Windows 10 | 172.31.32.100 |
 | DC1 | Domain Controller | Windows 2016 | 172.31.32.10 |
-| lnx-platform | CentOS Server for the Cloud tenant | CentOS 7.9 | 172.31.32.200 |
-| pfSense | pfSense router for some secrets demos| pfSense 20.1.4 | 172.31.32.8 |
-| RDS01 | RDS server for some secrets demos | Windows 2016 | 172.31.32.129 |
-| SSPM | Secret Server and Privilege Manager installation | Windows 2016 | 172.31.32.114 |
+| pfSense | pfSense router for some secrets demos| pfSense 20.7 | 172.31.32.8 |
+| RDS01 | RDS server for some secrets demos | Windows 2016 | 172.31.32.25 |
+| SSPM | Secret Server and Privilege Manager installation | Windows 2016 | 172.31.32.20 |
 | vRouter | VyOS based router between the networks | VyOS 1.8 | 172.31.32.253 |
 | win-platform | Windows platform for the Cloud tenant | Windows 2016 | 172.31.32.210 |
+| lnx-platform | CentOS Server for the Cloud tenant | CentOS 7.9 | 172.31.32.200 |
 
 As the vRouter is the routing device between the demo network and the LAN of the installation (172.31.32.253 is the default gateway on all VMs), this VM has two nics. One of them (LAN side) is using a DHCP defined NIC. Making it possible to route between then networks, it has Network MASQ enabled on this NIC. The pfSense also has two NICS, but is not used for routing. It can be set up to become the router and not the VyOS router, but that is out of scope of this instruction. Documentation can be found on the internet.
 
@@ -128,7 +129,7 @@ After the VMs have been started, run the demo guide as shown on https://workshop
 
 Quick checks:
 
-1. Can login as the user on the RDS01 and get MFA challenges
+1. Can login as the user **afoster** on the RDS01 and get MFA challenges
 2. Can login to the Secret Server UI from the Client.
 3. Can login to all VMs using the mentioned username and password combination
 
@@ -136,17 +137,18 @@ Quick checks:
 
 | VM name/App | Username | Password |
 | - | - | - | 
-| CentOS Server | root | Delinea/4u |
-| Client | Standard User (user) | Delinea/4u |
-| DC1 | THYLAB\Administrator | Delinea/4u |
-| lnx-platform | root | Delinea/4u |
+| MariaDB Server | root | Delinea/4u |
+| Web Server | root | Delinea/4u |
+| Client | \<USERNAME> | Delinea/4u |
+| DC1 | DELINEALABS\Administrator | Delinea/4u |
 | pfSense | root | Controlled by Secret Server |
-| RDS01 | Standard User (user) | Delinea/4u | 
-|       | THYLAB\adm-training | Delinea/4u
+| RDS01 | \<USERNAME> | Delinea/4u | 
+|       | DELINEALABS\adm-training | Delinea/4u
 | SSPM | adm-training | Delinea/4u |
-|      | ss_admin | Delinea/4u |
+|      | admin | Delinea/4u |
 | vRouter | vyos | Delinea/4u |
 | win-platform | administrator | Delinea/4u |
+| lnx-platform | root | Delinea/4u |
 
 !!!danger
 
