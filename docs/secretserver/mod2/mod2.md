@@ -144,3 +144,6 @@ In this lab environment, there is a simple ticketing system (based on PowerShell
 As you already saw that ticket nr 12345567 worked, now try to use another number and see that you get an error **Invalid ticketid**.
 
 ![secrets](images/lab020.png)
+
+!!! note
+    The ticket system is a very simple PowerShell script that just accepts 1234567 as the ticket id. Any other value will be denied.

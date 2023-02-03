@@ -6,35 +6,33 @@ Privilege Session launching is a key component of the PAM solution, allowing adm
 
 ### Standard Launching
 
-An important component of any PAM platform is allowing users to utilize privilege without having direct access to the underlying credentials. Head to **Secrets >> > Windows Accounts > Domain Administrators > Generic/Pooled > 1. Hidden Password**. Within this Secret you will find an Active Directory account that is a domain administrator on the delinealabs.local domain. Note that the password field on the Secret is completely hidden and cannot be access.
+An important component of any PAM platform is allowing users to utilize privilege without having direct access to the underlying credentials. Head to **Secrets >> > Secrets >> > Use Case Examples > Windows Accounts > Domain Administrators > Domain Administrator**. Within this Secret you will find an Active Directory account that is the domain administrator on the delinealabs.local domain. Note that the password field on the Secret is completely hidden and cannot be access.
  
-![secrets](images/lab001.png)
+![secrets](images/lab001a.png)
 
 However, scroll down and you will find that there is an RDP Launcher available, which will allow you to connect via RDP to a target host using this account and the privileges associated with it. Click the RDP Launcher button..
 
 ![secrets](images/lab002.png)
 
-In the dialog box that is presented, enter "sspm.delinealabs.local" and hit launch now. A session will open in to the sspm server and you will be logged in as adm_admin1 by Secret Server. Nice, you've successfully completed your first privileged session launch!
+In the dialog box that is presented, enter "sspm.delinealabs.local" and hit launch now. 
 
-![secrets](images/lab003.png)
- 
-In the dialog box that is presented, enter "sspm.delinealabs.local" and hit launch now. A session will open in to the sspm server and you will be logged in as adm_admin1 by Secret Server. Nice, you've successfully completed your first privileged session launch!
+![secrets](images/lab003a.png)
+
+A session will open in to the sspm server and you will be logged in as **delinealabs\administrator** by Secret Server. Nice, you've successfully completed your first privileged session launch!
 
 !!! Note
-    You will get some messages from the Remote Desktop session as we are not using a certificate in the Demo Lab. Please click **Connect** till you have the desktop.
+    You will get some messages from the Remote Desktop session as we are not using a RDP certificate in the Demo Lab. Please click **Connect** till you have the desktop.
 
     ![secrets](images/lab004.png)
 
 ### Session Connector Launching
-The basic RDP launch establishes an RDP connection from your client device to the target host/platform using the privileged credentials. However, there are cases when you may want to launch using an intermediary device - commonly referred to as a "jumphost". The jumphost in Secret Server is referred to as Session Connector.
+The basic RDP launch establishes an RDP connection from your client device to the target host/platform using the privileged credentials. However, there are cases when you may want to launch using an intermediary device - commonly referred to as a "jumphost". The jumphost in Secret Server is referred to as Session Connector when RDP is in play.
 
-Head to **Secrets >> > Windows Accounts > Domain Administrators > Generic/Pooled > 6. Session Connector (RDS Launching)**.
+Head to **Secrets >> > Use Case Examples > Windows Accounts > RDS - Usage > RDS usage for adm_desktopteam1**.
 
-![secrets](images/lab005.png)
+![secrets](images/lab005a.png)
 
-On this Secret you can see that we have a number of different launching options that look similar to the standard launching function, however the actual launch itself will be drive as a RemoteApp. This means that on your client it will look and feel the same as if you had done a direct RDP launch, however the actual application itself is actually running on the Session Connector host (it's a virtualized app). 
- 
-Go ahead and try launching the **Session Connector RDP** option and at the prompt enter "sspm.delinealabs.local". This will download a RDP file you can open. If you open this a new screen will appear and click **Connect** twice so the connection will be made to the SSPM.delinealabs.local server via the RDS01 (RDS server)
+Go ahead and try launching the **RDS - Session Connector** option and at the prompt enter "sspm.delinealabs.local". This will download a RDP file you can open. If you open this a new screen will appear and click **Connect** twice so the connection will be made to the SSPM.delinealabs.local server via the RDS01 (RDS server)
 
 ![secrets](images/lab006.png)
 
@@ -43,27 +41,35 @@ Go ahead and try launching the **Session Connector RDP** option and at the promp
 
     ![secrets](images/lab007.png)
 
+
+On this Secret you can see that we have a number of different launching options that look similar to the standard launching function, however the actual launch itself will be drive as a RemoteApp. This means that on your client it will look and feel the same as if you had done a direct RDP launch, however the actual application itself is actually running on the Session Connector host (it's a virtualized app). 
+
+
 ### Additional RDP Launching Options 
 
 There are a multitude of different options available for RDP session launching that helps ensure that users are getting the correct privileged access at the correct time.
 
-In the example below (**Secrets >> > Use Case Examples > Windows Accounts > Domain Administrators > Generic/Pooled > 2. Hidden Details**), almost all of the fields are hidden. This is to prevent data leakage - particularly in the case of third parties - but ensures that they can still utilize the privilege that they need to in performing their role.
+In the example below (**Secrets >> > Use Case Examples > Windows Accounts > Domain Administrators > Hidden Details**), all of the fields are hidden and only the audit is shown. This is to prevent data leakage - particularly in the case of third parties - but ensures that they can still utilize the privilege that they need to in performing their role. 
 
-![secrets](images/lab008.png)
+![secrets](images/lab008a.png)
 
-As well as having an open dialog box in to which the user can specify the device they wish to access, a device list can also be presented to the user that allows them to select where to launch to. Take a look at this in: **Secrets >> > Use Case Examples > Windows Accounts > Domain Administrators > Generic/Pooled > 3. Restricted Launch** and click the **RDP Launcher** to see an example of a restricted list of targets
+To launch these category of secrets, back in the overview page, when you see three secrets, hoovering over the secret is providing a launch button in the form of a rocket. Clicking this rocket will start the assigned Launcher to the secret. In this case the RDP launcher.
 
-![secrets](images/lab009.png)
+![secrets](images/lab008b.png)
+
+As well as having an open dialog box in to which the user can specify the device they wish to access, a device list can also be presented to the user that allows them to select where to launch to. Take a look at this in: **Secrets >> > Use Case Examples > Windows Accounts > Domain Administrators > Restricted server for Domain Admin** and click the **RDP Launcher** to see an example of a restricted list of targets
+
+![secrets](images/lab009a.png)
 
 !!! Note
     In some cases the device list is going to include a large number of items. If the list goes over 15 items, it stops displaying as a single list and becomes a searchable list, easing the user interaction with the tool.
 
 Within each Secret there also exists a "Security" tab, under which you can easily - via checkboxes - make changes to the way in which the Secret is secured. For example, a comment can be required for use or session recording enabled. 
 
-![secrets](images/lab010.png)
+![secrets](images/lab010a.png)
 
 !!! Note
-    These security options can also be set on a larger scale through the use of "Secret Policies". If you want to investigate these, log in as **ss_admin** and head to **Administration >> > Actions > Secret Policies**. Here you will be able to create a Secret Policy that either enforces or sets as default a particular security setting. Then, apply this Security Policy to a Folder (through the "**Edit Folder**" option). Give it a try, if you dare!
+    These security options can also be set on a larger scale through the use of "Secret Policies". If you want to investigate these, log in as **admin** and head to **Administration >> > Actions > Secret Policies**. Here you will be able to create a Secret Policy that either enforces or sets as default a particular security setting. Then, apply this Security Policy to a Folder (through the "**Edit Folder**" option). Give it a try, if you dare!
 
     ![secrets](images/lab011.png)
 
@@ -71,34 +77,53 @@ Within each Secret there also exists a "Security" tab, under which you can easil
 ## SSH
 Privilege launching in to SSH devices is achieved through an inbuilt version of PuTTY that can be easily accessed through the use of an out-of-the-box launcher. 
 
-Head to **Secrets >> > Use Case Examples > Unix Accounts > 1. Unix Root Account - SSH Key**
+Head to **Secrets >> > Use Case Examples > Unix Accounts > root - web-linux**
 
-![secrets](images/lab012.png)
+![secrets](images/lab012a.png)
 
-Here you will find an administrative credential for the CentOS Server that is in the lab. Scroll down and find the PuTTY Launcher.
+Here you will find an administrative credential for the web-linux Rocky Server that is in the lab. Scroll down and find the PuTTY Launcher.
 
 ![secrets](images/lab013.png)
 
-Once you click on the PuTTY Launcher button, PuTTY will open and you will have a privileged session for you established on the target device. Easy!
+Once you click on the PuTTY Launcher button, Delinea Connection Manager, with a SSH session, will open and you will have a privileged session for you established on the target device. Easy!
 
-![secrets](images/lab014.png)
+![secrets](images/lab014a.png)
 
 !!! Note
     Command controls (allow and block) can be implemented in the context of SSH sessions, such that you can manage user behavior within the device and ensure that users do what they should be doing. This function is not covered in this lab.
 
+    Try this with the **Restricted Linux server** secret and see that the root account cannot use the commands ``shutdown`` or ``su``
+
+    ![secrets](images/lab014b.png)
+
+### SSH Jumpbox route
+
+One of the most common situations with cloud instances, like AWS, GCP or Azure, is that the "intenal" VPC/VNET can only be accessed via a Bastion host or jumpbox. Secret Server is capable of using jumpbox routes to the end point for SSH connections. To emulate such a connection, navigate to **Secrets >> > Use Case Examples > Unix Accounts > DB-Linux via Jumpbox Route** and start the launcher.
+
+You will see that the session has been made via the level 1 and from there to the db-linux server.
+
+![secrets](images/lab030.png
+
+!!! Note
+    If you want to block all traffic from all the VMs except the web-linux, user the following commands on the db-linux after you have logged in as root.
+    ``iptables -A INPUT -s 172.31.32.30 -j ACCEPT`` this will allow only the web-linux VM to make to connection, no other IP address
+    ``iptables -A INPUT -s 172.31.32.0/24 -j DROP`` this will block all traffic from other machines immediately, so a PuTTY session yuo might have used to the VM will be blocked.
+
+    Now retry the secret. This should allow you to login. Trying to get dirctelly to the db-linux will fail as your machine will be blocked from the  machine.
+    After you are done, make sue you remove the firewall rules by using the command ``iptables -F``.
 
 ## Web
 
-Web-based session launching is powered by the Secret Server browser extension (available for Google Chrome and Mozilla Firefox). This extension populates web credential entry screens on behalf of users so that they do not need to have the password ever exposed to them. The browser extension also handles web session recording for us.
+Web-based session launching is powered by the Secret Server browser extension. This extension populates web credential entry screens on behalf of users so that they do not need to have the password ever exposed to them. The browser extension also handles web session recording for us.
 
 !!! Note
     Note that the extension icon in the browser is dark blue. It is actually already logged in! When you open Secret Server and authenticate with the web console, if the browser extension is installed it will also be automatically logged in. This means that your users can immediately get privileged access without a separate logon.
 
     ![secrets](images/lab015.png)
 
-Let's take a look at an example. Head to **Secrets >> > Use Case Examples > Firewalls & Networks > OpnSense Root Account**. 
+Let's take a look at an example. Head to **Secrets >> > Use Case Examples > Firewalls & Networks > OpnSense - SSH and WPF**. 
 
-![secrets](images/lab016.png)
+![secrets](images/lab016a.png)
 
 This Secret is interesting in the sense that it has multiple launchers attached to it that are substantially different. To administer this router, we might want to connect via the web administrative console, or via SSH. Both options are available for us:
 
@@ -123,7 +148,7 @@ Head to **Administration >> > Actions > Session Monitoring**
 
 The standard session monitoring screen allows you to select the specifics of the session you would like to review. Clicking on the monitor button to the right will open that session recording panel.
 
-![secrets](images/lab020.png)
+![secrets](images/lab020a.png)
 
 Note the three icons below the recording itself - this will identify what elements of the session have been recorded: video, keystrokes and processes, or any combination of the three depending on the setup of the session recording.
 
@@ -142,43 +167,39 @@ Detailed reports and auditing exist for all actions performed within the solutio
 
 ![secrets](images/lab021.png)
  
-50 out of the box reports that can be customized through the user of "filters" and can also be scheduled to be sent to groups of users. This includes:
+50 out of the box reports that can be customized through the use of "filters". In order to "filter" a particular report by one of its pre-defined characteristics, press the Report Filter button and you will be given the option to select to delimit the report in the appropriate way. As example; open the **What Secrets have been accessed by a user?** report in the *Secrets* section and change the name to **admin** and run the report by clicking the **Run Report** button.
 
-![secrets](images/lab022.png)
-
-In order to "filter" a particular report by one of its pre-defined characteristics, press the Report Filter button and you will be given the option to select to delimit the report in the appropriate way. 
-
-![secrets](images/lab023.png)
+![secrets](images/lab023a.png)
  
-The User Audit (tab in Reports) feature is a especially good function when it comes to offboarding users from the solution. 
+The **User Audit** (tab in Reports) feature is a especially good function when it comes to offboarding users from the solution. 
 
 ![secrets](images/lab024.png) 
 
-By selecting a particular user and a date range in which they were part of the company, we can then get a listing of all of the Secrets (after clicking the **Search History** button) that they had access to during a particular time period. 
+By selecting a particular user (krogers) and a date range in which they were part of the company, we can then get a listing of all of the Secrets that the user had access to during a particular time period. 
 
-![secrets](images/lab025.png) 
+![secrets](images/lab024a.png) 
 
-From here, we can click on "Expire Now" and all of the Secrets they did have access to will now have their passwords changed, thus we can be confident that the offboarded user no longer has any access to our corporate resources.
+From here, we can click on "Expire Now" button and all of the Secrets the user had accessed. If Auto Password Rotation has been configured, the passwords will be rotated as soon as possible. That way we can be confident that the offboarded user no longer has any access to the corporate resources.
 
-![secrets](images/lab026.png) 
+![secrets](images/lab025a.png) 
 
 !!! Note
-    Fully customizable reports can be created in Secret Server through the use of SQL scripting. This means that if you don't see a report that you need, you can always create one either with help from Delinea or through your own SQL… the options for interesting reporting are thereby limitless! 
+    Fully customizable reports can be created in Secret Server through the use of SQL scripting. This means that if you don't see a report that you need, you can always create one either with help from Delinea or through your own SQL... the options for interesting reporting are thereby limitless! 
 
 ## SSH Terminal
 
 When it comes to SSH launching, some users are going to want to use an existing SSH terminal/shell to access devices, and they, like all users, will need a way of getting access to privileged credentials. This is where SSH Terminal becomes handy.
 
-![secrets](images/lab027.png) 
+![secrets](images/lab027a.png) 
 
 Open the start menu and search for "PuTTY" and then launch it. You should be presented with the application with a saved connection for "SSH Terminal". Load it and then open it.
 
-You'll be prompted to authenticate. Use **user** as the username and then insert the password for user using the SkyTap credential panel.  
+You'll be prompted to authenticate. Use **krogers** as the username and then insert the password for user.  
 
-![secrets](images/lab028.png) 
+![secrets](images/lab028a.png) 
  
 
-Once successfully logged in, you will see a screen similar to the above. You are now logged in to the SSH Terminal itself and this will now allow you to "jump" to other shell sessions, right from the commandline.
+Once successfully logged in, you will see a screen similar to the above. You are now logged in to the SSH Terminal itself and this will now allow you to "jump" to other shell sessions, right from the command line.
 
 Type the following command and you will be presented with a list of Secrets to which you have access within SSH Terminal:
 ``search``
