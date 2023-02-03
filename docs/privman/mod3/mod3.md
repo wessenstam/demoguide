@@ -50,7 +50,7 @@ Back in the main screen, set the **Operations** column as shown in the below scr
 
 ![Local Accounts](images/lab008.png)
 
-Click **Save Changes** and **Yes** to confirm the save. Back in the Computer Management applicaiton, open the Local Groups and click the Administrators group and see that the accounts **Administrator, THYLAB\adm_admin2, THYLAB\adm_training and THYLAB\Domain Admins** are mentioned.
+Click **Save Changes** and **Yes** to confirm the save. Back in the Computer Management applicaiton, open the Local Groups and click the Administrators group and see that the accounts **Administrator, delinealabs\adm_admin2, delinealabs\adm_training and delinealabs\Domain Admins** are mentioned.
 
 ![Local Accounts](images/lab009.png)
 
@@ -61,7 +61,7 @@ Update the configuration by using the **Update** button in the Agent Utility to 
 Now try two things and see what will happen: 
 
 1. Try to delete the helpdesk-a account from the Administrators group
-2. Try to add your account (THYLAB\user) to the group so you can create a backdoor
+2. Try to add your account (delinealabs\user) to the group so you can create a backdoor
 
 The outcome for both the actions should be the same, it is allowed, but as soon as you refresh the screens, it will have been remediated to the set policy.
 

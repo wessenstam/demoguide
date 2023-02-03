@@ -5,7 +5,7 @@ A problem is that such an account, which is added to the */etc/sudoers* file, ca
 
 ## Security logging on Linux
 
-To show this security logging process, after getting onto the client machine, open the Putty sessions to CentOS.thylab.local and login as **adminuser** with the password **Delinea/4u**. This is a local account and has the rights to run the ``sudo`` command to get elevated rights. 
+To show this security logging process, after getting onto the client machine, open the Putty sessions to CentOS.delinealabs.local and login as **adminuser** with the password **Delinea/4u**. This is a local account and has the rights to run the ``sudo`` command to get elevated rights. 
 Run the command ``sudo yum update zip`` and see that after providing the password the command is executed
 
 ![Security Log](images/lab001.png)
@@ -24,13 +24,13 @@ Run the command ``sudo cat /var/log/secure`` and see that you can see the securi
 
 ![Security Log](images/lab003.png)
 
-As mentioned in the other parts, this is not a wanted scenario. This is a possible big security gap! Run the command ``sudo tail -f /var/log/secure`` and open a new Putty session where you login as **user@thylab.local**. Position the two putty screen so that they don't overlap each other so you can see the secure log in realtime
+As mentioned in the other parts, this is not a wanted scenario. This is a possible big security gap! Run the command ``sudo tail -f /var/log/secure`` and open a new Putty session where you login as **user@delinealabs.local**. Position the two putty screen so that they don't overlap each other so you can see the secure log in realtime
 
 ![Security Log](images/lab004.png)
 
 Now run the following commands one after the other and see the log messages as they appear in the log file.
-1. ``sudo yum update zip``; you have to provide the password of the user@thylab.local account, but will get an error that the account is not in the suoders file
-1. ``dzdo yum update zip``; you will have to provide the password of the user@thylab.local account, and the command will be executed (as we have seen earlier this is one of the command that has been allowed by the system)
+1. ``sudo yum update zip``; you have to provide the password of the user@delinealabs.local account, but will get an error that the account is not in the suoders file
+1. ``dzdo yum update zip``; you will have to provide the password of the user@delinealabs.local account, and the command will be executed (as we have seen earlier this is one of the command that has been allowed by the system)
 1. ``dzdo yum update vim``; as this command is not allowed by the system, there is nothing to be logged in the security log. The command is already blocked **BEFORE** execution
 
 ![Security Log](images/lab005.png)

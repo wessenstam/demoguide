@@ -36,7 +36,7 @@ Deep knowledge of the instance architecture will not be a pre-requisite for comp
 This is the Privilege Manager server which houses the frontend IIS ASP.NET web application server and the backend Microsoft SQL database server (single database) which powers the solution.
 
 **Domain Controller**
-The lab has it's own Active Directory domain (thylab.local) for which there is a single Domain Controller. The domain includes various test user accounts with varying levels of privilege, in addition to standard Active Directory Security Groups that can be used to determine user access levels within the solution.
+The lab has it's own Active Directory domain (delinealabs.local) for which there is a single Domain Controller. The domain includes various test user accounts with varying levels of privilege, in addition to standard Active Directory Security Groups that can be used to determine user access levels within the solution.
 
 **Client**
 This Window 10 machine acts as the client to which the policies will be deployed and tested. Delinea recommends to have a testing environment available when building the policies as a wrong policy can drive users to madness as they will get pop up message on every single application or process that is started by then AND the system.

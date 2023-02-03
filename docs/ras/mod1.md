@@ -27,7 +27,7 @@ Using a workflow on the usage of accounts, it is even possible to become as cust
 
 ## Simulate contractor login to target
 
-Back on the Client VM, close all open windows and start **Firefox** and open the URL of *https://win-platform.thylab.local*.   
+Back on the Client VM, close all open windows and start **Firefox** and open the URL of *https://win-platform.delinealabs.local*.   
 When you have started Firefox there is a great change it is shown as one of the tiles.
 
 !!!note
@@ -46,7 +46,7 @@ Use the password **Delinea/4u** and select one of the options mentioned in the A
     2. What is your favorite car brand?: BMW
     3. What is your favorite color?: Red
     4. Color?: Red
-    5. Email challenge will go the email user@thylab.local. Open the MS Mail app and click the link **Continue..** or copy the numerical code mentioned
+    5. Email challenge will go the email user@delinealabs.local. Open the MS Mail app and click the link **Continue..** or copy the numerical code mentioned
 
 ![](../images/lab0007.png)
 
@@ -84,7 +84,7 @@ Close the connection to the CentOS by using the ``exit`` command or **<CTRL+D\>*
 
 ### Start a RDP session
 
-Right click the *rds01.thylab.local* and select **Select/Request Account**, and provide a justification. In the next screen select the *thylab\landrews* and click **Select**
+Right click the *rds01.delinealabs.local* and select **Select/Request Account**, and provide a justification. In the next screen select the *delinealabs\landrews* and click **Select**
 
 There is MFA from the cloud tenant. Answer the challenge and see that the RDP session is started. The user has no extra rights, and is created to have just the access to the system, BUT the system has a hidden gem configured...
 
@@ -108,7 +108,7 @@ Logoff by clicking the **D** again and select **Log off** and click **Close** to
 
 ### Use an account with workflow
 
-Now that we see that the connection can be made in a secure manner, return to **Resources -> Systems** and right click **fin-rtr.thylab.local** and provide a justification. In the next screen click the vyos account and see that there is a small lock in front of it.
+Now that we see that the connection can be made in a secure manner, return to **Resources -> Systems** and right click **fin-rtr.delinealabs.local** and provide a justification. In the next screen click the vyos account and see that there is a small lock in front of it.
 
 ![](../images/lab0014.png)
 
@@ -135,12 +135,12 @@ This will have triggered a new email that the request has been approved.
 ![](../images/lab0019.png)
 
 !!!info
-    The contractor has been setup as an alias to the user@thylab.local mailbox and therefore both email messages will be routed to the mailbox of user@thylab.local. This will not be the same in a production environment. It has only been setup for this lab
+    The contractor has been setup as an alias to the user@delinealabs.local mailbox and therefore both email messages will be routed to the mailbox of user@delinealabs.local. This will not be the same in a production environment. It has only been setup for this lab
 
 !!!warning
     Don't click any links that are in the email, as it will ead to errors.
 
-Now repeat the connection for the fin-rtr.thylab.local and at the point where you can select the account, notice that the lock has now been removed. Your request for access has been approved.
+Now repeat the connection for the fin-rtr.delinealabs.local and at the point where you can select the account, notice that the lock has now been removed. Your request for access has been approved.
 
 ![](../images/lab0020.png)
 

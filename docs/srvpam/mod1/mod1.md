@@ -19,7 +19,7 @@ In the environment there is a CentOS machine that has been prepared and is joine
 
 To show the AD integration, open Putty from the Start bar ![server PAM](images/lab001.png)
 
-There will be a machine ready to be used (**centos.thylab.local**), double click on the machine and a SSH session will open 
+There will be a machine ready to be used (**centos.delinealabs.local**), double click on the machine and a SSH session will open 
 
 !!! Note
     Make sure the machine is running. If it is not, start it. If you haven't touch the machine for more than 2 hours, it may have shutdown
@@ -27,7 +27,7 @@ There will be a machine ready to be used (**centos.thylab.local**), double click
 
 ### Using a SSO login
 
-The agent that is installed on the Linux machine is capable of using the Kerberos ticket from the machine, on which the user is logged in. This saves the password retyping. To make this work, type the username **user@thylab.local** in the Putty screen
+The agent that is installed on the Linux machine is capable of using the Kerberos ticket from the machine, on which the user is logged in. This saves the password retyping. To make this work, type the username **user@delinealabs.local** in the Putty screen
 
 ![server PAM](images/lab002.png)
 
@@ -39,7 +39,7 @@ As soon as you hit the **ENTER** key you will see that the system logs you in di
 
 ### Using "normal" login
 
-Besides the way of logging in using the Kerberos ticket, the agent also allows access using the username and its password as credentials. Open Putty again and double click the **centos.thylab.local**. Log in as **tsmith@thylab.local** and hit **ENTER** on your keyboard. You will be presented with the password to be filled out
+Besides the way of logging in using the Kerberos ticket, the agent also allows access using the username and its password as credentials. Open Putty again and double click the **centos.delinealabs.local**. Log in as **tsmith@delinealabs.local** and hit **ENTER** on your keyboard. You will be presented with the password to be filled out
 
 ![server PAM](../../images/lab0001.png)
 
@@ -51,7 +51,7 @@ Do the same for the user account (``cat /etc/passwd | grep user``) and see that 
 
 ![server PAM](images/lab005.png)
 
-Log out of the session and try the above steps using the **state@thylab.local** account and see that that account, even though it exists in the AD, has no rights to login to the system (the system will allow 5 Times before it closes the attempt). 
+Log out of the session and try the above steps using the **state@delinealabs.local** account and see that that account, even though it exists in the AD, has no rights to login to the system (the system will allow 5 Times before it closes the attempt). 
 
 ![server PAM](../../images/lab0002.png)
 

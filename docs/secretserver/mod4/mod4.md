@@ -12,13 +12,13 @@ You'll note that we have multiple discovery sources, in this case for Unix disco
 
 ![Discovery](images/lab002.png)
 
-You will note that the entire thylab.local domain can be expanded. Many account types can be discovered, from Active Directory accounts to Local Windows accounts, local SQL accounts, Oracle accounts, etc etc. These accounts, once discovered, can be manually onboarded in to the PAM solution using the Import function, or automatically onboarded using the "Create Rule" function. 
+You will note that the entire delinealabs.local domain can be expanded. Many account types can be discovered, from Active Directory accounts to Local Windows accounts, local SQL accounts, Oracle accounts, etc etc. These accounts, once discovered, can be manually onboarded in to the PAM solution using the Import function, or automatically onboarded using the "Create Rule" function. 
 
 Take a look at these options and see if you can import a domain account!
 
 ## Service Account Dependencies
 
-When it comes to privileged service accounts, it is not enough just to be managing the username and password combination. One must also manage the dependent services or applications that rely on this service account as well. These are referred to in Secret Server as dependencies and can be automatically onboarded. Let's take a look. Click the **Service Accounts** tab. Here we can see that there is an "Unmanaged" dependency for a service account on the RDS01 server. The fact that this has been discovered means that Secret Server has identified that it is a service, has identified that it owns the privileged account for this Secret (thylab\svc_service1), but that it does not have a listing for this particular dependency. Hence it is marked as "Unmanaged". 
+When it comes to privileged service accounts, it is not enough just to be managing the username and password combination. One must also manage the dependent services or applications that rely on this service account as well. These are referred to in Secret Server as dependencies and can be automatically onboarded. Let's take a look. Click the **Service Accounts** tab. Here we can see that there is an "Unmanaged" dependency for a service account on the RDS01 server. The fact that this has been discovered means that Secret Server has identified that it is a service, has identified that it owns the privileged account for this Secret (delinealabs\svc_service1), but that it does not have a listing for this particular dependency. Hence it is marked as "Unmanaged". 
 
 ![Discovery](images/lab003.png)
 
@@ -26,7 +26,7 @@ Click on the checkbox to the left of RDS01 and then press **Import**. This will 
 
 ![Discovery](images/lab004.png)
  
-From there, head to **Secrets >> > Use Case Examples -> Service Accounts -> thylab\svc_service1** and then go to the **Dependencies** tab. And there you have it, our new dependency has now been added! 
+From there, head to **Secrets >> > Use Case Examples -> Service Accounts -> delinealabs\svc_service1** and then go to the **Dependencies** tab. And there you have it, our new dependency has now been added! 
 
 ![Discovery](images/lab005.png)
 
@@ -80,7 +80,7 @@ Head to the **API Examples** folder on your Desktop and you will get access to t
 
 Let's take a look at the script in a little bit more detail. 
 
-``$api = "https://sspm.thylab.local/secretserver/winauthwebservices/api/v1"``
+``$api = "https://sspm.delinealabs.local/secretserver/winauthwebservices/api/v1"``
 
 This URL is the location of the Windows Authenticated REST API in Secret Server in this lab.
 

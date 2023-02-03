@@ -42,7 +42,7 @@ As mentioned in the above introduction we want to make sure that users have the 
 
 ### Scenario 1 - TSmith
 
-While still being on the client machine, open a Putty session to the **centos.thylab.local** and login as **tsmith@thylab.local** using the password **Delinea/4u**. Try to run the following commands and see their outcome and compare them to the table below:
+While still being on the client machine, open a Putty session to the **centos.delinealabs.local** and login as **tsmith@delinealabs.local** using the password **Delinea/4u**. Try to run the following commands and see their outcome and compare them to the table below:
 
 
 | Command              | MFA needed | Allowed/Result |
@@ -61,7 +61,7 @@ Close the Putty session.
 
 ### Scenario 2 - User
 
-In this scenario we are going to see what the account **user@thylab.local** can do. Login as that user using Putty and provide the username **user@thylab.local**. As seen before, a password is not needed as we are already authenticated against AD on our Windows machine.
+In this scenario we are going to see what the account **user@delinealabs.local** can do. Login as that user using Putty and provide the username **user@delinealabs.local**. As seen before, a password is not needed as we are already authenticated against AD on our Windows machine.
 
 ![JIT Commands](images/lab002.png)
 
@@ -126,11 +126,11 @@ After the first ``dzdo`` command the MFA challenge is needed. As you have authen
     2. What is your favorite car brand?: BMW
     3. What is your favorite color?: Red
     4. Color?: Red
-    5. Email challenge will go the email user@thylab.local. Open the MS Mail app and click the link **Continue..** or copy the numerical code mentioned
+    5. Email challenge will go the email user@delinealabs.local. Open the MS Mail app and click the link **Continue..** or copy the numerical code mentioned
 
 ### Conclusion
 
-The two described scenarios are solved by the configuration that has been made in the Server PAM solution. Users that are allowed to login can login, but will be normal user. The user@thylab.local account has been give three commands that the user can run with elevated privileges.
+The two described scenarios are solved by the configuration that has been made in the Server PAM solution. Users that are allowed to login can login, but will be normal user. The user@delinealabs.local account has been give three commands that the user can run with elevated privileges.
 
 !!! Note
     To test this more, try to run any other command, example ``dzdo yum update -y``, and see that the command is being blocked by the system. Also any sudo commands, ``sudo yum update -y`` as example, are blocked as the user is not in the so called **sudoers file**
@@ -141,14 +141,14 @@ Close the Putty session.
 
 For Windows we can do the same thing, but this lab goes a bit further. The following scenarios are going to be discussed:
 
-1. Only allowed users can access the Windows server RDS01 (**THYLAB\user** and **THYLAB\adm-training**), not even the Domain Administrator account is able to log in
-2. Account **THYLAB\user** is allowed to login as a normal user, but due to the persons role, the Eventviewer, the security part in particular, can be opened. Also the Windows Firewall can be opened by this person, but only after authenticating again using its corresponding AD password
+1. Only allowed users can access the Windows server RDS01 (**delinealabs\user** and **delinealabs\adm-training**), not even the Domain Administrator account is able to log in
+2. Account **delinealabs\user** is allowed to login as a normal user, but due to the persons role, the Eventviewer, the security part in particular, can be opened. Also the Windows Firewall can be opened by this person, but only after authenticating again using its corresponding AD password
 
 ### Scenario 1 - Block domain administrator access
 
-A reason for not allowing the Domain Administrator to login to the system is due to accountability. This account should be considered a shared account and it's hard to hold people accountable.  All actions are being logged in the event viewer as THYLAB\Administrator and not the person that used the account. By only allowing specific user accounts, named account (they can be tied back to ONE person) we can held the people accountable.
+A reason for not allowing the Domain Administrator to login to the system is due to accountability. This account should be considered a shared account and it's hard to hold people accountable.  All actions are being logged in the event viewer as delinealabs\Administrator and not the person that used the account. By only allowing specific user accounts, named account (they can be tied back to ONE person) we can held the people accountable.
 
-Open the console of the RDS01 by clicking on its icon in the Skytap environment and login as the account **THYLAB\Administrator** with **Delinea/4u** as the password. You will get a message that **The account is not authorized to log in from this station** and click on **OK**
+Open the console of the RDS01 by clicking on its icon in the Skytap environment and login as the account **delinealabs\Administrator** with **Delinea/4u** as the password. You will get a message that **The account is not authorized to log in from this station** and click on **OK**
 
 ![JIT Commands](images/lab008.png)
 
@@ -162,7 +162,7 @@ Back at the Client, try using the Remote Desktop Connection (**dc1**) and notice
 
 ### Scenario 2 - allowed users
 
-Open the RDS01 console again, and login as **THYLAB\user** this time with the known password **Delinea/4u** and see that that user CAN login to the RDS01 server. Now the user is a normal user and has no extra privileges. On the desktop, click the Eventviewer and try to open the security info. This will not be allowed, but the user can see the other information of the system as a normal user.
+Open the RDS01 console again, and login as **delinealabs\user** this time with the known password **Delinea/4u** and see that that user CAN login to the RDS01 server. Now the user is a normal user and has no extra privileges. On the desktop, click the Eventviewer and try to open the security info. This will not be allowed, but the user can see the other information of the system as a normal user.
 
 ![JIT Commands](images/lab011.png)
 

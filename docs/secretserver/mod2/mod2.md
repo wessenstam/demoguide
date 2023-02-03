@@ -10,7 +10,7 @@ Click on the "Client" to get started and a new tab should open, and you'll be pr
 
 ![Client access](images/lab000.png) 
 
-Log in to the device with the **Standard User** user by pressing the arrow down, pressing CTRL-ALT-DEL and then inserting the password into the password dialog box using the insert button. (the password for **thylab\user** is the correct password)
+Log in to the device with the user **krogers** by pressing the arrow down, pressing CTRL-ALT-DEL and then inserting the password into the password dialog box using the insert button. (the password for **delinealabs\krogers** is the correct password)
 
 
 ![Architecture](images/lab001.png)
@@ -25,10 +25,10 @@ Next, we want to gain access to Secret Server itself. For that, we are going to 
 ---
 
 !!! Note
-    If the login page doesn't automatically appear, head to: **https://sspm.thylab.local/secretserver**
+    If the login page doesn't automatically appear, head to: **https://sspm.delinealabs.local/secretserver**
     You should then be presented with the login panel. If not, panic…. just kidding. Speak with your Delinea representative for further instruction if the login panel just doesn't appear.
 
-You'll want to authenticate with the username user (not thylab\user - just user) and the password will need to be inserted from the SkyTap credentials panel (see previous instructions for the **thylab\user** password). 
+You'll want to authenticate with the username user (not delinealabs\krogers - just krogers) and the password will need to be inserted from the SkyTap credentials panel (see previous instructions for the **delinealabs\krogers** password). 
 
 !!! Note
     You do also have access to an admin user. Leave this one for now - we'll get to some solution administration a bit later on.
@@ -70,7 +70,7 @@ For this we have a dedicated function called **Heartbeat**. The Heartbeat functi
 
 Head to **Secrets >> > Use Case Examples > Firewalls & Networks** Folder. There you will find example accounts. Click on **OpnSense - Root Account** and it will open up for you. 
 
-![secret](images/lab009.png)
+![secret](images/lab009a.png)
 
 This is a list of all of the various details that Secret Server holds about this specific credential. Scroll down slightly and you will also note that the credential has a Heartbeat "status":
 
@@ -112,7 +112,7 @@ Head to the Secret Workflows folder under **Secrets >> > Use Case Examples > Win
 ![secrets](images/lab016.png)
 
 !!! Note
-    If you were feeling particularly daring you could always enter the URL for the item directly in the URL panel. Each and every item within the solution has a unique identifier, in this case the folder has an **ID of 1029** (https://sspm.thylab.local/SecretServer/app/#/secrets/view/folder/**1029**), hence we could navigate to it (or link to it!) directly, if we wanted to. Keep in mind, all the strict role-based access control will still apply.
+    If you were feeling particularly daring you could always enter the URL for the item directly in the URL panel. Each and every item within the solution has a unique identifier, in this case the folder has an **ID of 1029** (https://sspm.delinealabs.local/SecretServer/app/#/secrets/view/folder/**1029**), hence we could navigate to it (or link to it!) directly, if we wanted to. Keep in mind, all the strict role-based access control will still apply.
 
 ### Checkout
 
@@ -130,7 +130,7 @@ Click on the **3. Approval Request - Basic Secret** and you will be presented wi
 Once you have submitted a request, it will be sent to the administrator(s) that are assigned to this workflow. If you choose the basic ticket system you can enter any ticket ID/number/string, so try that out!
 
 !!! Note
-    If you would like to go and approve/deny the request you have just made, you will either need to log out or create a new Incognito browser window and log in as the **thylab\auditor** user (the credentials are in the SkyTap credentials list). From there, head to your Dashboard or Inbox and you should have a request sitting there ready to inspect!
+    If you would like to go and approve/deny the request you have just made, you will either need to log out or create a new Incognito browser window and log in as the **delinealabs\auditor** user (the credentials are in the SkyTap credentials list). From there, head to your Dashboard or Inbox and you should have a request sitting there ready to inspect!
 
     ![secrets](images/lab018.png)
 

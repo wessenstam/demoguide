@@ -36,7 +36,7 @@ Deep knowledge of the instance architecture will not be a pre-requisite for comp
 This is the Secret Server server which houses the frontend IIS ASP.NET web application server and the backend Microsoft SQL database server (single database) which powers the solution.
 
 **Domain Controller**
-The lab has it’s own Active Directory domain (thylab.local) for which there is a single Domain Controller. The domain includes various test user accounts with varying levels of privilege, in addition to standard Active Directory Security Groups that can be used to determine user access levels within the solution.
+The lab has it’s own Active Directory domain (delinealabs.local) for which there is a single Domain Controller. The domain includes various test user accounts with varying levels of privilege, in addition to standard Active Directory Security Groups that can be used to determine user access levels within the solution.
 
 **RDS Server**
 This server can act as a "jumphost" for privileged session launches. A jumphost is not a mandatory component of session launching within Secret Server, however this server can be used to demonstrate the capability within the lab - thus emphasizing the general flexibility of the solution.

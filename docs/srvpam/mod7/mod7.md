@@ -30,7 +30,7 @@ In this demo a user Lucy Andrews is been asked to login temporary into the CentO
 
 ### Running the use case - current situation
 
-On the client (logged in as the **Standard User**), open Putty and connect to the **centos.thylab.local** machine. Try to login as **landrews@thylab.local** with **Delinea/4u** as the password,and see that you are not allowed to login.
+On the client (logged in as the **Standard User**), open Putty and connect to the **centos.delinealabs.local** machine. Try to login as **landrews@delinealabs.local** with **Delinea/4u** as the password,and see that you are not allowed to login.
 
 ![](../../images/lab0048.png)
 
@@ -56,7 +56,7 @@ Close the interface and you will be returned to the Direct Access Manager. Don't
 
 ### Running the use case - Zone Request Workflow
 
-Open Firefox and navigate to **https://win-platform.thylab.local** and login as **landrews@thylab.local** with **Delinea/4u** as the password. This will open up the Admin Portal for Lucy Andrews. Navigate to **Resources > Systems** and see that two systems are showing.
+Open Firefox and navigate to **https://win-platform.delinealabs.local** and login as **landrews@delinealabs.local** with **Delinea/4u** as the password. This will open up the Admin Portal for Lucy Andrews. Navigate to **Resources > Systems** and see that two systems are showing.
 
 ![](../../images/lab0052.png)
 
@@ -87,7 +87,7 @@ Open the Direct Access Manager again and navigate to **Access Manager > Zones > 
 
 ![](../../images/lab0058.png)
 
-Open PuTTY, connect to the centos.thylab.local machine and login as landrews@thylab.local and see that you will be able to do so. Also you may have noticed that the password prompt has changed to **Provide AD Password:**
+Open PuTTY, connect to the centos.delinealabs.local machine and login as landrews@delinealabs.local and see that you will be able to do so. Also you may have noticed that the password prompt has changed to **Provide AD Password:**
 
 ![](../../images/lab0059.png)
 
@@ -151,7 +151,7 @@ On the client head back to the Admin Portal in Firefox where LAndrews is still l
 ![](../../images/lab0065.png)
 
 Provide A justification and click **Continue**. The following screens are MFA challenges to make sure that the user requesting the access is Lucy Andrews. Make sure you select the Security Questions when you are asked for the sort of MFA challenge. All MFA answers are the same as you have used earlier for other users.
-The last screen you get is the System Authentication screen where you provide YOUR credentials. Use **landrews@thylab.local** as the username and **Delinea/4u** as the password. 
+The last screen you get is the System Authentication screen where you provide YOUR credentials. Use **landrews@delinealabs.local** as the username and **Delinea/4u** as the password. 
 
 ![](../../images/lab0066.png)
 
@@ -159,7 +159,7 @@ This will open the RDP session to the RDS01 server. Open the EventViewer and try
 
 ### Running the use case - Zone Request Workflow
 
-Reopen the Admin Portal while leaving the RDP session open! Right click the rds01.thylab.local server and select **Request Zone Role**. Select the **Commands needed to manage server/Windows Servers** role and click **Request**.
+Reopen the Admin Portal while leaving the RDP session open! Right click the rds01.delinealabs.local server and select **Request Zone Role**. Select the **Commands needed to manage server/Windows Servers** role and click **Request**.
 
 ![](../../images/lab0067.png)
 
@@ -173,7 +173,7 @@ Click the **Effective Roles** tab and see that the Role has been assigned to the
 ![](../../images/lab0069.png)
 
 !!!note
-    In the screenshot,as there has been some time between requesting the role and opening the Authorization Center, it has been put on Active. If you see Inactive, wait a few and reopen it. To force the new role to the agent, open a cmd as THYLAB\Administrator with Delinea/4u and run ``dzflush` to update the cache now.
+    In the screenshot,as there has been some time between requesting the role and opening the Authorization Center, it has been put on Active. If you see Inactive, wait a few and reopen it. To force the new role to the agent, open a cmd as delinealabs\Administrator with Delinea/4u and run ``dzflush` to update the cache now.
 
 Now that the role is assigned and active, open Windows Explorer and navigate to **%PROGRAMDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Administrative Tools** and right click **Eventviewer** and select **Run with Privilege...**
 

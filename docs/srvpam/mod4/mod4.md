@@ -16,7 +16,7 @@ To be able to see something, let's generate some information for the Audits. Wit
 4. CentOS
 
 !!!info
-    For the Windows machines use the **thylab\adm-training** account to log in. On the CentOS machine use the **user@thylab.local** account. Log in with **Delinea/4u** as the password for machines. The CentOS server should allow login without the password needed. This due to the Kerberos ticket which exists due to the login to the client.
+    For the Windows machines use the **delinealabs\adm-training** account to log in. On the CentOS machine use the **user@delinealabs.local** account. Log in with **Delinea/4u** as the password for machines. The CentOS server should allow login without the password needed. This due to the Kerberos ticket which exists due to the login to the client.
 
 In the sessions, start some applications, or run some commands and close the sessions so there is some information available in the audit.
 

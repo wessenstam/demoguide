@@ -26,14 +26,14 @@ One of the oldest application which is in almost every installation of Microsoft
 Next, we want to gain access to Privilege Manager itself. For that, we are going to need Google Chrome, so go ahead and fire it up and you should be presented with the Secret Server login screen after some time. Upon first load the application may take some time to appear.
 
 !!! Note
-    If the login page doesn't automatically appear, head to: **https://sspm.thylab.local/secretserver**
+    If the login page doesn't automatically appear, head to: **https://sspm.delinealabs.local/secretserver**
     You should then be presented with the login panel. If not, panic... just kidding. Speak with your Delinea representative for further instruction if the login panel just doesn't appear.
     Due to the preinstalled environment, Secret Server AND Privilege Manager on the same server, we are going to use the Secret Server "SSO" option to login to Privilege Manager
 
 
 ![LOgin](images/lab004.png)
 
-Use for the login page the user **Admin** in the **Thylab Domain**, the credentials are available using the insert password by clicking the Keys icon in the top screen Skytap bar as you did before. Now that you are logged into Secret Server, change the URL to **https://sspm.thylab.local/TMS** and hit the ENTER key on your keyboard. THis will open the UI for Privilege Manager.
+Use for the login page the user **Admin** in the **delinealabs Domain**, the credentials are available using the insert password by clicking the Keys icon in the top screen Skytap bar as you did before. Now that you are logged into Secret Server, change the URL to **https://sspm.delinealabs.local/TMS** and hit the ENTER key on your keyboard. THis will open the UI for Privilege Manager.
 
 ![PrivMan UI](images/lab005.png)
 

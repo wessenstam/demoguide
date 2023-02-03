@@ -6,7 +6,7 @@ Privilege Session launching is a key component of the PAM solution, allowing adm
 
 ### Standard Launching
 
-An important component of any PAM platform is allowing users to utilize privilege without having direct access to the underlying credentials. Head to **Secrets >> > Windows Accounts > Domain Administrators > Generic/Pooled > 1. Hidden Password**. Within this Secret you will find an Active Directory account that is a domain administrator on the thylab.local domain. Note that the password field on the Secret is completely hidden and cannot be access.
+An important component of any PAM platform is allowing users to utilize privilege without having direct access to the underlying credentials. Head to **Secrets >> > Windows Accounts > Domain Administrators > Generic/Pooled > 1. Hidden Password**. Within this Secret you will find an Active Directory account that is a domain administrator on the delinealabs.local domain. Note that the password field on the Secret is completely hidden and cannot be access.
  
 ![secrets](images/lab001.png)
 
@@ -14,11 +14,11 @@ However, scroll down and you will find that there is an RDP Launcher available, 
 
 ![secrets](images/lab002.png)
 
-In the dialog box that is presented, enter "sspm.thylab.local" and hit launch now. A session will open in to the sspm server and you will be logged in as adm_admin1 by Secret Server. Nice, you've successfully completed your first privileged session launch!
+In the dialog box that is presented, enter "sspm.delinealabs.local" and hit launch now. A session will open in to the sspm server and you will be logged in as adm_admin1 by Secret Server. Nice, you've successfully completed your first privileged session launch!
 
 ![secrets](images/lab003.png)
  
-In the dialog box that is presented, enter "sspm.thylab.local" and hit launch now. A session will open in to the sspm server and you will be logged in as adm_admin1 by Secret Server. Nice, you've successfully completed your first privileged session launch!
+In the dialog box that is presented, enter "sspm.delinealabs.local" and hit launch now. A session will open in to the sspm server and you will be logged in as adm_admin1 by Secret Server. Nice, you've successfully completed your first privileged session launch!
 
 !!! Note
     You will get some messages from the Remote Desktop session as we are not using a certificate in the Demo Lab. Please click **Connect** till you have the desktop.
@@ -34,7 +34,7 @@ Head to **Secrets >> > Windows Accounts > Domain Administrators > Generic/Pooled
 
 On this Secret you can see that we have a number of different launching options that look similar to the standard launching function, however the actual launch itself will be drive as a RemoteApp. This means that on your client it will look and feel the same as if you had done a direct RDP launch, however the actual application itself is actually running on the Session Connector host (it's a virtualized app). 
  
-Go ahead and try launching the **Session Connector RDP** option and at the prompt enter "sspm.thylab.local". This will download a RDP file you can open. If you open this a new screen will appear and click **Connect** twice so the connection will be made to the SSPM.thylab.local server via the RDS01 (RDS server)
+Go ahead and try launching the **Session Connector RDP** option and at the prompt enter "sspm.delinealabs.local". This will download a RDP file you can open. If you open this a new screen will appear and click **Connect** twice so the connection will be made to the SSPM.delinealabs.local server via the RDS01 (RDS server)
 
 ![secrets](images/lab006.png)
 
