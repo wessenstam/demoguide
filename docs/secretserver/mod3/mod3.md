@@ -102,7 +102,7 @@ One of the most common situations with cloud instances, like AWS, GCP or Azure, 
 
 You will see that the session has been made via the level 1 and from there to the db-linux server.
 
-![secrets](images/lab030.png
+![secrets](images/lab030.png)
 
 !!! Note
     If you want to block all traffic from all the VMs except the web-linux, user the following commands on the db-linux after you have logged in as root.
