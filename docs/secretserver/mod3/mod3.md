@@ -105,9 +105,9 @@ You will see that the session has been made via the level 1 (web-linux) and from
 ![secrets](images/lab030.png)
 
 !!! Note
-    If you want to block all traffic from all the VMs except the web-linux, user the following commands on the db-linux after you have logged in as root.
+    If you want to block all traffic from all the VMs except the web-linux, use the following commands on the db-linux after you have logged in as **root** via the console or a new PuTTY session.
     ``iptables -A INPUT -s 172.31.32.30 -j ACCEPT`` this will allow only the web-linux VM to make to connection, no other IP address
-    ``iptables -A INPUT -s 172.31.32.0/24 -j DROP`` this will block all traffic from other machines immediately, so a PuTTY session yuo might have used to the VM will be blocked.
+    ``iptables -A INPUT -s 172.31.32.0/24 -j DROP`` this will block all traffic from other machines **immediately**, so a PuTTY session you might have used to the VM will be blocked.
 
     Now retry the secret. This should allow you to login. Trying to get dirctelly to the db-linux will fail as your machine will be blocked from the  machine.
     After you are done, make sue you remove the firewall rules by using the command ``iptables -F``.
