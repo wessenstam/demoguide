@@ -114,6 +114,8 @@ $params = @{
     Headers     = @{ 'Authorization' = "Bearer $bearerToken" }
     Method      = 'GET'
 }
+
+$result=Invoke-RestMethod $params
 ```
 This is the preparation for the REST call to the Secret Server API based on bearerToken. 
 
