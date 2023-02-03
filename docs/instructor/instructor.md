@@ -139,10 +139,10 @@ Quick checks:
 | - | - | - | 
 | MariaDB Server | root | Delinea/4u |
 | Web Server | root | Delinea/4u |
-| Client | <USERNAME> | Delinea/4u |
+| Client | USERNAME | Delinea/4u |
 | DC1 | DELINEALABS\Administrator | Delinea/4u |
 | pfSense | root | Controlled by Secret Server |
-| RDS01 | <USERNAME> | Delinea/4u | 
+| RDS01 | USERNAME | Delinea/4u | 
 |       | DELINEALABS\adm-training | Delinea/4u
 | SSPM | adm-training | Delinea/4u |
 |      | admin | Delinea/4u |
