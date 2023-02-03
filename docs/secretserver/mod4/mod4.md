@@ -25,7 +25,7 @@ When it comes to privileged service accounts, it is not enough just to be managi
 Click on the checkbox to the left of RDS01 and then press **Import**. This will begin the process of importing this dependency against this particular Secret (ie service account). 
 
 !!! Danger
-    Make sure you have the settings as shown in the screenshot below. If you don't check the next step might end up in a different location where we want to see the secret itself. The password is the same as for any user in the domain.
+    Make sure you have the settings as shown in the screenshot below. If you don't check them, the secret, used in the next step, ends up in a different location. The password is the same as for any user in the domain.
 
 ![Discovery](images/lab004a.png)
 
