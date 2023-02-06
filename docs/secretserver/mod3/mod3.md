@@ -194,9 +194,12 @@ When it comes to SSH launching, some users are going to want to use an existing 
 
 Open the start menu and search for "PuTTY" and then launch it. You should be presented with the application with a saved connection for "SSH Terminal". Load it and then open it.
 
+!!! Note
+    As we have a site defined, the connection is made via the Distributed Engine (RDS01.delinealabs.local).
+
 You'll be prompted to authenticate. Use **krogers** as the username and then insert the password for user.  
 
-![secrets](images/lab028a.png) 
+![secrets](images/lab028b.png) 
  
 
 Once successfully logged in, you will see a screen similar to the above. You are now logged in to the SSH Terminal itself and this will now allow you to "jump" to other shell sessions, right from the command line.
@@ -205,13 +208,13 @@ Type the following command and you will be presented with a list of Secrets to w
 ``search``
 
 From there, you can select to "launch" to Secrets based on their Unique Identifier, which is called their SecretID. This value is the most robust way of referring to individual Secrets. Let's pick a Secret and launch to it:
-``launch 14``
+``launch 3``
 
 Success!
 
 We should now see a prompt such as follows:
 
-![secrets](images/lab029.png) 
+![secrets](images/lab029a.png) 
 
 If so, we are now authenticated as an administrator with an alternative device via SSH with a privileged credential. Note that we still don't know what it is (it's an SSH key). Nice.
 
