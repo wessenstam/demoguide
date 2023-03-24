@@ -8,7 +8,7 @@ Click on the "Client" to get started and a new tab should open, and you'll be pr
 
 ![Client access](images/lab000.png) 
 
-Log in to the device with the **Standard User** user by pressing the arrow down at the top of the screen and click **CTRL-ALT-DEL**. Then insert the password into the password dialog box using the insert button by using the Keys icon in the top of the screen.
+Log in to the machine as **KRogers** user by pressing the arrow down at the top of the screen and click **CTRL-ALT-DEL**. Then insert the password into the password dialog box using the insert button by using the Keys icon in the top of the screen.
 
 
 ![Architecture](images/lab001.png)
@@ -89,7 +89,7 @@ Now retry to run iexplore and you will get a **Application Denied** message. Eve
 
 ![PrivMan UI](images/lab013.png)
 
-Click **Close** to close the message. Now that the block for IExplore is ready, let's look at the other Block policy **RED - BNlock Bittorrent executables**
+Click **Close** to close the message. Now that the block for IExplore is ready, let's look at the other Block policy **RED - Block Bittorrent executables**
 This policy is blocking the usage of BitTorrent as an application. Activate the policy and update the Agent using the Agent Utility. after that has been realized, open on the desktop the folder INstallation Files. There will be a **BitTorrent.exe** file and try to run it. Another **Application Denied** error will appear. Now try to bypass this policy by renaming the file to something randomly. No matter what you do with the name of the file, it is still blocked and the **Application Denied** message is shown. Reason for this is that the underlying policy filter is looking at the original name of the file. To see this, right click the file you just changed, **Properties** and click the **Details** tab. There you see the original file name as **BitTorrent.exe**.
 
 ![PrivMan UI](images/lab014.png)

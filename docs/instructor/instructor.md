@@ -13,14 +13,14 @@ The network that is being used in the demo environment is in the 172.31.32.0/24 
 
 | VM name | Description | OS version |IP address |
 | - | - | - | - |
-| CentOS Server | CentOS Server | CentOS 7.9 | 172.31.32.128 |
+| CentOS Server | CentOS Server | CentOS 7.9 | 172.31.32.127 |
 | Client | Client VM | Windows 10 | 172.31.32.118 |
 | DC1 | Domain Controller | Windows 2016 | 172.31.32.10 |
 | lnx-platform | CentOS Server for the Cloud tenant | CentOS 7.9 | 172.31.32.200 |
 | pfSense | pfSense router for some secrets demos| pfSense 20.1.4 | 172.31.32.8 |
 | RDS01 | RDS server for some secrets demos | Windows 2016 | 172.31.32.129 |
 | SSPM | Secret Server and Privilege Manager installation | Windows 2016 | 172.31.32.114 |
-| vRouter | VyOS based router between the networks | VyOS 1.8 | 172.31.32.253 |
+| vRouter | VyOS based router between the networks | VyOS 1.8 | 172.31.32.254 |
 | win-platform | Windows platform for the Cloud tenant | Windows 2016 | 172.31.32.210 |
 
 As the vRouter is the routing device between the demo network and the LAN of the installation (172.31.32.253 is the default gateway on all VMs), this VM has two nics. One of them (LAN side) is using a DHCP defined NIC. Making it possible to route between then networks, it has Network MASQ enabled on this NIC. The pfSense also has two NICS, but is not used for routing. It can be set up to become the router and not the VyOS router, but that is out of scope of this instruction. Documentation can be found on the internet.
