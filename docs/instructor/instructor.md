@@ -13,7 +13,7 @@ The network that is being used in the demo environment is in the 172.31.32.0/24 
 
 | VM name | Description | OS version |IP address |
 | - | - | - | - |
-| CentOS Server | CentOS Server | CentOS 7.9 | 172.31.32.127 |
+| CentOS Server | CentOS Server | CentOS 7.9 | 172.31.32.121 |
 | Client | Client VM | Windows 10 | 172.31.32.118 |
 | DC1 | Domain Controller | Windows 2016 | 172.31.32.10 |
 | lnx-platform | CentOS Server for the Cloud tenant | CentOS 7.9 | 172.31.32.200 |
