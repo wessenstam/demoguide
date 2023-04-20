@@ -3,7 +3,7 @@
 Welcome to Delinea's Demo Guide for Secret Server, Privilege Manager, and Server PAM!!!
 
 !!!note
-    If you have downloaded the associated pre-configured demo environment as OVAs, you can start your demo guide by clicking the solution your interested in, in the left navigation pane. The below chapter is for a hosted demo environment in Delinea's Skytap.
+    If you have downloaded the associated pre-configured demo environment as OVAs, you can start your demo guide by clicking the solution your interested in, in the left navigation pane. The below chapter is for a hosted demo environment.
 ## Skytap
 
 This workshop runs from a Skytap environment. To present you with a basic set of how to use the environment, please read this small guide..
