@@ -33,7 +33,7 @@ Next, we want to gain access to Privilege Manager itself. For that, we are going
 
 ![Login](images/lab004.png)
 
-Use for the login page the user **Admin** in the **Thylab Domain**, the credentials are available using the insert password by clicking the Keys icon in the top screen Skytap bar as you did before. Now that you are logged into Secret Server, change the URL to **https://sspm.thylab.local/TMS** and hit the ENTER key on your keyboard. This will open the UI for Privilege Manager.
+Use for the login page the user **Admin** in the **Thylab Domain**, the credentials are available using the insert password by clicking the Keys icon in the top screen Skytap bar as you did before. Now that you are logged into Secret Server, change the URL to **https://sspm.thylab.local/TMS** and hit the ENTER key on your keyboard. On the login page of Privilege Manager, click the **Default Secret Servr** button to login. This will open the UI for Privilege Manager.
 
 ![PrivMan UI](images/lab005.png)
 
