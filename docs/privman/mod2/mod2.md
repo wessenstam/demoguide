@@ -8,7 +8,7 @@ Click on the "Client" to get started and a new tab should open, and you'll be pr
 
 ![Client access](images/lab000.png) 
 
-Log in to the machine as **KRogers** user by pressing the arrow down at the top of the screen and click **CTRL-ALT-DEL**. Then insert the password into the password dialog box using the insert button by using the Keys icon in the top of the screen.
+Log in to the machine as **Standard User** user by pressing the arrow down at the top of the screen and click **CTRL-ALT-DEL**. Then insert the password into the password dialog box using the insert button by using the Keys icon in the top of the screen.
 
 
 ![Architecture](images/lab001.png)
@@ -31,9 +31,9 @@ Next, we want to gain access to Privilege Manager itself. For that, we are going
     Due to the preinstalled environment, Secret Server AND Privilege Manager on the same server, we are going to use the Secret Server "SSO" option to login to Privilege Manager
 
 
-![LOgin](images/lab004.png)
+![Login](images/lab004.png)
 
-Use for the login page the user **Admin** in the **Thylab Domain**, the credentials are available using the insert password by clicking the Keys icon in the top screen Skytap bar as you did before. Now that you are logged into Secret Server, change the URL to **https://sspm.thylab.local/TMS** and hit the ENTER key on your keyboard. THis will open the UI for Privilege Manager.
+Use for the login page the user **Admin** in the **Thylab Domain**, the credentials are available using the insert password by clicking the Keys icon in the top screen Skytap bar as you did before. Now that you are logged into Secret Server, change the URL to **https://sspm.thylab.local/TMS** and hit the ENTER key on your keyboard. This will open the UI for Privilege Manager.
 
 ![PrivMan UI](images/lab005.png)
 
