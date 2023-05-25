@@ -238,3 +238,5 @@ To exit the session(s), type:
 ``exit``
 
 PuTTY should close and our SSH sessions are now closed.
+
+Close all session you have open to the Secret Server except the session for AFoster.
