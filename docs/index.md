@@ -2,6 +2,9 @@
 
 Welcome to Delinea's Demo Guide for Secret Server, Privilege Manager, and Server PAM!!!
 
+!!!INFORMATION
+    Only follow the below section if you are running the environment from Skytap. If you have downloaded OVAs and are running it on your own environment, you can skip the below and [start the demo guide here.](./secretserver/mod1/mod1/)
+
 ## Skytap
 
 This workshop runs from a Skytap environment. To present you with a basic set of how to use the environment, please read this small guide..

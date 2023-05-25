@@ -13,16 +13,15 @@ The network that is being used in the demo environment is in the 172.31.32.0/24 
 
 | VM name | Description | OS version |IP address |
 | - | - | - | - |
-| web-linux | NGINX Linux | Rocky Linux 8 | 172.31.32.30 |
-| db-linux | MariaDB Linux | Rocky Linux 8 | 172.31.32.35 |
+| Web-Server Linux | NGINX Linux <BR> Redis database for Cloud tenant | Rocky Linux 9 | 172.31.32.30 |
+| MySQL Linux | MariaDB Linux | Rocky Linux 9 | 172.31.32.35 |
 | Client | Client VM | Windows 10 | 172.31.32.100 |
-| DC1 | Domain Controller | Windows 2016 | 172.31.32.10 |
-| pfSense | pfSense router for some secrets demos| pfSense 20.7 | 172.31.32.8 |
-| RDS01 | RDS server for some secrets demos | Windows 2016 | 172.31.32.25 |
-| SSPM | Secret Server and Privilege Manager installation | Windows 2016 | 172.31.32.20 |
-| vRouter | VyOS based router between the networks | VyOS 1.8 | 172.31.32.253 |
-| win-platform | Windows platform for the Cloud tenant | Windows 2016 | 172.31.32.210 |
-| lnx-platform | CentOS Server for the Cloud tenant | CentOS 7.9 | 172.31.32.200 |
+| DC1 | Domain Controller | Windows 2022 | 172.31.32.10 |
+| pfSense | pfSense router for some secrets demos| OpnSense 20.7.8 | 172.31.32.8 |
+| RDS01 | RDS server for some secrets demos | Windows 2022 | 172.31.32.25 |
+| SSPM | Secret Server and Privilege Manager installation <BR> Mail server for the delinealabs.local domain | Windows 2022 | 172.31.32.20 |
+| vRouter | VyOS based router between the networks | VyOS 1.4 | 172.31.32.253 |
+| HSPAS | Cloud tenant <BR> PostgresSQL Database for Cloud tenant | Windows 2019 | 172.31.32.200 |
 
 As the vRouter is the routing device between the demo network and the LAN of the installation (172.31.32.253 is the default gateway on all VMs), this VM has two nics. One of them (LAN side) is using a DHCP defined NIC. Making it possible to route between then networks, it has Network MASQ enabled on this NIC. The pfSense also has two NICS, but is not used for routing. It can be set up to become the router and not the VyOS router, but that is out of scope of this instruction. Documentation can be found on the internet.
 
@@ -97,17 +96,17 @@ The order of starting the VMs is important. If the order is not correct, some to
 The ideal order is:
 
 1. vRouter
-2. lnx-platform
-3. win-platform
-4. DC1
+2. Web-Server Linux
+2. HSPAS
+4. DC
 5. SSPM
 6. Client
 7. RDS01
-8. CentOS server
+8. MySQL Linux server
 9. pfSense
 
 !!!tip
-    VMs 1,2 and 4 can be started together. The win-platform is dependent on the lnx-platform as it holds the databases that are being used by the win-platform server. Then wait till the DC1 is 100% running before starting the other machines. As the SSPM server is the SQL server for the databases that are used in the ServerPAM solutions, this server has to be started after the DC1. The Client, MUST be started BEFORE the RDS01 server. Reason is that the Client holds the management component for the Delinea Server PAM. If this server gets started AFTER the RDS01, the login into the RDS01, will not work. The easiest way to solve this issue is to reboot the RDS01 so the cache DB will be cleaned and refilled.
+    VMs 1,2 and 4 can be started together. The HSPAS server is dependent on the Web-Server Linux as it holds the Redis database that is being used by the HSPAS server. Then wait till the DC is 100% running before starting the other machines. As the SSPM server is the SQL server for the databases that are used in the ServerPAM solutions, this server has to be started after the DC1. The Client, MUST be started BEFORE the RDS01 server. Reason is that the Client holds the management component for the Delinea Server PAM. If this server gets started AFTER the RDS01, the login into the RDS01, will not work. The easiest way to solve this issue is to reboot the RDS01 so the cache DB will be cleaned and refilled.
 
 ## Licenses
 
@@ -137,20 +136,17 @@ Quick checks:
 
 | VM name/App | Username | Password |
 | - | - | - | 
-| MariaDB Server | root | Delinea/4u |
-| Web Server | root | Delinea/4u |
-| Client | USERNAME | Delinea/4u |
+| MySQL Linux | root | Delinea/4u |
+| Web-Server Linux | root | Delinea/4u |
+| Client | DELINEALABS\afoster | Delinea/4u |
 | DC1 | DELINEALABS\Administrator | Delinea/4u |
-| pfSense | root | Controlled by Secret Server |
-| RDS01 | USERNAME | Delinea/4u | 
-|       | DELINEALABS\adm-training | Delinea/4u
-| SSPM | adm-training | Delinea/4u |
-|      | admin | Delinea/4u |
+| pfSense | root | Delinea/4u |
+| RDS01 | DELINEALABS\afoster <BR> DELINEALABS\adm-training | Delinea/4u <BR> Delinea/4u |
+| SSPM | adm-training <BR> admin | Delinea/4u <BR> Delinea/4u |
 | vRouter | vyos | Delinea/4u |
-| win-platform | administrator | Delinea/4u |
-| lnx-platform | root | Delinea/4u |
+| HSPAS | Administrator | Delinea/4u |
 
 !!!danger
 
-    Please try to avoid logging into the lnx- and win-platform machines. They are needed as they are, or the cloud tenant will not run as it is supposed to be in the demo environment. 
+    Please try to avoid logging into the HSPAS machine. It is needed as is distributed. The cloud tenant and might not run as expected if changes are made.
 
