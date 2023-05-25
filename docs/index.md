@@ -24,9 +24,6 @@ Click the link as you see it mentioning in the email. You may be asked to provid
 
 Once in your environment you will ss in the top right corner a "play" menu. Is your environment has not started, click the "Play" button. It will take approx 5-10 minutes for the environment is running.
 
-![Lab Infra](images/lab002.png)
-
-
 ### Check your environment
 
 After all VMs have started, the screenshot is an example, click on the VM that is mentioned in the lab. This will open the VM in a new browser tab so you can interact with the VM.
