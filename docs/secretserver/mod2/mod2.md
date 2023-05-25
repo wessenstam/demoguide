@@ -123,14 +123,14 @@ The checkout workflow serves two objectives:
 
 ### Approval Request
 
-Click on the **3. Approval Request - Basic Secret** and you will be presented with the standard request for access screen. Click **Request Access**. Here the user can select the timeframe in which they want access to the Secret, as well as the ticket system for which they have the requisite ticket for (this is optional in general, although mandatory on this request). 
+Click on the **2. Approval Request - Basic** and you will be presented with the standard request for access screen. Click **Request Access**. Here the user can select the time-frame in which they want access to the Secret, as well as the ticket system for which they have the requisite ticket for (this is optional in general, although mandatory on this request). Use *Ticket number* **1234567** and fill out any reasons in the *Reason for Request* field and click **Submit Request**.
 
 ![secrets](images/lab017.png)
  
 Once you have submitted a request, it will be sent to the administrator(s) that are assigned to this workflow. If you choose the basic ticket system you can enter any ticket ID/number/string, so try that out!
 
 !!! Note
-    If you would like to go and approve/deny the request you have just made, you will either need to log out or create a new Incognito browser window and log in as the **thylab\auditor** user (the credentials are in the SkyTap credentials list). From there, head to your Dashboard or Inbox and you should have a request sitting there ready to inspect!
+    If you would like to go and approve/deny the request you have just made, you will either need to log out or create a new Incognito browser window and log in as the **afoster** user (the credentials are in the SkyTap credentials list) and in the Delinealabs domain! From there, head to your Dashboard or Inbox and you should have a request sitting there ready to be inspected.
 
     ![secrets](images/lab018.png)
 
@@ -138,6 +138,14 @@ Once you have submitted a request, it will be sent to the administrator(s) that 
 
 Multiple ticketing systems are integrated out-of-the-box in the Secret Server solution including ServiceNow, BMC Remedy and Atlassian JIRA. Additionally, custom integrations can be delivered against all ticketing systems that feature a REST API via PowerShell scripting.
 
-In this lab environment, no ticketing system is set up, but feel free to head to **Administration >> > Actions > Configuration > Ticket System** as the **ss_admin** user to see just how easy the configuration is for ServiceNow, example have been setup. Add a few basic details about your ServiceNow instance and you are integrated. Easy!
+In this lab environment, a very simple PowerShell ticketing system is setup. 
 
 ![secrets](images/lab019.png)
+
+If you want to have a look what can be done, simply go back to the session where AFoster is logged in and head to **Administration >> -> Actions -> Configuration -> Ticket System**. Click on the *New Ticket System* and see just how easy the configuration is for ServiceNow. Add a few basic details about your ServiceNow instance and you are integrated. Easy!
+
+![secrets](images/lab020.png)
+
+
+!!!Tip
+    More details on configuration and setting up a developer instance of ServiceNOW, <a href="https://docs.delinea.com/online-help/products/integrations/current/servicenow/itsm" target="_blank">can be found here.</a>
