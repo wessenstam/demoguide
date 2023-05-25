@@ -173,11 +173,17 @@ Users can be assigned to roles either individually or through group membership. 
 
 ### Folder and Secret Permissions
 
-Access to Folders and the secrets within them can be fully customized by right-clicking on any folder and clicking Edit Folder. Note that permissions to the folder and the secrets within are independent permissions. The below screenshot has been made from the **Database Accounts** folder and the **Permissions** tab and clicking **Edit**
+Access to Folders and the secrets within them can be fully customized by right-clicking on any folder and clicking **Edit Folder**. 
+
+Note that permissions to the folder and the secrets within are independent permissions. The below screenshot has been made from the **Database Accounts** folder and the **Permissions** tab.
 
 ![Discovery](images/lab019a.png)
 
-As noted above, access can be granted to groups (either internal to Secret Server or based on Active Directory Security Groups) or individual users. Folder permissions can either be Owner, Edit, View or List. Customize this to your liking. Secret Permissions can be set to Owner, Edit, View, List or None. The None permission means that users will be able to see the folder in the folder tree but not be able to see any of the Secrets within.
+As shown above, access can be granted to groups (either internal to Secret Server or Active Directory Security Groups) or individual users for Folders. This principle is also valid for Secrets themselves.
+
+Folder permissions can set to folder level, but also on the secrets in the folder. For more detailed information on folder permissions, <a href="https://docs.delinea.com/secrets/current/folders/managing-folders/editing-folder-permissions/index.md" target="_blank">follow this link</a>
+
+Secret Permissions can be set to Owner, Edit, View or List. For more details on secret access permission, <a HREF="https://docs.delinea.com/secrets/current/secret-management/secret-permissions/index.md" target="_blank">follow this link</a>.
 
 !!! Note
     If a user does not have access to a folder, it won't even appear for them in the folder tree, even if they have lots of administrative role permissions. The RBAC is designed to be enforced granularly to ensure that only the correct users have access to the correct permissions at the correct point in time. 
