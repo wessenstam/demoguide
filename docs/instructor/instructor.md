@@ -17,7 +17,7 @@ The network that is being used in the demo environment is in the 172.31.32.0/24 
 | MySQL Linux | MariaDB Linux | Rocky Linux 9 | 172.31.32.35 |
 | Client | Client VM | Windows 10 | 172.31.32.100 |
 | DC1 | Domain Controller | Windows 2022 | 172.31.32.10 |
-| pfSense | pfSense router for some secrets demos| OpnSense 20.7.8 | 172.31.32.8 |
+| pfSense | pfSense router for some secrets demos| OpnSense 21.1 | 172.31.32.8 |
 | RDS01 | RDS server for some secrets demos | Windows 2022 | 172.31.32.25 |
 | SSPM | Secret Server and Privilege Manager installation <BR> Mail server for the delinealabs.local domain | Windows 2022 | 172.31.32.20 |
 | vRouter | VyOS based router between the networks | VyOS 1.4 | 172.31.32.253 |
