@@ -119,7 +119,7 @@ Head to the Secret Workflows folder under **Secrets >> -> Use Case Examples -> W
 The checkout workflow serves two objectives:
 
 1.	To ensure that only a single user has access to a credential at a particular point in time. This is useful when a credential, for example a Unix root account, is not "personalized" and hence if we use Checkout we can be sure that it was a particular user using a specific credential at a specific point in time as per the Secret Server audit trails. 
-2.	Adding the ability for "Checkout Hooks" which are triggers that can perform numerous, scripted actions on the basis of a user checking out and then checking in a particular Secret. For example, we could create a scripted function that enables the Secret on the target platform upon Check Out, and then disables this account on Check In, thus it is only ever available for use when checked out from the PAM solution. See the Checkout Hook Example Secret.
+2.	Adding the ability for "Checkout Hooks" which are triggers that can perform numerous, scripted actions on the basis of a user checking out and then checking in a particular Secret. For example, we could create a scripted function that enables the Secret on the target platform upon Check Out, and then disables this account on Check In, thus it is only ever available for use when checked out from the PAM solution. See the *Checkout Hook Example - adm_server1* Secret.
 
 ### Approval Request
 
