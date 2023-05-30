@@ -44,13 +44,13 @@ Once you have the VM open in a Browser window, you will get the Skytap Toolbar (
 From left to right:
 
 1. The two screens icon; clicking this icon provides the possibility to switch consoles between VMs
-2. The "pause"/ "stop" / "power" button; Resp. suspend, stop and poweroff/on the current VM
+2. The "pause"/ "stop" / "power" button; Resp. suspend, stop and power-off/on the current VM
 3. Ctrl-Alt-Del button; send the Ctrl-Alt-Del command to the VM
-4. Keybord (EN) icon; switch between keyboard layouts. The VMs are built on EN-UK layout!
+4. Keyboard (EN) icon; switch between keyboard layouts. The VMs are built on EN-UK layout!
 5. Keys icon; any password that have been defined, you can use the button to insert the password
 6. Clipboard icon; exchange clipboard info between the VM and the machine you are working on
 7. The screen "diagonal" icon; Go full screen for the current VM
-8. Different screensizes icon; resize the screen to presetted sizes
+8. Different screen sizes icon; resize the screen to pre-configured sizes
 9. The "Wifi" icon; connection strength
 
 ### Support to your environment
