@@ -30,14 +30,14 @@ As the standard user, open Chrome and click the **Delinea SQL Server** button in
 
 ![](../../images/lab0034.png)
 
-You will be "logged-in" automatically. Click the **Delinea Report Services** folder. This will show all reports, per category, that are available after the default installation and configuration.
+Login as **delinealabs\afoster** and the known password. Click the **Delinea Report Services** folder. This will show all reports, per category, that are available after the default installation and configuration.
 
 !!!note
     If you get an error message, please wait a few minutes and then refresh your browser. Sometimes the reporting services was not ready and opening the URL for the first time, will trigger the start of the processes. A refresh will then be able to connect to the underlaying processes for the reporting.
 
 ![](../../images/lab0035.png)
 
-Navigate to **Attestation Reports folder > PCI Reports > PCI - Login Report - By Computer** report
+Navigate to **Delinea Report Services > Attestation Reports folder > PCI Reports > PCI - Login Report - By Computer** report
 
 ![](../../images/lab0036.png)
 
@@ -59,30 +59,23 @@ Besides the available reports, you can also customize the existing reports, or e
 !!!note
     This process of customizing a report is out of scope for the demo environment, but you still will be able to see the first steps to open existing reports and see what is needed to change them to requested needs. This demo will do a small update to an existing report.
 
-Navigate to **Home > Delinea Report Services > Access Manager Reports** folder and click on the three dots next to a report name Authorization Report, and select **Edit in Report Builder**
+Navigate to **Home > Delinea Report Services > Access Manager Reports** folder and click on the three dots next to a report named **Authorization Report**, and select **Edit in Report Builder**
 
 ![](../../images/lab0038.png)
-
-A warning screen will open asking if Chrome should open the Microsoft Report Builder? Click **Open Microsoft report Builder**. 
-
-!!!tip
-    The other message you will close as soon as we return to the Chrome session
-
-![](../../images/lab0039.png)
 
 This will open the Report Builder and the report can be changed to the needs of the user. Maximize the window and click on the text **[&ReportName]**. Navigate all the way to the left and provide an organisation name like **ACME -**
 
 ![](../../images/lab0040.png)
 
-Click the Run button (top left corner) to see the report with the new name at the top
+Click the **Run** button (top left corner) to see the report with the new name at the top
 
 ![](../../images/lab0041.png)
 
-Click on the Design button to return back to the design screen. Close the application. A warning screen will appear asking if the report needs to be saved to the report server. Click **Yes**
+Click on the **Design** button to return back to the design screen. Close the application. A warning screen will appear asking if the report needs to be saved to the report server. Click **Yes**
 
 ![](../../images/lab0042.png)
 
-Close the message that was still there about the Report Builder. Now rerun the report and see that the report is showing your changed report name.
+Close the message that was still there about *We're opening you report in Report Builder...*. Now rerun the **Authorization Report** and see that the report is showing your changed report name.
 
 ![](../../images/lab0043.png)
 
