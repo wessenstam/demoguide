@@ -5,7 +5,7 @@ One of the most occurring issues helpdesks and IT departments face is users that
 ## Change the standard user password
 
 Open the console of the RDS01 server and log out all users that are logged in, if any.
-In the username type **user@delinealabs.local** and click the **Forgot Password** text to start the reset password process
+In the username type **afoster@delinealabs.local** and click the **Forgot Password** text to start the reset password process
 
 ![](../../images/lab0044.png)
 
@@ -21,7 +21,7 @@ After a successful finished process a message is shown that the password has bee
 
 ![](../../images/lab0047.png)
 
-Now try to login to the RDS01 with **user@delinealabs.local** and your new password. You should be able to login using that new password without any issue.
+Now try to login to the RDS01 with **afoster@delinealabs.local** and your new password. You should be able to login using that new password without any issue.
 
 Log out of the RDS01
 
