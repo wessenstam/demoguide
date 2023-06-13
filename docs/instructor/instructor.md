@@ -108,6 +108,9 @@ The ideal order is:
 !!!tip
     VMs 1,2 and 4 can be started together. The HSPAS server is dependent on the Web-Server Linux as it holds the Redis database that is being used by the HSPAS server. Then wait till the DC is 100% running before starting the other machines. As the SSPM server is the SQL server for the databases that are used in the ServerPAM solutions, this server has to be started after the DC1. The Client, MUST be started BEFORE the RDS01 server. Reason is that the Client holds the management component for the Delinea Server PAM. If this server gets started AFTER the RDS01, the login into the RDS01, will not work. The easiest way to solve this issue is to reboot the RDS01 so the cache DB will be cleaned and refilled.
 
+!!!warning
+    To login to the DC VM, it CAN ONLY be done via the console. A RDP session will not be allowed due to configuration of policies in Delinea Server PAM.
+
 ## Licenses
 
 As the environment has no licenses in it, you have to inject the licenses in SSPM, for Secret Server and Privilege Manager and DC and DA licenses for Delinea Server PAM.
@@ -119,7 +122,9 @@ For injecting the license, follow these steps:
 For the Windows Server Operating Systems, including RDS, follow the Licensing steps as described by Microsoft.
 
 !!!tip
-    If RDS licenses are not available in the organisation, there is a script on the desktop of the RDS01 to reset the grace period back to 180 days. Run the PowerShell script as an administrator and reboot the server after running the script.
+    If RDS licenses are not available in the organisation, follow these steps as described [here](https://www.virtualizationhowto.com/2020/10/reset-120-day-rds-grace-period-on-2016-and-2019/).
+
+    DISCLAIMER: This is JUST for educational purpose, not to bypass Microsoft Licenses!!!
     
 
 ## Testing the environment before the demo
