@@ -35,59 +35,37 @@ Changes may be needed to get the routing working, if MASQ (NAT/PAT) is needed du
 
 As this VyOS router is a very common virtual router, changes can be easily found on the internet. A good location would be:
 
-- For MASQ (NAT/PAT/port forwarding) rules would be: https://forum.vyos.io/t/resolved-port-forward-troubles/7732
-- For disabling NAT/PAT there are some possibilities:
+- By default the deployment of OVAs will generate NEW MAC Addresses that need to be configured in the VyOS system. To do this run the following commands to:
 
-    1. Run ``vi /config/config.boot`` and remark the part that show **nat** using /* and */ at the end of the component. Below is an example
+    1. See if there are new Ethernet adapters
+    2. Configure the new Ethernet adapters
 
-        Before:
-        ```bash
-        nat {
-            source {
-                rule 100 {
-                    outbound-interface eth0
-                    source {
-                        address 172.31.32.0/24
-                    }
-                    translation {
-                        address masquerade
-                    }
-                }
-            }
-        }
-        ```
+### Configuration of the VyOS
 
-        After:
-        ```bash
-        /*
-        nat {
-            source {
-                rule 100 {
-                    outbound-interface eth0
-                    source {
-                        address 172.31.32.0/24
-                    }
-                    translation {
-                        address masquerade
-                    }
-                }
-            }
-        }
-        */
-        ```
-        After this has been done the VyOS router must be reboot using the ``reboot`` command and the ``Y`` to confirm the reboot.
-    2. Deleting the NAT rules using the ``config`` command. After the login run ``config`` to get into the configuration environment. Then run these commands:
+To see the current ethernet adapters (others then eth0 and eth1), follow these steps:
 
-        - ``delete nat source rule 100 outbound-interface 'eth0'``
-        - ``delete nat source rule 100 source address '172.31.32.0/24'``
-        - ``delete nat source rule 100 translation address 'masquerade'``
+1. Login to the VyOS VM using **vyos** and **Delinea/4u**
+2. Run the following command ``show interfaces``. If you see eth2 and eth3, two new ethernet adapters have been configured
+3. Run the following sequence to configure the two new ethernet adapters:
 
-    3. ReIP all VMs that exist in the demo environment to a more convenient range. This invokes a lot of steps that must be done:
+    - ``conf``
+    - ``set interfaces ethernet eth2 address dhcp`` this is the interface that is connected to the internal DHCP network
+    - ``set interfaces ethernet eth3 address 172.31.32.253/24``; this is the internal IP network of the VMs
 
-        1. ReIP all VMs, based on the O/S some are easier then others
-        2. Recreate the DNS records in the DC1 to correspond to the new IPs and range
-        3. Reconfigure the DNS server to use forwarders that are available to the system
-        4. Check all connectivity on Domain level before running the demo.
+4. As the eth2 is set to use DHCP, routing has to be defined in the organization's network. This can be overcome by using masquerading the network. Run the following commands to get masqueing running (https://forum.vyos.io/t/resolved-port-forward-troubles/7732):
+
+    - ``set nat source rule 100 outbound-interface 'eth2'``
+    - ``set nat source rule 100 source address '172.31.32.0/24'``
+    - ``set nat source rule 100 translation address 'masquerade'``
+
+## Alternative to VyOS configuration
+
+ReIP all VMs that exist in the demo environment to a more convenient range. This invokes a lot of steps that must be done:
+
+1. ReIP all VMs, based on the O/S some are easier then others
+2. Recreate the DNS records in the DC1 to correspond to the new IPs and range
+3. Reconfigure the DNS server to use forwarders that are available to the system
+4. Check all connectivity on Domain level before running the demo.
 
 ## Order of starting the VMs
 
