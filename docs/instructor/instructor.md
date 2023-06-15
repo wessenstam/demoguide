@@ -52,7 +52,7 @@ To see the current ethernet adapters (others then eth0 and eth1), follow these s
     - ``set interfaces ethernet eth2 address dhcp``; this is the interface that is connected to the internal DHCP network
     - ``set interfaces ethernet eth3 address 172.31.32.253/24``; this is the internal IP network of the VMs
     - ``commit``; command to commit the new configuration
-    - ``save``; this command makes sure that the configuration is saved to disk when the environment is rebooted
+    - ``save``; this command makes sure that the configuration is saved to disk
     - ``exit``; leave configuration mode
     - ``show interfaces``; the two new interfaces (eth2 and eth3) should now have IP addresses assigned to them if DHCP has been configured.
 
