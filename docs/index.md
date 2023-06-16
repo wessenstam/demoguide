@@ -5,6 +5,10 @@ Welcome to Delinea's Demo Guide for Secret Server, Privilege Manager, and Server
 !!!INFORMATION
     Only follow the below section if you are running the environment from Skytap. If you have downloaded OVAs and are running it on your own environment, you can skip the below and [start the demo guide here.](./secretserver/mod1/mod1/)
 
+!!!WARNING
+    This guide is created for the Demo Environment version 4.0 of June 2023!!! Version 4.0 has two Linux servers named **MySQL-Linux** and **Web-Server-Linux**. If you have an older version of the Demo environment, please update your environment by downloading the corresponding OVAs files. Your Channel SE can point you to them.
+    
+
 ## Skytap
 
 This workshop runs from a Skytap environment. To present you with a basic set of how to use the environment, please read this small guide..
