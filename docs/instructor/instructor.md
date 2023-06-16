@@ -7,6 +7,10 @@ After downloading the demo ova images the following needs to be done to get the 
 3. Order of starting the VMs
 4. Testing the environment before the demo
 
+## Requirements for the Demo Environment
+
+The Demo Environment are created for ESXi 6.7 and up. The total environment exists out of nine VMs that will consume a total of 48 GB of RAM and 400 GB of storage.
+
 ## Network layout
 
 The network that is being used in the demo environment is in the 172.31.32.0/24 subnet. To overcome any possible issues, this subnet needs to be available in the network. Below table shows the VMs, there function and the IP addresses.
