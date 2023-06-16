@@ -9,7 +9,7 @@ After downloading the demo ova images the following needs to be done to get the 
 
 ## Requirements for the Demo Environment
 
-The Demo Environment are created for ESXi 6.7 and up. The total environment exists out of nine VMs that will consume a total of 48 GB of RAM and 400 GB of storage.
+The Demo Environment is created for ESXi 6.7 and up. The total environment exists out of nine VMs that will consume a total of 48 GB of RAM and 400 GB of storage.
 
 ## Network layout
 
