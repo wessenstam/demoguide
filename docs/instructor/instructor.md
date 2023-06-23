@@ -13,11 +13,14 @@ The Demo Environment is created for ESXi 6.7 and up. The total environment exist
 
 ## After importing the OVAs
 
-When the OVAs have been imported into your environment, the MAC Addresses might have changed for the VMs. This will have some consequences with respect to the IP addresses in all VMs. The operating systems will "see" a new NIC and assign DHCP to the NICs automatically. The MAC Address column, even though the OVAs have been exported with KEEP THE MAC ADDRESS, can be used to "reset" the MAC Address to the MAC Address to the time the machines got their IP Addresses.
+When the OVAs have been imported into your environment, the MAC Addresses might have changed for the VMs. This will have some consequences with respect to the IP addresses in all VMs. The operating systems will "see" a new NIC and assign DHCP to the NICs automatically. The MAC Address column, the OVAs have been exported with **KEEP THE MAC ADDRESS** flag, can be used to "reset" the MAC Address to the MAC Address to the time the machines got their IP Addresses.
+
+!!!Tip
+    Besides the normal VMware and Windows drivers, the VirtIO drivers has also been installed in the Windows O/S based VMs.
 
 !!!warning
     When "resetting" the MAC to below table, make sure to reset the MAC **BEFORE** power-on the VM.
-    
+
 ## Network layout
 
 The network that is being used in the demo environment is in the 172.31.32.0/24 subnet. To overcome any possible issues, this subnet needs to be available in the network. 
