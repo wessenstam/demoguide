@@ -16,7 +16,7 @@ The Demo Environment is created for ESXi 6.7 and up. The total environment exist
 When the OVAs have been imported into your environment, the MAC Addresses might have changed for the VMs. This will have some consequences with respect to the IP addresses in all VMs. The operating systems will "see" a new NIC and assign DHCP to the NICs automatically. The MAC Address column, the OVAs have been exported with **KEEP THE MAC ADDRESS** flag, can be used to "reset" the MAC Address to the MAC Address to the time the machines got their IP Addresses.
 
 !!!Tip
-    Besides the normal VMware and Windows drivers, the VirtIO drivers has also been installed in the Windows O/S based VMs.
+    Besides the normal VMware and Windows drivers, the VirtIO drivers have also been installed in the Windows O/S based VMs to be able to import the OVAs in KVM based Hyper-Visors like Proxmox.
 
 !!!warning
     When "resetting" the MAC to below table, make sure to reset the MAC **BEFORE** power-on the VM.
