@@ -11,21 +11,28 @@ After downloading the demo ova images the following needs to be done to get the 
 
 The Demo Environment is created for ESXi 6.7 and up. The total environment exists out of nine VMs that will consume a total of 48 GB of RAM and 400 GB of storage.
 
+## After importing the OVAs
+
+When the OVas have been imported into your environment, the MAC Addresses might have changed for the VMs. This will have some consequences with respect to the IP addresses in all VMs. The operating systems will "see" a new NIC and assign DHCP to the NICs automatically. Please use the below table to set the IP addresses for the different O/S' in the environment.
+
 ## Network layout
 
-The network that is being used in the demo environment is in the 172.31.32.0/24 subnet. To overcome any possible issues, this subnet needs to be available in the network. Below table shows the VMs, there function and the IP addresses.
+The network that is being used in the demo environment is in the 172.31.32.0/24 subnet. To overcome any possible issues, this subnet needs to be available in the network. Below table shows the VMs, there function and the IP addresses. The MAC Address column, even though the OVAs have been exported with KEEP THE MAC ADDRESS, can be used to "reset" the MAC Address to the MAC Address to the time the machines got their IP Addresses.
 
-| VM name | Description | OS version |IP address |
-| - | - | - | - |
-| Web-Server Linux | NGINX Linux <BR> Redis database for Cloud tenant | Rocky Linux 9 | 172.31.32.30 |
-| MySQL Linux | MariaDB Linux | Rocky Linux 9 | 172.31.32.35 |
-| Client | Client VM | Windows 10 | 172.31.32.100 |
-| DC1 | Domain Controller | Windows 2022 | 172.31.32.10 |
-| pfSense | pfSense router for some secrets demos| OpnSense 21.1 | 172.31.32.8 |
-| RDS01 | RDS server for some secrets demos | Windows 2022 | 172.31.32.25 |
-| SSPM | Secret Server and Privilege Manager installation <BR> Mail server for the delinealabs.local domain | Windows 2022 | 172.31.32.20 |
-| vRouter | VyOS based router between the networks | VyOS 1.4 | 172.31.32.253 |
-| HSPAS | Cloud tenant <BR> PostgresSQL Database for Cloud tenant | Windows 2019 | 172.31.32.200 |
+!!!warning
+    When "resetting" the MAC to below table, make sure to reset the MAC **BEFORE** power-on the VM.
+
+| VM name | Description | OS version |IP address | MAC Address |
+| - | - | - | - | - |
+| Web-Server Linux | NGINX Linux <BR> Redis database for Cloud tenant | Rocky Linux 9 | 172.31.32.30 | 00:50:56:b7:f0:3e |
+| MySQL Linux | MariaDB Linux | Rocky Linux 9 | 172.31.32.35 | 00:50:56:b7:67:50 |
+| Client | Client VM | Windows 10 | 172.31.32.100 | 00:50:56:b7:9b:12 |
+| DC1 | Domain Controller | Windows 2022 | 172.31.32.10 | 00:50:56:b7:0f:05 |
+| pfSense | pfSense router for some secrets demos| OpnSense 21.1 | 172.31.32.8 | VMXNET3: 00:50:56:b7:5b:66 <BR> E1000: 00:50:56:b7:5b:9c |
+| RDS01 | RDS server for some secrets demos | Windows 2022 | 172.31.32.25 | 00:50:56:b7:66:85 |
+| SSPM | Secret Server and Privilege Manager installation <BR> Mail server for the delinealabs.local domain | Windows 2022 | 172.31.32.20 | 00:50:56:b7:71:88 |
+| vRouter | VyOS based router between the networks | VyOS 1.4 | 172.31.32.253 | eth2 (LAN): 00:50:56:b7:4a:78 <BR> eth3 (External): 00:50:56:b7:47:5d |
+| HSPAS | Cloud tenant <BR> PostgresSQL Database for Cloud tenant | Windows 2019 | 172.31.32.200 | 00:50:56:b7:d0:f0 |
 
 As the vRouter is the routing device between the demo network and the LAN of the installation (172.31.32.253 is the default gateway on all VMs), this VM has two nics. One of them (LAN side) is using a DHCP defined NIC. Making it possible to route between then networks, it has Network MASQ enabled on this NIC. The pfSense also has two NICS, but is not used for routing. It can be set up to become the router and not the VyOS router, but that is out of scope of this instruction. Documentation can be found on the internet.
 
