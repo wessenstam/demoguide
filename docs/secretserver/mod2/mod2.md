@@ -142,7 +142,7 @@ Multiple ticketing systems are integrated out-of-the-box in the Secret Server so
 In this lab environment, there is a simple ticketing system (based on PowerShell). Feel free to head to **Administration >> > Actions > Configuration > Ticket System** as the **admin** user to see just how easy the configuration is for ServiceNow, by clicking on the **New Ticket System** button.
 
 !!!tip
-    The admin user in the Secret Server configuration is set to **Delinea/4u!!**
+    The password for user **admin** is set to **Delinea/4u!!**
 
 As you already saw that ticket nr 12345567 worked, now try to use another number and see that you get an error **Invalid ticketid**.
 
