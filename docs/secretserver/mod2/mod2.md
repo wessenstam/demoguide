@@ -4,19 +4,17 @@
 
 We will assume that your lab is already switched on. If not, you'll need to press play and wait at least ten (10) minutes until the lab is ready for use.
 
-The first, tentative step you're going to need to take into the lab is to authenticate with the "Client" device as a standard Active Directory user. Fortunately, SkyTap makes this easy for us.
+!!!Warning
+    The below part is to be used for a Skytap instance ONLY.
+    
+    The first, tentative step you're going to need to take into the lab is to authenticate with the "Client" device as a standard Active Directory user. Fortunately, SkyTap makes this easy for us.
 
-Click on the "Client" to get started and a new tab should open, and you'll be presented with a Windows logon screen. 
+    Click on the "Client" to get started and a new tab should open, and you'll be presented with a Windows logon screen. 
 
-![Client access](images/lab000.png) 
-
-Log in to the device with the user **krogers** by pressing the arrow down, pressing CTRL-ALT-DEL and then inserting the password into the password dialog box using the insert button. (the password for **delinealabs\krogers** is the correct password)
+    ![Client access](images/lab000.png) 
 
 
-![Architecture](images/lab001.png)
-![Architecture](images/lab002.png)
-![Architecture](images/lab003.png)
- 
+Log in to the device with the user **delinealabs\krogers** the corresponding password is **Delinea/4u**.
 
 With any luck, you'll now be in! 
 
