@@ -13,6 +13,8 @@ We will assume that your lab is already switched on. If not, you'll need to pres
 
     ![Client access](images/lab000.png) 
 
+!!!tip
+    All passwords that are needed are set to **Delinea/4u** or mentioned otherwise.
 
 Log in to the device with the user **delinealabs\krogers** the corresponding password is **Delinea/4u**.
 
