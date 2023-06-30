@@ -151,5 +151,5 @@ Quick checks:
 
 !!!danger
 
-    Please try to avoid logging into the HSPAS machine. It is needed as is distributed. The cloud tenant and might not run as expected if changes are made.
+    Please try to avoid logging into the HSPAS machine. It is needed as is distributed. The cloud tenant might not run as expected if changes are made.
 
