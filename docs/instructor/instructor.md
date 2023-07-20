@@ -24,7 +24,7 @@ When the OVAs have been imported into your environment, the MAC Addresses might 
 !!!warning
     When "resetting" the MAC to below table, make sure to reset the MAC **BEFORE** power-on the VM.
 
-    Make sure to reinstall the Privilege Manager Agent. The UUID of the VM will have changed and the agents needs to be reinstalled so it will use "new" UUID from the HyperVisor.
+    Make sure to reinstall the Privilege Manager Agent and follow this article to have the Agent use the same UUID over and over again: https://docs.delinea.com/pmgr/current/agents/all/vm-deployments.md#multiple_vms_collapsed_to_a_single_resource
 
 ## Network layout
 
