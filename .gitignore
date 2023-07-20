@@ -8,4 +8,7 @@ site
 *.pdf
 *.docx
 *.json
-.DS_Store
+
+.DS*
+.DS_*
+docs/.DS_Store

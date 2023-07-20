@@ -8,7 +8,7 @@ Click on the **Client** to get started and a new tab should open, and you'll be 
 
 ![Client access](images/lab000.png) 
 
-Log in to the device with the **krogers** user by pressing the arrow down at the top of the screen and click **CTRL-ALT-DEL**. Then insert the password into the password dialog box using the insert button by using the Keys icon in the top of the screen.
+Log in to the machine as **Standard User** user by pressing the arrow down at the top of the screen and click **CTRL-ALT-DEL**. Then insert the password into the password dialog box using the insert button by using the Keys icon in the top of the screen.
 
 
 ![Architecture](images/lab001.png)
@@ -29,9 +29,11 @@ To set such a policy, we want to gain access to Privilege Manager itself. For th
 
 Click the **Default NTLM Authentication** and provide for the login the user **krogers** in the **delinealabs Domain**, the credentials are available using the insert password by clicking the Keys icon in the top screen Skytap bar as you did before.
 
-![Login](images/lab004a.png)
+![Login](images/lab004.png)
 
-This will open the UI for Privilege Manager.
+Use for the login page the user **Admin** in the **Thylab Domain**, the credentials are available using the insert password by clicking the Keys icon in the top screen Skytap bar as you did before. Now that you are logged into Secret Server, change the URL to **https://sspm.thylab.local/TMS** and hit the ENTER key on your keyboard. On the login page of Privilege Manager, click the **Default Secret Server** button to login. This will open the UI for Privilege Manager.
+
+![PrivMan UI](images/lab005.png)
 
 ![PrivMan UI](images/lab006.png)
 
@@ -81,13 +83,8 @@ Now retry to run iexplore and you will get a **Application Denied** message. Eve
 
 ![PrivMan UI](images/lab013.png)
 
-Click **Close** to close the message. Now that the block for IExplore is ready, let's look at the other Block policy in the Privilege manager UI, called **RED - Block Bittorrent executables**
-
-This policy is blocking the usage of BitTorrent as an application. Activate the policy and update the Agent using the Agent Utility. After that has been realized, open on the desktop the folder **Installation Files**. There will be a **bittorrent.exe** file and try to run it. A Windows related error will appear and also there will be a message in the right bottom corner sliding in that bittorrent.exe has been stopped from executing. 
-
-![PrivMan UI](images/lab013a.png)
-
-Click the **OK** button to close the error screen. Try to bypass this policy by renaming the file to something randomly. No matter what you do with the name of the file, it is still blocked from executing. Reason for this is that the underlying policy filter is looking at the Product name the file. To see this, right click the file you just changed, **Properties** and click the **Details** tab. There you see the Product name as **bittorrent**.
+Click **Close** to close the message. Now that the block for IExplore is ready, let's look at the other Block policy **RED - Block Bittorrent executables**
+This policy is blocking the usage of BitTorrent as an application. Activate the policy and update the Agent using the Agent Utility. after that has been realized, open on the desktop the folder INstallation Files. There will be a **BitTorrent.exe** file and try to run it. Another **Application Denied** error will appear. Now try to bypass this policy by renaming the file to something randomly. No matter what you do with the name of the file, it is still blocked and the **Application Denied** message is shown. Reason for this is that the underlying policy filter is looking at the original name of the file. To see this, right click the file you just changed, **Properties** and click the **Details** tab. There you see the original file name as **BitTorrent.exe**.
 
 ![PrivMan UI](images/lab014.png)
 
