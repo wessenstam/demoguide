@@ -16,33 +16,39 @@ Authentication to the platform can be provided based on user identities in numer
 
 Numerous different privileged account types can be stored and managed by the platform including: Active Directory Accounts, Local Windows accounts, Linux/Unix accounts, SSH Keys, Database admin accounts (SAP, Oracle, Sybase, Postgresql, etc), Mainframe accounts (IBM  iSeries), Network device accounts (Palo Alto, Cisco, Checkpoint, etc), Cloud admin accounts (for AWS, Azure, GCP and IBM Cloud), Hypervisor accounts (Vmware, Vsphere), and out of band accounts for HP iLO and Dell iDRAC cards. 
 
-A huge range of integrations exist for external platforms such as vulnerability scanners, identity providers, CI/CD pipeline platforms, ticket systems, SIEM solutions, and more, allowing the PAM solution to rapidly become a foundational element of the organization’s holistic security schema.
+A huge range of integrations exist for external platforms such as vulnerability scanners, identity providers, CI/CD pipeline platforms, ticket systems, SIEM solutions, and more, allowing the PAM solution to rapidly become a foundational element of the organization's holistic security schema.
 
 ## Terminology
-Throughout this guide privileged accounts will often be referred to as "Secrets'. This is simply solution-specific wording for privileged accounts that are stored.
+Throughout this guide privileged accounts will often be referred to as "Secrets". This is simply solution-specific wording for privileged accounts that are stored in Secret Server.
 
-### High Level Architecture
+## High Level Architecture
 The Secret Server installation in the lab is architected as follows. 
 
-![Architecture](images/lab000.png)
+![Architecture](../../images/lab000.png)
 
 Deep knowledge of the instance architecture will not be a pre-requisite for completing the Use Cases within this guide, as the PAM solution itself handles the networking required for establishing privileged access.
 
  
 
-#### Components
+### Components
 
-**Secret Server (Application)**
+**Secret Server (Application) (SSPM)**   
 This is the Secret Server server which houses the frontend IIS ASP.NET web application server and the backend Microsoft SQL database server (single database) which powers the solution.
 
-**Domain Controller**
-The lab has it’s own Active Directory domain (thylab.local) for which there is a single Domain Controller. The domain includes various test user accounts with varying levels of privilege, in addition to standard Active Directory Security Groups that can be used to determine user access levels within the solution.
+**Domain Controller (DC1)**   
+The lab has it's own Active Directory domain (delinealabs.local) for which there is a single Domain Controller. The domain includes various test user accounts with varying levels of privilege, in addition to standard Active Directory Security Groups that can be used to determine user access levels within the solution.
 
-**RDS Server**
+**RDS Server (RDS01)**   
 This server can act as a "jumphost" for privileged session launches. A jumphost is not a mandatory component of session launching within Secret Server, however this server can be used to demonstrate the capability within the lab - thus emphasizing the general flexibility of the solution.
 
-**CentOS Server**
-This server is a Linux server for which there are associated SSH keys stored within Secret Server. It is used as the SSH launching example server.
+**Web-Server Linux**   
+This server is a Linux, Rocky based server with NGINX installed, for which there are associated SSH keys stored within Secret Server. It is used for the SSH launching server.
 
-**Virtual Router and vRouter**
-These are respectively an OpnSense and a VyOS Routers with multiple NICs that is used to demonstrate both SSH launching as well as web administrative portal launching. 
+**MySQL-Server Linux**   
+This server is a Linux, Rocky based server with MariaDB installed for which there are associated SSH keys stored within Secret Server. It is used for the SSH launching and SQL Tool launcher.
+
+**pfSense and vRouter**   
+These are respectively an OpnSense and a VyOS Routers with multiple NICs that is used to demonstrate both SSH launching as well as web administrative portal launching for the pfSense in combination with Secret Server. 
+
+**Client**   
+This machine is being used in most of the demo guide to show the user experience as being an administrator in an organization who needs to perform his/her tasks from the admin's machine.

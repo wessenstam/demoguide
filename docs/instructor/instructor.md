@@ -7,9 +7,28 @@ After downloading the demo ova images the following needs to be done to get the 
 3. Order of starting the VMs
 4. Testing the environment before the demo
 
+!!!Warning
+
+    The environment has been created using the version that were current at the beginning of July 2023. any updates on agents and Applications may have to be performed to run the latest and greatest releases. 
+## Requirements for the Demo Environment
+
+The Demo Environment is created for ESXi 6.7 and up. The total environment exists out of nine VMs that will consume a total of 48 GB of RAM and 400 GB of storage.
+
+## After importing the OVAs
+
+When the OVAs have been imported into your environment, the MAC Addresses might have changed for the VMs. This will have some consequences with respect to the IP addresses in all VMs. The operating systems will "see" a new NIC and assign DHCP to the NICs automatically. The MAC Address column, the OVAs have been exported with **KEEP THE MAC ADDRESS** flag, can be used to "reset" the MAC Address to the MAC Address to the time the machines got their IP Addresses.
+
+!!!Tip
+    Besides the normal VMware and Windows drivers, the VirtIO drivers have also been installed in the Windows O/S based VMs to be able to import the OVAs in KVM based Hyper-Visors like Proxmox.
+
+!!!warning
+    When "resetting" the MAC to below table, make sure to reset the MAC **BEFORE** power-on the VM.
+
+    Make sure to reinstall the Privilege Manager Agent and follow this article to have the Agent use the same UUID over and over again: https://docs.delinea.com/pmgr/current/agents/all/vm-deployments.md#multiple_vms_collapsed_to_a_single_resource
+
 ## Network layout
 
-The network that is being used in the demo environment is in the 172.31.32.0/24 subnet. To overcome any possible issues, this subnet needs to be available in the network. Below table shows the VMs, there function and the IP addresses.
+The network that is being used in the demo environment is in the 172.31.32.0/24 subnet. To overcome any possible issues, this subnet needs to be available in the network. 
 
 | VM name | Description | OS version |IP address |
 | - | - | - | - |
@@ -35,59 +54,41 @@ Changes may be needed to get the routing working, if MASQ (NAT/PAT) is needed du
 
 As this VyOS router is a very common virtual router, changes can be easily found on the internet. A good location would be:
 
-- For MASQ (NAT/PAT/port forwarding) rules would be: https://forum.vyos.io/t/resolved-port-forward-troubles/7732
-- For disabling NAT/PAT there are some possibilities:
+- By default the deployment of OVAs will generate NEW MAC Addresses that need to be configured in the VyOS system. To do this run the following commands to:
 
-    1. Run ``vi /config/config.boot`` and remark the part that show **nat** using /* and */ at the end of the component. Below is an example
+    1. See if there are new Ethernet adapters
+    2. Configure the new Ethernet adapters
 
-        Before:
-        ```bash
-        nat {
-            source {
-                rule 100 {
-                    outbound-interface eth0
-                    source {
-                        address 172.31.32.0/24
-                    }
-                    translation {
-                        address masquerade
-                    }
-                }
-            }
-        }
-        ```
+### Configuration of the VyOS
 
-        After:
-        ```bash
-        /*
-        nat {
-            source {
-                rule 100 {
-                    outbound-interface eth0
-                    source {
-                        address 172.31.32.0/24
-                    }
-                    translation {
-                        address masquerade
-                    }
-                }
-            }
-        }
-        */
-        ```
-        After this has been done the VyOS router must be reboot using the ``reboot`` command and the ``Y`` to confirm the reboot.
-    2. Deleting the NAT rules using the ``config`` command. After the login run ``config`` to get into the configuration environment. Then run these commands:
+To see the current ethernet adapters (others then eth0 and eth1), follow these steps:
 
-        - ``delete nat source rule 100 outbound-interface 'eth0'``
-        - ``delete nat source rule 100 source address '172.31.32.0/24'``
-        - ``delete nat source rule 100 translation address 'masquerade'``
+1. Login to the VyOS VM using **vyos** and **Delinea/4u**
+2. Run the following command ``show interfaces``. If you see eth2 and eth3 with no IP addresses, two new ethernet adapters have been configured and they need to be configured
+3. Run the following sequence to configure the two new ethernet adapters:
 
-    3. ReIP all VMs that exist in the demo environment to a more convenient range. This invokes a lot of steps that must be done:
+    - ``conf``; enter the configuration mode
+    - ``set interfaces ethernet eth2 address dhcp``; this is the interface that is connected to the internal DHCP network
+    - ``set interfaces ethernet eth3 address 172.31.32.253/24``; this is the internal IP network of the VMs
+    - ``commit``; command to commit the new configuration
+    - ``save``; this command makes sure that the configuration is saved to disk
+    - ``exit``; leave configuration mode
+    - ``show interfaces``; the two new interfaces (eth2 and eth3) should now have IP addresses assigned to them if DHCP has been configured.
 
-        1. ReIP all VMs, based on the O/S some are easier then others
-        2. Recreate the DNS records in the DC1 to correspond to the new IPs and range
-        3. Reconfigure the DNS server to use forwarders that are available to the system
-        4. Check all connectivity on Domain level before running the demo.
+4. As the eth2 is set to use DHCP, routing has to be defined in the organization's network. This can be overcome by using masquerading the network. Run the following commands to get masqueing running (https://forum.vyos.io/t/resolved-port-forward-troubles/7732):
+
+    - ``set nat source rule 100 outbound-interface 'eth2'``
+    - ``set nat source rule 100 source address '172.31.32.0/24'``
+    - ``set nat source rule 100 translation address 'masquerade'``
+
+## Alternative to VyOS configuration
+
+ReIP all VMs that exist in the demo environment to a more convenient range. This invokes a lot of steps that must be done:
+
+1. ReIP all VMs, based on the O/S some are easier then others
+2. Recreate the DNS records in the DC1 to correspond to the new IPs and range
+3. Reconfigure the DNS server to use forwarders that are available to the system
+4. Check all connectivity on Domain level before running the demo.
 
 ## Order of starting the VMs
 
@@ -96,17 +97,20 @@ The order of starting the VMs is important. If the order is not correct, some to
 The ideal order is:
 
 1. vRouter
-2. lnx-platform
-3. win-platform
-4. DC1
+2. Web-Server Linux
+3. DC
+4. HSPAS
 5. SSPM
 6. Client
 7. RDS01
-8. CentOS server
+8. MySQL Linux server
 9. pfSense
 
 !!!tip
-    VMs 1,2 and 4 can be started together. The win-platform is dependent on the lnx-platform as it holds the databases that are being used by the win-platform server. Then wait till the DC1 is 100% running before starting the other machines. As the SSPM server is the SQL server for the databases that are used in the ServerPAM solutions, this server has to be started after the DC1. The Client, MUST be started BEFORE the RDS01 server. Reason is that the Client holds the management component for the Delinea Server PAM. If this server gets started AFTER the RDS01, the login into the RDS01, will not work. The easiest way to solve this issue is to reboot the RDS01 so the cache DB will be cleaned and refilled.
+    VMs 1,2 and 3 can be started together. The HSPAS server is dependent on the Web-Server Linux as it holds the Redis database that is being used by the HSPAS server. Then wait till the DC is 100% running before starting other machines. As the SSPM server is the SQL server for the databases that are used in the ServerPAM solutions, this server has to be started after the DC. The Client, MUST be started BEFORE the RDS01 server but AFTER SSPM. Reason is that the Client holds the management component for the Delinea Server PAM. If this server gets started AFTER the RDS01, the login into the RDS01, will not work. The easiest way to solve this issue is to reboot the RDS01 so the Server PAM Agent cache will be cleaned and refilled.
+
+!!!warning
+    To login to the DC VM, it CAN ONLY be done via the console. A RDP session will not be allowed due to configuration of policies in Delinea Server PAM.
 
 ## Licenses
 
@@ -119,7 +123,9 @@ For injecting the license, follow these steps:
 For the Windows Server Operating Systems, including RDS, follow the Licensing steps as described by Microsoft.
 
 !!!tip
-    If RDS licenses are not available in the organisation, there is a script on the desktop of the RDS01 to reset the grace period back to 180 days. Run the PowerShell script as an administrator and reboot the server after running the script.
+    If RDS licenses are not available in the organisation, follow these steps as described [here](https://www.virtualizationhowto.com/2020/10/reset-120-day-rds-grace-period-on-2016-and-2019/).
+
+    DISCLAIMER: This is JUST for educational purpose, not to bypass Microsoft Licenses!!!
     
 
 ## Testing the environment before the demo
@@ -128,27 +134,36 @@ After the VMs have been started, run the demo guide as shown on https://workshop
 
 Quick checks:
 
-1. Can login as the user on the RDS01 and get MFA challenges
+1. Can login as the user **afoster** on the RDS01 and get MFA challenges
 2. Can login to the Secret Server UI from the Client.
 3. Can login to all VMs using the mentioned username and password combination
+
+!!!Warning
+    
+    In some cases the Privilege Manager Agent does not register itself. Revoke the current code in the Privilege Manager interface and have a new code. Reinstall the agent using the new code to reinstall the Privilege Manager Agent. Also install the client certificate in the SSPM server so that the certificate is trusted of the Client01 machine.
 
 ### Username and passwords
 
 | VM name/App | Username | Password |
 | - | - | - | 
-| CentOS Server | root | Delinea/4u |
-| Client | Standard User (user) | Delinea/4u |
-| DC1 | THYLAB\Administrator | Delinea/4u |
-| lnx-platform | root | Delinea/4u |
-| pfSense | root | Controlled by Secret Server |
-| RDS01 | Standard User (user) | Delinea/4u | 
-|       | THYLAB\adm-training | Delinea/4u
-| SSPM | adm-training | Delinea/4u |
-|      | ss_admin | Delinea/4u |
+| MySQL Linux | root | Delinea/4u |
+| Web-Server Linux | root | Delinea/4u |
+| Client | DELINEALABS\afoster | Delinea/4u |
+| DC1 | DELINEALABS\Administrator <BR> DELINEALABS\adm-training | Delinea/4u <BR> Delinea/4u |
+| pfSense | root | Delinea/4u |
+| RDS01 | DELINEALABS\afoster <BR> DELINEALABS\adm-training | Delinea/4u <BR> Delinea/4u |
+| SSPM | adm-training <BR> admin | Delinea/4u <BR>  Delinea/4u!! |
 | vRouter | vyos | Delinea/4u |
-| win-platform | administrator | Delinea/4u |
+| HSPAS | Administrator | Delinea/4u |
 
 !!!danger
 
-    Please try to avoid logging into the lnx- and win-platform machines. They are needed as they are, or the cloud tenant will not run as it is supposed to be in the demo environment. 
+    Please try to avoid logging into the HSPAS machine. It is needed as is distributed. The cloud tenant might not run as expected if changes are made.
 
+## Delta deployments
+
+This section is describing the steps to undertake for the new version of the Demo Environment
+
+### Version 4.0.1
+- Update the Privilege Manager 11.4.1
+- Update Secret Server to version 11.5.000002
