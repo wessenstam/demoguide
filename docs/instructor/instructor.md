@@ -24,6 +24,8 @@ When the OVAs have been imported into your environment, the MAC Addresses might 
 !!!warning
     When "resetting" the MAC to below table, make sure to reset the MAC **BEFORE** power-on the VM.
 
+    Make sure to reinstall the Privilege Manager Agent. The UUID of the VM will have changed and the agents needs to be reinstalled so it will use "new" UUID from the HyperVisor.
+
 ## Network layout
 
 The network that is being used in the demo environment is in the 172.31.32.0/24 subnet. To overcome any possible issues, this subnet needs to be available in the network. 
@@ -160,3 +162,10 @@ Quick checks:
 
     Please try to avoid logging into the HSPAS machine. It is needed as is distributed. The cloud tenant might not run as expected if changes are made.
 
+## Delta deployments
+
+This section is describing the steps to undertake for the new version of the Demo Environment
+
+### Version 4.0.1
+- Update the Privilege Manager 11.4.1
+- Update Secret Server to version 11.5.000002
