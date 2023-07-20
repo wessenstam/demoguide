@@ -98,8 +98,8 @@ The ideal order is:
 
 1. vRouter
 2. Web-Server Linux
-2. HSPAS
-4. DC
+3. DC
+4. HSPAS
 5. SSPM
 6. Client
 7. RDS01
@@ -107,7 +107,7 @@ The ideal order is:
 9. pfSense
 
 !!!tip
-    VMs 1,2 and 4 can be started together. The HSPAS server is dependent on the Web-Server Linux as it holds the Redis database that is being used by the HSPAS server. Then wait till the DC is 100% running before starting the other machines. As the SSPM server is the SQL server for the databases that are used in the ServerPAM solutions, this server has to be started after the DC1. The Client, MUST be started BEFORE the RDS01 server. Reason is that the Client holds the management component for the Delinea Server PAM. If this server gets started AFTER the RDS01, the login into the RDS01, will not work. The easiest way to solve this issue is to reboot the RDS01 so the cache DB will be cleaned and refilled.
+    VMs 1,2 and 3 can be started together. The HSPAS server is dependent on the Web-Server Linux as it holds the Redis database that is being used by the HSPAS server. Then wait till the DC is 100% running before starting other machines. As the SSPM server is the SQL server for the databases that are used in the ServerPAM solutions, this server has to be started after the DC. The Client, MUST be started BEFORE the RDS01 server but AFTER SSPM. Reason is that the Client holds the management component for the Delinea Server PAM. If this server gets started AFTER the RDS01, the login into the RDS01, will not work. The easiest way to solve this issue is to reboot the RDS01 so the Server PAM Agent cache will be cleaned and refilled.
 
 !!!warning
     To login to the DC VM, it CAN ONLY be done via the console. A RDP session will not be allowed due to configuration of policies in Delinea Server PAM.
