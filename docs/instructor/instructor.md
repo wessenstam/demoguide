@@ -7,6 +7,9 @@ After downloading the demo ova images the following needs to be done to get the 
 3. Order of starting the VMs
 4. Testing the environment before the demo
 
+!!!Warning
+
+    The environment has been created using the version that were current at the beginning of July 2023. any updates on agents and Applications may have to be performed to run the latest and greatest releases. 
 ## Requirements for the Demo Environment
 
 The Demo Environment is created for ESXi 6.7 and up. The total environment exists out of nine VMs that will consume a total of 48 GB of RAM and 400 GB of storage.
@@ -134,6 +137,10 @@ Quick checks:
 1. Can login as the user **afoster** on the RDS01 and get MFA challenges
 2. Can login to the Secret Server UI from the Client.
 3. Can login to all VMs using the mentioned username and password combination
+
+!!!Warning
+    
+    In some cases the Privilege Manager Agent does not register itself. Revoke the current code in the Privilege Manager interface and have a new code. Reinstall the agent using the new code to reinstall the Privilege Manager Agent. Also install the client certificate in the SSPM server so that the certificate is trusted of the Client01 machine.
 
 ### Username and passwords
 
