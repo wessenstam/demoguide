@@ -22,7 +22,10 @@ steps:
     branch:
     - main
     event:
-    - push
+      exclude:
+      - pull_request
+      include:
+      - push
   
 - name: Build Dev HTML(dev)
   commands:
@@ -33,5 +36,7 @@ steps:
   when:
     branch:
     - dev
-    event:
-    - push
+    exclude:
+      - pull_request
+    include:
+      - push
