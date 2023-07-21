@@ -166,4 +166,5 @@ This section is describing the steps to undertake for the new version of the Dem
 
 ### Version 4.0.1
 - Update the Privilege Manager 11.4.1
+- Follow article https://docs.delinea.com/pmgr/current/agents/all/vm-deployments.md#multiple_vms_collapsed_to_a_single_resource to have the agent always use a static UUID
 - Update Secret Server to version 11.5.000002
