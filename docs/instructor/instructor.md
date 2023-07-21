@@ -170,7 +170,6 @@ This section is describing the steps to undertake for the new version of the Dem
 - Update Secret Server to version 11.5.000002
 
 ### Version 4.0.0 - June 2023
-
 - New domain and installation from scratch
 - Exchanged CentOS for Rocky Linux 9.1
 - Installed Current Privilege Manager
