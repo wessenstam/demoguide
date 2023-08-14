@@ -140,7 +140,7 @@ Quick checks:
 
 !!!Warning
     
-    In some cases the Privilege Manager Agent does not register itself. Revoke the current code in the Privilege Manager interface and have a new code. Reinstall the agent using the new code to reinstall the Privilege Manager Agent. Also install the client certificate in the SSPM server so that the certificate is trusted of the Client01 machine.
+    In some cases the Privilege Manager Agent does not register itself. Revoke the current code in the Privilege Manager interface and have a new code. Reinstall the agent using the new code to reinstall the Privilege Manager Agent. 
 
 ### Username and passwords
 
