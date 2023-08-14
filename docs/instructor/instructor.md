@@ -164,6 +164,10 @@ Quick checks:
 
 This section is describing the steps to undertake for the new version of the Demo Environment
 
+
+### Version 4.0.1.1 - 21st of August 2023
+- Due to an update on the Rocky Linux machines, Heartbeat and RPC are not performed as expected. Running the command ``update-crypto-policies --set LEGACY`` and a reboot of the servers, solved the issue
+
 ### Version 4.0.1 - 21st of July 2023
 - Update the Privilege Manager 11.4.1
 - Follow article https://docs.delinea.com/pmgr/current/agents/all/vm-deployments.md#multiple_vms_collapsed_to_a_single_resource to have the agent always use a static UUID
@@ -174,6 +178,6 @@ This section is describing the steps to undertake for the new version of the Dem
 - Exchanged CentOS for Rocky Linux 9.1
 - Installed Current Privilege Manager
 - Installed Secret Server
-- INstalled Server PAM
+- Installed Server PAM
 - Installed Redis Server
 - Installed HSPAS
