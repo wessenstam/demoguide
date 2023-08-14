@@ -24,23 +24,25 @@ When the OVAs have been imported into your environment, the MAC Addresses might 
 !!!warning
     When "resetting" the MAC to below table, make sure to reset the MAC **BEFORE** power-on the VM.
 
-    Make sure to reinstall the Privilege Manager Agent and follow this article to have the Agent use the same UUID over and over again: https://docs.delinea.com/pmgr/current/agents/all/vm-deployments.md#multiple_vms_collapsed_to_a_single_resource. The Privilege Manager Agent uses the UUID of the VM to identify itself to the Privilege Manager application. Setting this to the UUID in the Application, y0u make sure that the agent will always have the correct UUID in the application.
+    Make sure to reinstall the Privilege Manager Agent and follow this article to have the Agent use the same UUID over and over again: <https://docs.delinea.com/pmgr/current/agents/all/vm-deployments.md#multiple_vms_collapsed_to_a_single_resource>. The Privilege Manager Agent uses the UUID of the VM to identify itself to the Privilege Manager application. Setting this to the UUID in the Application, y0u make sure that the agent will always have the correct UUID in the application.
 
 ## Network layout
 
 The network that is being used in the demo environment is in the 172.31.32.0/24 subnet. To overcome any possible issues, this subnet needs to be available in the network. 
 
-| VM name | Description | OS version |IP address |
-| - | - | - | - |
-| CentOS Server | CentOS Server | CentOS 7.9 | 172.31.32.121 |
-| Client | Client VM | Windows 10 | 172.31.32.118 |
-| DC1 | Domain Controller | Windows 2016 | 172.31.32.10 |
-| lnx-platform | CentOS Server for the Cloud tenant | CentOS 7.9 | 172.31.32.200 |
-| pfSense | pfSense router for some secrets demos| pfSense 20.1.4 | 172.31.32.8 |
-| RDS01 | RDS server for some secrets demos | Windows 2016 | 172.31.32.129 |
-| SSPM | Secret Server and Privilege Manager installation | Windows 2016 | 172.31.32.114 |
-| vRouter | VyOS based router between the networks | VyOS 1.8 | 172.31.32.254 |
-| win-platform | Windows platform for the Cloud tenant | Windows 2016 | 172.31.32.210 |
+Below table shows the VMs, there function, IP addresses and their MAC Addresses at the time of creating the OVAs.
+
+| VM name | Description | OS version |IP address | MAC Address |
+| - | - | - | - | - |
+| Web-Server Linux | NGINX Linux <BR> Redis database for Cloud tenant | Rocky Linux 9 | 172.31.32.30 | VMXNET3: 00:50:56:b7:f0:3e |
+| MySQL Linux | MariaDB Linux | Rocky Linux 9 | 172.31.32.35 | VMXNET3: 00:50:56:b7:67:50 |
+| Client | Client VM | Windows 10 | 172.31.32.100 | VMXNET3: 00:50:56:b7:9b:12 |
+| DC | Domain Controller | Windows 2022 | 172.31.32.10 | VMXNET3: 00:50:56:b7:0f:05 |
+| pfSense | pfSense router for some secrets demos| OpnSense 21.1 | 172.31.32.8 | VMXNET3: 00:50:56:b7:5b:66 <BR> E1000: 00:50:56:b7:5b:9c |
+| RDS01 | RDS server for some secrets demos | Windows 2022 | 172.31.32.25 | VMXNET3: 00:50:56:b7:66:85 |
+| SSPM | Secret Server and Privilege Manager installation <BR> Mail server for the delinealabs.local domain | Windows 2022 | 172.31.32.20 | VMXNET3: 00:50:56:b7:71:88 |
+| vRouter | VyOS based router between the networks | VyOS 1.4 | 172.31.32.253 | VMXNET3: eth2 (LAN): 00:50:56:b7:4a:78 <BR> VMXNET3: eth3 (External): 00:50:56:b7:47:5d |
+| HSPAS | Cloud tenant <BR> PostgresSQL Database for Cloud tenant | Windows 2019 | 172.31.32.200 | VMXNET3: 00:50:56:b7:d0:f0 |
 
 As the vRouter is the routing device between the demo network and the LAN of the installation (172.31.32.253 is the default gateway on all VMs), this VM has two nics. One of them (LAN side) is using a DHCP defined NIC. Making it possible to route between then networks, it has Network MASQ enabled on this NIC. The pfSense also has two NICS, but is not used for routing. It can be set up to become the router and not the VyOS router, but that is out of scope of this instruction. Documentation can be found on the internet.
 
@@ -140,7 +142,7 @@ Quick checks:
 
 !!!Warning
     
-    In some cases the Privilege Manager Agent does not register itself. Revoke the current code in the Privilege Manager interface and have a new code. Reinstall the agent using the new code to reinstall the Privilege Manager Agent. Also install the client certificate in the SSPM server so that the certificate is trusted of the Client01 machine.
+    In some cases the Privilege Manager Agent does not register itself. Revoke the current code in the Privilege Manager interface and have a new code. Reinstall the agent using the new code to reinstall the Privilege Manager Agent. 
 
 ### Username and passwords
 
@@ -164,9 +166,17 @@ Quick checks:
 
 This section is describing the steps to undertake for the new version of the Demo Environment
 
-### Version 4.0.0 to 4.0.1 - July 2023
+
+### Version 4.0.1.1 - 21st of August 2023
+- Due to an update on the Rocky Linux machines, Heartbeat and RPC are not performed as expected. Run the below command and reboot the server to take effect 
+
+    ``` bash
+    update-crypto-policies --set LEGACY
+    ```
+  
+### Version 4.0.1 - 21st of July 2023
 - Update the Privilege Manager 11.4.1
-- Follow article https://docs.delinea.com/pmgr/current/agents/all/vm-deployments.md#multiple_vms_collapsed_to_a_single_resource to have the agent always use a static UUID
+- Follow article <https://docs.delinea.com/pmgr/current/agents/all/vm-deployments.md#multiple_vms_collapsed_to_a_single_resource> to have the agent always use a static UUID
 - Update Secret Server to version 11.5.000002
 
 ### Version 4.0.0 - June 2023
@@ -174,6 +184,6 @@ This section is describing the steps to undertake for the new version of the Dem
 - Exchanged CentOS for Rocky Linux 9.1
 - Installed Current Privilege Manager
 - Installed Secret Server
-- INstalled Server PAM
+- Installed Server PAM
 - Installed Redis Server
 - Installed HSPAS
