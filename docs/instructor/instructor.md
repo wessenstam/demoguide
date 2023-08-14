@@ -169,7 +169,7 @@ This section is describing the steps to undertake for the new version of the Dem
 - Due to an update on the Rocky Linux machines, Heartbeat and RPC are not performed as expected. Run the below command and reboot the server to take effect 
 
   ``` bash
-  update-crypto-policies --set LEGACY
+  update-crypto-policies - -set LEGACY
   ```
   
 ### Version 4.0.1 - 21st of July 2023
