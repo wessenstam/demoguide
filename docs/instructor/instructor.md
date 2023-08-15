@@ -10,6 +10,9 @@ After downloading the demo ova images the following needs to be done to get the 
 !!!Warning
 
     The environment has been created using the version that were current at the beginning of July 2023. any updates on agents and Applications may have to be performed to run the latest and greatest releases. 
+
+    Please make sure to follow the [Delta section](#delta-deployments) after the deployment of the OVAs. The version of the OVAs correspond to the versions mentioned there. Make sure to update the deployed environment to the last mentioned versions. That way, the environment will act as expected and described in the DemoGuide.
+    
 ## Requirements for the Demo Environment
 
 The Demo Environment is created for ESXi 6.7 and up. The total environment exists out of nine VMs that will consume a total of 48 GB of RAM and 400 GB of storage.
@@ -166,8 +169,10 @@ Quick checks:
 
 This section is describing the steps to undertake for the new version of the Demo Environment
 
+### Version 4.0.1.2 - 15th of August 2023
+- Due to a permission missing on the **1. Checkout Example** secret for account AFoster, the RDS01 can not be contacted using the contractor@contractor_org.com (Remote Access Service module). Solve the issue by providing the account AFoster owner right on the secret mentioned
 
-### Version 4.0.1.1 - 21st of August 2023
+### Version 4.0.1.1 - 10st of August 2023
 - Due to an update on the Rocky Linux machines, Heartbeat and RPC are not performed as expected. Run the below command and reboot the server to take effect 
 
     ``` bash
