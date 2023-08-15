@@ -159,7 +159,7 @@ Quick checks:
 | RDS01 | DELINEALABS\afoster <BR> DELINEALABS\adm-training | Delinea/4u <BR> Delinea/4u |
 | SSPM | adm-training <BR> admin | Delinea/4u <BR>  Delinea/4u!! |
 | vRouter | vyos | Delinea/4u |
-| HSPAS | Administrator | Delinea/4u |
+| HSPAS | Administrator <BR> admin@delinealabs.local (HSPAS Admin) | Delinea/4u |
 
 !!!danger
 
