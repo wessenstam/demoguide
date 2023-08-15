@@ -80,7 +80,7 @@ To see the current ethernet adapters (others then eth0 and eth1), follow these s
     - ``exit``; leave configuration mode
     - ``show interfaces``; the two new interfaces (eth2 and eth3) should now have IP addresses assigned to them if DHCP has been configured.
 
-4. As the eth2 is set to use DHCP, routing has to be defined in the organization's network. This can be overcome by using masquerading the network. Run the following commands to get masqueing running (https://forum.vyos.io/t/resolved-port-forward-troubles/7732):
+4. As the eth2 is set to use DHCP, routing has to be defined in the organization's network. This can be overcome by using masquerading the network. Run the following commands to get masqueing running (<https://forum.vyos.io/t/resolved-port-forward-troubles/7732>):
 
     - ``set nat source rule 100 outbound-interface 'eth2'``
     - ``set nat source rule 100 source address '172.31.32.0/24'``
@@ -122,8 +122,8 @@ The ideal order is:
 As the environment has no licenses in it, you have to inject the licenses in SSPM, for Secret Server and Privilege Manager and DC and DA licenses for Delinea Server PAM.
 For injecting the license, follow these steps:
 
-1. Delinea Secret Server and Privilege Manager - https://docs.delinea.com/secrets/current/setup/licensing/adding-activating-deleting-licenses/index.md
-2. Delinea Server PAM: https://docs.centrify.com/Content/inst-lic/ManageLicensesIntro.htm
+1. Delinea Secret Server and Privilege Manager - <https://docs.delinea.com/secrets/current/setup/licensing/adding-activating-deleting-licenses/index.md>
+2. Delinea Server PAM: <https://docs.centrify.com/Content/inst-lic/ManageLicensesIntro.htm>
 
 For the Windows Server Operating Systems, including RDS, follow the Licensing steps as described by Microsoft.
 
@@ -135,7 +135,7 @@ For the Windows Server Operating Systems, including RDS, follow the Licensing st
 
 ## Testing the environment before the demo
 
-After the VMs have been started, run the demo guide as shown on https://workshop.thyintresources.com/demoguide/
+After the VMs have been started, run the demo guide as shown on <https://workshop.thyintresources.com/demoguide/>
 
 Quick checks:
 
