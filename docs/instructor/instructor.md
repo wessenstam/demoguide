@@ -1,11 +1,12 @@
 # Instructions for the Demo Guide
 
-After downloading the demo ova images the following needs to be done to get the demo environment up and running:
+After downloading the demo OVA images the following needs to be done to get the demo environment up and running:
 
 1. Network layout
 2. Network changes to be made if needed
 3. Order of starting the VMs
 4. Testing the environment before the demo
+5. Run the Deltas that are needed to get to the latest version
 
 !!!Warning
 
