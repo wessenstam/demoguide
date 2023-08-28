@@ -174,7 +174,7 @@ This section is describing the steps to undertake for the new version of the Dem
 
 - Due to a settings which has not been propagated to user LAndrews, the zone request workflow is not working as expected. Solve the issue by running the following steps:
 
-    - Login to the HSPAS as admin@delinealabs.local
+    - Login to the *HSPAS* as **admin@delinealabs.local**
     - Navigate to **Vaults** and click *Secret Server Onprem*
     - In the **Settings** section, change the account to **admin** and the password to **Delinea/4u!!**
     - Click **Save**
