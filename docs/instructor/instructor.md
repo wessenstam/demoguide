@@ -170,6 +170,30 @@ Quick checks:
 
 This section is describing the steps to undertake for the new version of the Demo Environment
 
+### Version 4.0.1.3 - 28th of August 2023
+
+- Due to a settings which has not been propagated to user LAndrews, the zone request workflow is not working as expected. Solve the issue by running the following steps:
+
+    - Login to the HSPAS as admin@delinealabs.local
+    - Navigate to **Vaults** and click *Secret Server Onprem*
+    - In the **Settings** section, change the account to **admin** and the password to **Delinea/4u!!**
+    - Click **Save**
+    - Click **Actions** and select **Sync**
+    - Navigate to **Systems** click **web-linux**
+    - Navigate in the left pane, in the central pane, to **Advanced**
+    - Click the **Set** button under the **Domain Settings**
+    - In the message box that appears, type *delinea* and select the **delinealabs.local** domain
+    - Click **Save** at the bottom of the screen
+    - Navigate to **Zone Role Workflow** in the left navigation pane
+    - Enable **Use Domain Administrator Account...**
+    - Enable the **Zone Role Requests** by setting the drop down to **Yes** of the *Enable zone requests for this system*
+    - Click **Save**
+    - Click **Permissions** in the left navigation pane
+    - Click the **Add** button and add *landrews@delinealabs.local*
+    - Make sure that the column **Request Zone Role** is set for landrews@delinealabs.local
+    - Click **Save**
+    
+
 ### Version 4.0.1.2 - 15th of August 2023
 - Due to a permission missing on the **1. Checkout Example** secret for account AFoster, the RDS01 can not be contacted using the contractor@contractor_org.com (Remote Access Service module). Solve the issue by providing the account AFoster owner right on the secret mentioned
 
