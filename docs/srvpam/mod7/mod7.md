@@ -100,6 +100,9 @@ Open PuTTY, connect to the **web-linux.delinealabs.local** machine and login as 
 
 ![](../../images/lab0059.png)
 
+!!!Warning
+    It takes up to one minute before the permissions have been propagated into the Web-Linux server. If you cannot login, please wait a minute and retry the login.
+
 Now that landrews has logged in, she is still not able to run any specific commands needed to update the zip and wget packages. Try to run the following commands and see that they will always fail.
 
 - `yum update zip`
@@ -130,6 +133,9 @@ Back in PuTTY, as account landrews has been given the Role, the following comman
 
 1. `dzdo yum update zip`
 2. `dzdo yum update wget`
+
+!!!Warning
+    It takes up to one minute before the permissions have been propagated into the Web-Linux server. If you do not see the commands, please wait a minute and retry the command.
 
 Run these commands and see what happens. All these commands will be allowed and on the `dzdo yum update zip`, MFA challenges are given.
 
