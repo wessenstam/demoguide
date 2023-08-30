@@ -192,7 +192,8 @@ This section is describing the steps to undertake for the new version of the Dem
     - Click the **Add** button and add *landrews@delinealabs.local*
     - Make sure that the column **Request Zone Role** is set for landrews@delinealabs.local
     - Click **Save**
-    
+
+- DNS Search domain has a typo in the Domain name. This could lead to DNS resolve issues in both the Linux VMs. Run the following command to solve the issue ``nmcli con modify ens160 ipv4.dns-search "delinealabs.local"``
 
 ### Version 4.0.1.2 - 15th of August 2023
 - Due to a permission missing on the **1. Checkout Example** secret for account AFoster, the RDS01 can not be contacted using the contractor@contractor_org.com (Remote Access Service module). Solve the issue by providing the account AFoster owner right on the secret mentioned
