@@ -180,7 +180,7 @@ This section is describing the steps to undertake for the new version of the Dem
         - Username: Admin
         - Password: Mentioned in the table above
 
-    P.S. This has to be performed again when the admin password is changed.
+        P.S. This has to be performed again when the admin password is changed.
 
     - Open Computer Management and Navigate to Local users and groups > Groups
     - Open the Remote Desktop Users group and add the adm_desktopteam1 account from the domain
