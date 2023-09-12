@@ -170,6 +170,19 @@ Quick checks:
 
 This section is describing the steps to undertake for the new version of the Demo Environment
 
+### Version 4.0.1.3.1 - 12th of September 2023
+
+- Due to a forgotten change of the Admin password, the RDS usage secret is not working as expected. Follow the below steps to fix the issue:
+
+    - Login to the RDS01 server with adm-training and corresponding password
+    - Follow the steps as shown/described in <https://docs.delinea.com/online-help/secret-server/secret-launchers/session-connector/index.htm?Highlight=RDS#Task5UpdatingAPICredentials> with the following username and password:
+
+        - Username: Admin
+        - Password: Mentioned in the table above
+
+    - P.S. This has to be performed again when the admin password is changed.
+
+
 ### Version 4.0.1.3 - 28th of August 2023
 
 - Due to a settings which has not been propagated to user LAndrews, the zone request workflow is not working as expected. Solve the issue by running the following steps:
