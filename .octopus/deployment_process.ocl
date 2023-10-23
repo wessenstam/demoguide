@@ -1,0 +1,107 @@
+step "create-a-docker-network" {
+    name = "Create a Docker Network"
+    properties = {
+        Octopus.Action.TargetRoles = "docker-server"
+    }
+
+    action {
+        action_type = "Octopus.DockerNetwork"
+        environments = ["development"]
+        properties = {
+            Octopus.Action.Docker.NetworkName = "OctopusDeploy-Test"
+            Octopus.Action.Docker.NetworkSubnet = "172.28.6.0/24"
+            Octopus.Action.Docker.NetworkType = "bridge"
+        }
+        worker_pool_variable = ""
+    }
+}
+
+step "clone-repo" {
+    name = "Clone Repo"
+    properties = {
+        Octopus.Action.TargetRoles = "docker-server"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        environments = ["development"]
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = <<-EOT
+                rm -Rf /tmp/demoguide/#{Octopus.Release.Id}
+                git clone -q --branch dev "https://github.com/wessenstam/demoguide/" /tmp/demoguide/#{Octopus.Release.Id}
+                EOT
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+        }
+        worker_pool_variable = ""
+    }
+}
+
+step "create-html" {
+    name = "Create HTML"
+    properties = {
+        Octopus.Action.TargetRoles = "docker-server"
+    }
+
+    action {
+        action_type = "Octopus.DockerRun"
+        properties = {
+            Octopus.Action.Docker.Command = "build -d /develop/"
+            Octopus.Action.Docker.NetworkAlias = "MKDOCS network"
+            Octopus.Action.Docker.NetworkName = "#{Octopus.Action[Create a Docker Network].Output.Docker.Inspect.Name}"
+            Octopus.Action.Docker.NetworkType = "network"
+            Octopus.Action.Docker.VolumeBindings = "{\"/docs\":{\"host\":\"/tmp/demoguide/#{Octopus.Release.Id}\",\"readOnly\":\"False\",\"noCopy\":\"False\"},\"/develop\":{\"host\":\"/var/www/html\",\"readOnly\":\"False\",\"noCopy\":\"False\"}}"
+            Octopus.Action.Package.DownloadOnTentacle = "False"
+            Octopus.Action.Package.FeedId = "docker-wessenstam"
+            Octopus.Action.Package.PackageId = "wessenstam/mkdocs"
+        }
+        worker_pool_variable = ""
+
+        packages {
+            acquisition_location = "Server"
+            feed = "docker-wessenstam"
+            package_id = "wessenstam/mkdocs"
+            properties = {
+                SelectionMode = "immediate"
+            }
+        }
+    }
+}
+
+step "run-a-script" {
+    name = "Run a Script"
+    properties = {
+        Octopus.Action.TargetRoles = "docker-server"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "rm -Rf /tmp/demoguide/#{Octopus.Release.Id}"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+        }
+        worker_pool_variable = ""
+    }
+}
+
+step "remove-docker-stuff" {
+    condition = "Always"
+    name = "Remove Docker stuff"
+    properties = {
+        Octopus.Action.TargetRoles = "docker-server"
+    }
+
+    action {
+        action_type = "Octopus.DockerStop"
+        environments = ["development"]
+        is_required = true
+        properties = {
+            Octopus.Action.Docker.Remove = "True"
+            Octopus.Action.Docker.RemoveSteps = "d9dc294c-063d-4ccd-a696-ce5a8a9201bc,7ea0db68-cfda-4922-9525-cdffe50d1f44"
+        }
+        worker_pool_variable = ""
+    }
+}
