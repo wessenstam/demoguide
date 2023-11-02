@@ -158,7 +158,7 @@ Quick checks:
 | DC1 | DELINEALABS\Administrator <BR> DELINEALABS\adm-training | Delinea/4u <BR> Delinea/4u |
 | pfSense | root | Delinea/4u |
 | RDS01 | DELINEALABS\afoster <BR> DELINEALABS\adm-training | Delinea/4u <BR> Delinea/4u |
-| SSPM | adm-training <BR> admin | Delinea/4u <BR>  Delinea/4u!! |
+| SSPM | adm-training <BR> admin (Secret Server) | Delinea/4u <BR>  Delinea/4u!! |
 | vRouter | vyos | Delinea/4u |
 | HSPAS | Administrator <BR> admin@delinealabs.local (HSPAS Admin) | Delinea/4u |
 
